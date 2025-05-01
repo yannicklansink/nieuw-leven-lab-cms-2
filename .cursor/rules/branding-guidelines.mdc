@@ -1,0 +1,112 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+name: "Nieuw Leven Lab Page Design"
+description: "Cursor AI instructions for designing consistent Nieuw Leven Lab web pages"
+
+project:
+  name: Nieuw Leven Lab
+  framework: Next.js
+  language: TypeScript
+  css_framework: Tailwind CSS
+  ui_library: React + shadcn/ui
+
+branding:
+  colors:
+    extra_light_green: "#F1F5F3"
+    light_green: "#6CA781"
+    normal_green: "#477960"
+    dark_green: "#09341F"
+    orange: "#E66439"
+    beige_bg: "#FBF8EF"
+    paragraaf: "#6B7280"
+
+  typography:
+    font_family: Geist by Vercel
+    headings:
+      - "Geist Bold"
+      - sizes: "text-2xl md:text-4xl"
+    subheadings:
+      - "Geist SemiBold"
+      - sizes: "text-xl md:text-2xl"
+    body_text:
+      - "Geist Regular"
+      - sizes: "text-base md:text-lg"
+    buttons:
+      - "Geist Medium"
+
+web_styling:
+  layout:
+    - mobile_first: true
+    - padding: "p-4 md:p-6"
+    - margin: "my-4 md:my-6"
+    - rounded_corners: "rounded-lg md:rounded-xl"
+    - shadow: "shadow-md"
+
+  interactive_elements:
+    buttons:
+      primary:
+        - bg_color: "bg-light_green"
+        - text_color: "text-white"
+        - hover_effect: "hover:bg-normal_green transition"
+      secondary:
+        - style: "border border-normal_green text-normal_green hover:bg-extra_light_green"
+        - transition: "transition"
+
+    forms:
+      - input_fields:
+          - border: "border border-normal_green"
+          - padding: "p-2 md:p-3"
+          - rounded_corners: "rounded-md"
+          - focus_effect: "focus:ring-2 focus:ring-light_green focus:border-transparent"
+
+components:
+  card:
+    - bg: "bg-white"
+    - shadow: "shadow-sm hover:shadow-lg transition"
+    - padding: "p-4 md:p-6"
+    - rounded: "rounded-lg"
+
+  accordion:
+    - bg: "bg-extra_light_green"
+    - text: "text-dark_green"
+    - icon: "text-orange"
+    - padding: "p-4"
+
+  navbar:
+    - bg: "bg-white"
+    - text_color: "text-dark_green"
+    - hover_text_color: "hover:text-normal_green"
+
+  footer:
+    - bg: "bg-beige_bg"
+    - text_color: "text-dark_green"
+    - padding: "p-6 md:p-8"
+
+media_guidelines:
+  images:
+    - rounded: "rounded-lg"
+    - shadow: "shadow-md"
+    - object_fit: "object-cover"
+
+  icons:
+    - style: "stroke-current"
+    - size: "w-6 h-6 md:w-8 md:h-8"
+
+seo:
+  meta_description_length: "150-160 characters"
+  og_image: "use consistent branding, minimalistic visuals"
+
+accessibility:
+  - aria_labels: true
+  - focus_styles: "ring-2 ring-orange"
+
+animations:
+  - subtle_transitions: "transition duration-300 ease-in-out"
+
+instruction_for_llm:
+  - "Design consistent Nieuw Leven Lab pages following the guidelines above."
+  - "Maintain mobile-first design approach, readability, and ease of navigation."
+  - "Use provided colors, typography, and component styles strictly."
