@@ -1,0 +1,817 @@
+[
+  {
+    "id": 1,
+    "title": "Energie & Spierkracht Profiel Bloedtest Mannen (vingerprik)",
+    "slug": "energie-spierkracht-mannen",
+    "price": 158.0,
+    "aantalBiomarkers": 15,
+    "biomarkers": [
+      {
+        "naam": "Testosteron (totaal en vrij)",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Testosteron is een essentieel hormoon voor spieropbouw, energieniveau, libido en algemene vitaliteit. Totaal testosteron meet de totale hoeveelheid in het bloed, terwijl vrij testosteron de biologisch actieve vorm weergeeft. Lage waarden kunnen leiden tot vermoeidheid, spierverlies en stemmingswisselingen."
+      },
+      {
+        "naam": "SHBG (Sex Hormone Binding Globulin)",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Een eiwit dat testosteron en oestrogeen in het bloed bindt en hun beschikbaarheid reguleert. Hoge SHBG-waarden kunnen leiden tot een verminderde hoeveelheid vrij testosteron, terwijl lage waarden kunnen wijzen op hormonale verstoringen."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor botgezondheid, immuunfunctie en spierkracht. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid."
+      },
+      {
+        "naam": "Vitamine B12",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Speelt een cruciale rol in de aanmaak van rode bloedcellen, zenuwfunctie en energieproductie. Een tekort kan leiden tot bloedarmoede, vermoeidheid en cognitieve problemen."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Ondersteunt spierfunctie, het zenuwstelsel, energieproductie en botgezondheid. Een tekort kan leiden tot spierkrampen, vermoeidheid en verhoogde stressgevoeligheid."
+      },
+      {
+        "naam": "Creatine Kinase (CK)",
+        "categorie": "Spierherstel en prestaties",
+        "beschrijving": "Een enzym dat betrokken is bij spierenergie en -herstel. Verhoogde waarden kunnen wijzen op spierschade door intensieve inspanning, letsel of onderliggende aandoeningen."
+      },
+      {
+        "naam": "Ijzer (Ferritine)",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "IJzer is essentieel voor zuurstoftransport en energieproductie. Ferritine meet de ijzervoorraad in het lichaam en helpt om ijzertekorten of -overschotten te signaleren."
+      },
+      {
+        "naam": "High-sensitivity C-reactive protein (hsCRP)",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Deze marker laat zien of er ontstekingen in je lichaam zijn, die je risico op hartziekten kunnen verhogen."
+      },
+      {
+        "naam": "Totaal cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "De som van LDL, HDL en andere vetdeeltjes in het bloed, essentieel voor celopbouw en hormoonproductie. Verhoogde waarden kunnen het risico op hart- en vaatziekten verhogen."
+      },
+      {
+        "naam": "HDL (High-Density Lipoproteïne)",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Het \"goede\" cholesterol dat helpt overtollig cholesterol uit de bloedvaten af te voeren. Hogere waarden worden geassocieerd met een lager risico op hart- en vaatziekten."
+      },
+      {
+        "naam": "LDL (Low-Density Lipoproteïne)",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Het \"slechte\" cholesterol dat zich kan ophopen in de bloedvaten en het risico op aderverkalking verhoogt. Te hoge waarden kunnen bijdragen aan hart- en vaatziekten."
+      },
+      {
+        "naam": "HbA1c",
+        "categorie": "Glucosebalans",
+        "beschrijving": "Geeft het gemiddelde bloedsuikergehalte over de afgelopen twee tot drie maanden weer. Verhoogde waarden kunnen wijzen op prediabetes of diabetes."
+      },
+      {
+        "naam": "Insuline",
+        "categorie": "Glucosebalans",
+        "beschrijving": "Een hormoon dat de bloedsuikerspiegel reguleert door glucose naar de cellen te transporteren. Verhoogde waarden kunnen wijzen op insulineresistentie, wat kan leiden tot diabetes en metabole problemen."
+      },
+      {
+        "naam": "TSH",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Het hormoon dat de schildklier aanstuurt en de productie van schildklierhormonen reguleert. Afwijkende waarden kunnen wijzen op een te traag (hypothyreoïdie) of te snel werkende schildklier (hyperthyreoïdie)."
+      },
+      {
+        "naam": "Vrij T4",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Het actieve schildklierhormoon dat de stofwisseling en energiebalans beïnvloedt. Afwijkende waarden kunnen duiden op een verstoorde schildklierfunctie."
+      }
+    ],
+    "description": "Maximaliseer je kracht en uithoudingsvermogen\nFysieke prestaties, spiermassa en energieniveaus hangen nauw samen met je hormonale en voedingsstatus. Deze test helpt je om je lichaam optimaal te ondersteunen bij spieropbouw, herstel en algehele vitaliteit.\n\nWat wordt gemeten?\nGeslachtshormonen – meet testosteron en SHBG voor spierkracht en energieniveaus\nSpierherstel en prestaties – creatine kinase en magnesium voor spierherstel\nOntstekingsmarkers – voorkom overbelasting en langdurige spierpijn\nCholesterol- en glucoseprofiel – houd je hart- en stofwisselingsgezondheid in de gaten\n\nVoor wie:\nmannen die hun kracht, prestaties en herstel willen optimaliseren.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Glow & Vitality Bloedtest Vrouwen (vingerprik)",
+    "slug": "glow-vitality-vrouwen",
+    "price": 108.0,
+    "aantalBiomarkers": 11,
+    "biomarkers": [
+      {
+        "naam": "Apolipoproteïne B (ApoB)",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Het meten van ApoB is belangrijk om te weten of je een verhoogd risico hebt op hart- en vaatziekten. Het geeft inzicht in de hoeveelheid slechte cholesterol in je bloed."
+      },
+      {
+        "naam": "HDL-cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Dit is je goede cholesterol. Door het te meten weet je hoe goed je lichaam overtollig cholesterol kan verwijderen, wat je beschermt tegen hartziekten."
+      },
+      {
+        "naam": "LDL-cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Dit is het slechte cholesterol dat kan zorgen voor slagaderverstopping. Het meten helpt je het risico op hartaanvallen of beroertes te begrijpen."
+      },
+      {
+        "naam": "Triglyceriden",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Triglyceriden zijn vetten in je bloed. Verhoogde waarden kunnen wijzen op metabole problemen en een verhoogd risico op hartziekten. Het is dus cruciaal om ze te meten."
+      },
+      {
+        "naam": "Totaal cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Dit meet de balans tussen verschillende soorten cholesterol. Het helpt je om te begrijpen hoe gezond je hart en bloedvaten zijn."
+      },
+      {
+        "naam": "Cortisol",
+        "categorie": "Stresshormonen",
+        "beschrijving": "Dit stresshormoon vertelt je hoe je lichaam omgaat met stress. Chronisch hoge cortisolniveaus kunnen leiden tot gezondheidsproblemen zoals hartziekten of diabetes."
+      },
+      {
+        "naam": "Alanine aminotransferase (ALT)",
+        "categorie": "Leverfunctie",
+        "beschrijving": "ALT meet de gezondheid van je lever. Verhoogde waarden kunnen wijzen op leverschade die vaak stil verloopt."
+      },
+      {
+        "naam": "Testosteron",
+        "categorie": "Hormonen",
+        "beschrijving": "Deze biomarker geeft inzicht in je spierkracht, energie en vitaliteit. Afwijkingen kunnen zorgen voor vermoeidheid of verlies van spiermassa. Zowel voor mannen als vrouwen van belang."
+      },
+      {
+        "naam": "High-sensitivity C-reactive protein (hsCRP)",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Deze marker laat zien of er ontstekingen in je lichaam zijn, die je risico op hartziekten kunnen verhogen."
+      },
+      {
+        "naam": "Proline",
+        "categorie": "Collageensynthese",
+        "beschrijving": "Een niet-essentieel aminozuur dat een belangrijke rol speelt bij de opbouw van collageen, wondgenezing en gewrichtsgezondheid. Verstoorde waarden kunnen wijzen op problemen met bindweefselherstel of eiwitstofwisseling."
+      },
+      {
+        "naam": "Glycine",
+        "categorie": "Collageensynthese",
+        "beschrijving": "Een aminozuur dat betrokken is bij de productie van collageen, ontgifting, slaapregulatie en hersenfunctie. Lage waarden kunnen invloed hebben op spierherstel, cognitieve functie en het zenuwstelsel."
+      }
+    ],
+    "description": "Stralend van binnenuit\nGezondheid en schoonheid zijn onlosmakelijk met elkaar verbonden. Deze test analyseert of tekorten aan voedingsstoffen, hormonale disbalansen of ontstekingen invloed hebben op je huid, haar en energieniveau. Ontdek hoe je je lichaam van binnenuit kunt versterken voor een gezonde, stralende uitstraling.\n\nWat wordt gemeten\nVoedingsstoffen voor huid en haar – vitamine D, B12, ijzer, zink, biotine\nSchildklierfunctie – een goed werkende schildklier voorkomt haaruitval en vermoeidheid\nHormonen – meet testosteronwaarden, die invloed hebben op haarverlies\nOntstekingswaarden – voorkom huidproblemen en versnelde veroudering\n\nVoor wie:\nvrouwen die hun huid, haar en energie naar een hoger niveau willen tillen.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Hormoonbalans Bloedtest Vrouwen (vingerprik)",
+    "slug": "hormoonbalans-vrouwen",
+    "price": 148.0,
+    "aantalBiomarkers": 15,
+    "biomarkers": [
+      {
+        "naam": "TSH",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Het hormoon dat de schildklier aanstuurt en de productie van schildklierhormonen reguleert. Afwijkende waarden kunnen wijzen op een te traag (hypothyreoïdie) of te snel werkende schildklier (hyperthyreoïdie)."
+      },
+      {
+        "naam": "Vrij T3",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Het meest actieve schildklierhormoon dat de stofwisseling, energieproductie en celgroei reguleert. Lage waarden kunnen duiden op een traag werkende schildklier, terwijl hoge waarden kunnen wijzen op overactiviteit."
+      },
+      {
+        "naam": "Vrij T4",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Een voorloper van T3 en een belangrijk schildklierhormoon dat de stofwisseling en energiebalans beïnvloedt. Afwijkende waarden kunnen duiden op een verstoring van de schildklierfunctie."
+      },
+      {
+        "naam": "Oestrogeen",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Het belangrijkste vrouwelijke geslachtshormoon, essentieel voor de menstruatiecyclus, botgezondheid en vruchtbaarheid. Afwijkende waarden kunnen wijzen op hormonale disbalans, vruchtbaarheidsproblemen of overgangsklachten."
+      },
+      {
+        "naam": "Progesteron",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Een hormoon dat een cruciale rol speelt in de menstruatiecyclus en zwangerschap. Lage waarden kunnen leiden tot cyclusstoornissen, PMS-klachten of problemen met innesteling bij zwangerschap."
+      },
+      {
+        "naam": "Testosteron",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Het belangrijkste mannelijke geslachtshormoon, maar ook essentieel voor vrouwen. Het beïnvloedt spiermassa, energieniveau, libido en stemming. Afwijkende waarden kunnen duiden op hormonale disbalans, PCOS (bij vrouwen) of verminderde vitaliteit (bij mannen)."
+      },
+      {
+        "naam": "Luteïniserend Hormoon (LH)",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Stimuleert de eisprong bij vrouwen en de testosteronproductie bij mannen. Verstoorde waarden kunnen wijzen op cyclusproblemen, vruchtbaarheidsproblemen of hormonale disbalans."
+      },
+      {
+        "naam": "Follikelstimulerend Hormoon (FSH)",
+        "categorie": "Geslachtshormonen",
+        "beschrijving": "Reguleert de rijping van eicellen bij vrouwen en de spermaproductie bij mannen. Afwijkende waarden kunnen duiden op verminderde vruchtbaarheid, overgang of hormonale verstoringen."
+      },
+      {
+        "naam": "Cortisol",
+        "categorie": "Stresshormonen",
+        "beschrijving": "Het belangrijkste stresshormoon, betrokken bij de regulatie van energie, stofwisseling, immuunsysteem en stressrespons. Verhoogde waarden kunnen duiden op chronische stress, burn-out of ontstekingen, terwijl lage waarden kunnen wijzen op bijnieruitputting."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Vitamine en Mineralen",
+        "beschrijving": "Essentieel voor botgezondheid, immuunfunctie en spierkracht. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid."
+      },
+      {
+        "naam": "Vitamine B6",
+        "categorie": "Vitamine en Mineralen",
+        "beschrijving": "Speelt een belangrijke rol in de energieproductie, hersenfunctie en de aanmaak van neurotransmitters. Een tekort kan leiden tot vermoeidheid, prikkelbaarheid en zenuwklachten."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Vitamine en Mineralen",
+        "beschrijving": "Ondersteunt spierfunctie, het zenuwstelsel, energieproductie en botgezondheid. Een tekort kan leiden tot spierkrampen, vermoeidheid en verhoogde stressgevoeligheid."
+      },
+      {
+        "naam": "Zink",
+        "categorie": "Vitamine en Mineralen",
+        "beschrijving": "Essentieel voor het immuunsysteem, wondgenezing, celgroei en hormoonregulatie. Een tekort kan leiden tot verminderde weerstand, huidproblemen en vertraagd herstel."
+      },
+      {
+        "naam": "Nuchtere glucose",
+        "categorie": "Glucosebalans",
+        "beschrijving": "De bloedsuikerwaarde na een periode van vasten, die inzicht geeft in de suikerstofwisseling. Verhoogde waarden kunnen wijzen op insulineresistentie, prediabetes of diabetes."
+      },
+      {
+        "naam": "HbA1c",
+        "categorie": "Glucosebalans",
+        "beschrijving": "Geeft het gemiddelde bloedsuikergehalte over de afgelopen twee tot drie maanden weer. Verhoogde waarden kunnen duiden op prediabetes of diabetes."
+      }
+    ],
+    "description": "Herstel jouw innerlijke evenwicht\nHormonale schommelingen beïnvloeden energie, stemming, vruchtbaarheid en algehele gezondheid. Deze test biedt inzicht in jouw hormonale balans en helpt bij klachten zoals PMS, overgangsproblemen en een onregelmatige cyclus. Ontdek hoe je jouw lichaam op natuurlijke wijze kunt ondersteunen.\n\nWat wordt gemeten?\nSchildklierfunctie – essentieel voor stofwisseling, energie en gewichtsbeheersing\nGeslachtshormonen – meet oestrogeen, progesteron en testosteron voor een gebalanceerde cyclus\nStresshormonen – cortisol speelt een cruciale rol in stressregulatie\nVoedingsstoffen – belangrijke vitamines en mineralen die je hormonen ondersteunen\nGlucosebalans – stabiliseer bloedsuikers voor een optimale hormoonfunctie\n\nVoor wie:\nvrouwen die inzicht willen in hun hormonale gezondheid en op zoek zijn naar balans.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Anti-Aging Biohacking Bloedtest (vingerprik)",
+    "slug": "anti-aging-biohacking",
+    "price": 194.0,
+    "aantalBiomarkers": 25,
+    "biomarkers": [
+      {
+        "naam": "CRP (C-reactive protein)",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Een ontstekingsmarker die aangeeft of er ergens in het lichaam een ontstekingsreactie gaande is. Verhoogde waarden kunnen wijzen op acute of chronische ontstekingen, infecties of een verhoogd risico op hart- en vaatziekten."
+      },
+      {
+        "naam": "ESR",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Een maat voor de snelheid waarmee rode bloedcellen in een bloedmonster bezinken, wat kan wijzen op ontstekingen of infecties. Verhoogde waarden kunnen duiden op een chronische ontsteking, auto-immuunziekte of infectie."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor botgezondheid, immuunfunctie en spierkracht. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid."
+      },
+      {
+        "naam": "Vitamine B12",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Speelt een cruciale rol in de aanmaak van rode bloedcellen, zenuwfunctie en energieproductie. Een tekort kan leiden tot bloedarmoede, vermoeidheid en cognitieve problemen."
+      },
+      {
+        "naam": "Foliumzuur",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Belangrijk voor celgroei, DNA-aanmaak en bloedvorming. Een tekort kan leiden tot bloedarmoede, vermoeidheid en neurologische problemen."
+      },
+      {
+        "naam": "IJzer (Ferritine, Transferrine, Serumijzer)",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Ferritine meet de ijzervoorraad in het lichaam en helpt bij het opsporen van tekorten of overbelasting. Transferrine is een transporteiwit voor ijzer en geeft inzicht in de ijzerstofwisseling. Serumijzer meet de hoeveelheid ijzer die direct in het bloed circuleert. Afwijkende waarden kunnen duiden op bloedarmoede, ijzerstapeling of een verstoorde ijzerbalans."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Ondersteunt spierfunctie, het zenuwstelsel, energieproductie en botgezondheid. Een tekort kan leiden tot spierkrampen, vermoeidheid en verhoogde stressgevoeligheid."
+      },
+      {
+        "naam": "Zink",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor het immuunsysteem, wondgenezing, celgroei en hormoonregulatie. Een tekort kan leiden tot verminderde weerstand, huidproblemen en vertraagd herstel."
+      },
+      {
+        "naam": "Totale cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "De som van LDL, HDL en andere vetdeeltjes in het bloed, essentieel voor celopbouw en hormoonproductie. Verhoogde waarden kunnen het risico op hart- en vaatziekten verhogen."
+      },
+      {
+        "naam": "HDL",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Het \"goede\" cholesterol dat helpt overtollig cholesterol uit de bloedvaten af te voeren. Hogere waarden worden geassocieerd met een lager risico op hart- en vaatziekten."
+      },
+      {
+        "naam": "LDL",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Het \"slechte\" cholesterol dat zich kan ophopen in de bloedvaten en het risico op aderverkalking verhoogt. Te hoge waarden kunnen bijdragen aan hart- en vaatziekten."
+      },
+      {
+        "naam": "Triglyceriden",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Een vorm van vet in het bloed en een belangrijke energiebron. Verhoogde waarden kunnen wijzen op een verhoogd risico op hart- en vaatziekten, insulineresistentie of een ongezond dieet."
+      },
+      {
+        "naam": "ALAT",
+        "categorie": "Leverfunctie",
+        "beschrijving": "Een enzym dat voornamelijk in de lever voorkomt. Verhoogde waarden kunnen wijzen op leverschade door bijvoorbeeld leververvetting, medicatiegebruik of ontstekingen."
+      },
+      {
+        "naam": "ASAT",
+        "categorie": "Leverfunctie",
+        "beschrijving": "Een enzym dat voorkomt in de lever, spieren en het hart. Verhoogde waarden kunnen duiden op leverschade, spierafbraak of hartproblemen."
+      },
+      {
+        "naam": "Gamma-GT",
+        "categorie": "Leverfunctie",
+        "beschrijving": "Een enzym dat betrokken is bij de afbraak van gifstoffen in de lever. Verhoogde waarden kunnen wijzen op leververvetting, overmatig alcoholgebruik of galwegproblemen."
+      },
+      {
+        "naam": "Bilirubine",
+        "categorie": "Leverfunctie",
+        "beschrijving": "Een afvalstof die ontstaat bij de afbraak van rode bloedcellen en door de lever wordt verwerkt. Verhoogde waarden kunnen wijzen op leveraandoeningen, galwegverstopping of bloedafbraak."
+      },
+      {
+        "naam": "Creatinine",
+        "categorie": "Nierfunctie",
+        "beschrijving": "Een afvalstof die vrijkomt bij de afbraak van spierweefsel en via de nieren wordt uitgescheiden. Verhoogde waarden kunnen wijzen op een verminderde nierfunctie."
+      },
+      {
+        "naam": "Ureum",
+        "categorie": "Nierfunctie",
+        "beschrijving": "Een afvalstof die ontstaat bij de afbraak van eiwitten en via de nieren wordt uitgescheiden. Verhoogde waarden kunnen duiden op nierproblemen, uitdroging of een eiwitrijk dieet."
+      },
+      {
+        "naam": "eGFR",
+        "categorie": "Nierfunctie",
+        "beschrijving": "Een maat voor hoe efficiënt de nieren afvalstoffen filteren uit het bloed. Een lage eGFR kan wijzen op een verminderde nierfunctie."
+      },
+      {
+        "naam": "Nuchtere glucose",
+        "categorie": "Bloedglucosecontrole",
+        "beschrijving": "De bloedsuikerwaarde na een periode van vasten, die inzicht geeft in de suikerstofwisseling. Verhoogde waarden kunnen wijzen op insulineresistentie, prediabetes of diabetes."
+      },
+      {
+        "naam": "HbA1c",
+        "categorie": "Bloedglucosecontrole",
+        "beschrijving": "Geeft het gemiddelde bloedsuikergehalte over de afgelopen twee tot drie maanden weer. Verhoogde waarden kunnen duiden op prediabetes of diabetes."
+      },
+      {
+        "naam": "Hemoglobine",
+        "categorie": "Volledig Bloedbeeld",
+        "beschrijving": "Een eiwit in rode bloedcellen dat zuurstof door het lichaam transporteert. Lage waarden kunnen wijzen op bloedarmoede, terwijl hoge waarden kunnen duiden op uitdroging of een verhoogde zuurstofbehoefte."
+      },
+      {
+        "naam": "Hematocriet",
+        "categorie": "Volledig Bloedbeeld",
+        "beschrijving": "Het percentage van het bloedvolume dat uit rode bloedcellen bestaat. Een laag hematocriet kan wijzen op bloedarmoede of vochtophoping, terwijl een hoog hematocriet kan duiden op uitdroging of een verhoogde aanmaak van rode bloedcellen."
+      },
+      {
+        "naam": "Witte bloedcellen",
+        "categorie": "Volledig Bloedbeeld",
+        "beschrijving": "Spelen een cruciale rol in het immuunsysteem en de afweer tegen infecties. Verhoogde waarden kunnen wijzen op een infectie of ontsteking, terwijl lage waarden kunnen duiden op een verzwakt immuunsysteem."
+      },
+      {
+        "naam": "Bloedplaatjes",
+        "categorie": "Volledig Bloedbeeld",
+        "beschrijving": "Essentieel voor bloedstolling en wondgenezing. Afwijkende waarden kunnen duiden op bloedingsstoornissen of een verhoogd risico op trombose."
+      }
+    ],
+    "description": "Optimaliseer je levensduur\nJouw gezondheid is de sleutel tot een lang en vitaal leven. Met deze uitgebreide bloedtest krijg je diepgaand inzicht in de processen die jouw lichaam jong en gezond houden. Ontdek verborgen ontstekingen, houd je voedingsstoffen op peil en meet de staat van je organen. Dit is dé test voor iedereen die preventief aan zijn gezondheid wil werken en de impact van veroudering wil minimaliseren.\n\nWat wordt gemeten?\nOntstekingswaarden – detecteer laaggradige ontstekingen die veroudering versnellen\nVoedingsstatus – meet essentiële vitamines en mineralen voor energie en celvernieuwing\nCholesterolprofiel – voorkom hart- en vaatziekten door een gezonde vetbalans\nLever- en nierfunctie – controleer of je detox-organen optimaal werken\nBloedglucosecontrole – voorkom schommelingen in bloedsuiker en energie\n\nVoor wie:\niedereen die gezondheid serieus neemt en preventief wil werken aan vitaliteit en veroudering.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Vitamine & Mineralen Bloedtest: Compleet (vingerprik)",
+    "slug": "vitamine-mineralen-compleet",
+    "price": 188.0,
+    "aantalBiomarkers": 13,
+    "biomarkers": [
+      {
+        "naam": "Vitamine A",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor een sterk immuunsysteem, een gezonde huid en goed zicht. Tekorten kunnen leiden tot nachtblindheid, een droge huid en een verhoogd infectierisico."
+      },
+      {
+        "naam": "Vitamine B1",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Onmisbaar voor de energieproductie en zenuwfunctie. Een tekort kan zich uiten in vermoeidheid, spierzwakte, prikkelbaarheid en concentratieproblemen."
+      },
+      {
+        "naam": "Vitamine B6",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor de stofwisseling, zenuwfunctie en de aanmaak van neurotransmitters. Een tekort kan leiden tot vermoeidheid, prikkelbaarheid, spierkrampen en concentratieproblemen."
+      },
+      {
+        "naam": "Foliumzuur (Vitamine B11)",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Belangrijk voor celgroei, DNA-aanmaak en de vorming van rode bloedcellen. Een tekort kan leiden tot bloedarmoede, vermoeidheid, een verminderde weerstand en neurologische klachten."
+      },
+      {
+        "naam": "Vitamine B12",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Ondersteunt de aanmaak van rode bloedcellen en een gezond zenuwstelsel. Tekorten kunnen leiden tot vermoeidheid, tintelingen in handen en voeten, geheugenproblemen en bloedarmoede."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Speelt een cruciale rol bij botgezondheid, spierfunctie en het immuunsysteem. Lage waarden worden geassocieerd met vermoeidheid, spierzwakte, depressieve gevoelens en een verhoogd risico op infecties."
+      },
+      {
+        "naam": "Vitamine E",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Een krachtige antioxidant die cellen beschermt tegen oxidatieve schade. Een tekort kan zenuwproblemen, spierzwakte en een verminderde weerstand veroorzaken."
+      },
+      {
+        "naam": "Calcium",
+        "categorie": "Mineralen",
+        "beschrijving": "Essentieel voor sterke botten, tanden en een goed werkende spier- en zenuwfunctie. Een tekort kan leiden tot spierkrampen, botontkalking en een verhoogd risico op fracturen."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Mineralen",
+        "beschrijving": "Speelt een belangrijke rol in spierontspanning, energieproductie en zenuwgeleiding. Lage waarden kunnen leiden tot vermoeidheid, spierkrampen, stress en slaapproblemen."
+      },
+      {
+        "naam": "Natrium",
+        "categorie": "Mineralen",
+        "beschrijving": "Reguleert de vochtbalans en bloeddruk in het lichaam. Te lage of te hoge waarden kunnen leiden tot uitdroging, duizeligheid, zwakte of hoge bloeddruk."
+      },
+      {
+        "naam": "Transferrine",
+        "categorie": "IJzerstatus",
+        "beschrijving": "Een eiwit dat ijzer door het lichaam transporteert. Verhoogde of verlaagde waarden kunnen wijzen op ijzertekorten, bloedarmoede of ontstekingen."
+      },
+      {
+        "naam": "Ferritine",
+        "categorie": "IJzerstatus",
+        "beschrijving": "Is de opslagvorm van ijzer in het lichaam. Lage waarden wijzen op ijzertekort en kunnen leiden tot vermoeidheid, haaruitval en een verzwakt immuunsysteem, terwijl te hoge waarden duiden op ijzerstapeling."
+      },
+      {
+        "naam": "IJzer",
+        "categorie": "IJzerstatus",
+        "beschrijving": "Essentieel voor de zuurstoftransport in het bloed. Een tekort kan leiden tot bloedarmoede, vermoeidheid en een verminderde weerstand, terwijl een overschot schadelijk kan zijn voor organen."
+      }
+    ],
+    "description": "Optimaliseer je vitamine en mineralen\nEen tekort aan vitamines en mineralen kan je energie, weerstand en concentratie ondermijnen. Met deze uitgebreide bloedtest ontdek je precies waar je tekorten zitten, zodat je gericht kunt werken aan een gezonder en vitaler lichaam.\n\nWat wordt gemeten?\nEssentiële vitamines – meet je niveaus van vitamine B1, B6, B11 (foliumzuur), B12, vitamine D, A en E\nMineralenbalans – controleer je calcium-, magnesium- en natriumwaarden voor sterke botten, spierfunctie en hydratatie\nIJzerstatus – inzicht in transferrine, ferritine en ijzerwaarden om bloedarmoede en energieproblemen te voorkomen\n\nVoor wie?\nIedereen die last heeft van vermoeidheid, lusteloosheid of concentratieproblemen en deze gericht wil aanpakken met wetenschappelijk onderbouwde testresultaten.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Detox & Herstel Bloedtest (vingerprik)",
+    "slug": "detox-herstel",
+    "price": 128.0,
+    "aantalBiomarkers": 14,
+    "biomarkers": [
+      {
+        "naam": "ALAT (Alanine-aminotransferase)",
+        "categorie": "Leverfunctie",
+        "beschrijving": "ALAT (Alanine-aminotransferase) is een enzym dat leverschade aangeeft. Verhoogde waarden kunnen duiden op leverproblemen door voeding, alcohol, medicatie of ziekte."
+      },
+      {
+        "naam": "ASAT (Aspartaat-aminotransferase)",
+        "categorie": "Leverfunctie",
+        "beschrijving": "ASAT (Aspartaat-aminotransferase) is een enzym dat voorkomt in de lever, spieren en het hart. Verhoogde waarden kunnen wijzen op leverschade, hartproblemen of spierafbraak."
+      },
+      {
+        "naam": "Gamma-GT (Gamma-glutamyltransferase)",
+        "categorie": "Leverfunctie",
+        "beschrijving": "Gamma-GT (Gamma-glutamyltransferase) is een enzym dat wijst op lever- en galwegfunctie. Verhoogde waarden kunnen duiden op leververvetting, overmatig alcoholgebruik of toxische belasting."
+      },
+      {
+        "naam": "Bilirubine",
+        "categorie": "Leverfunctie",
+        "beschrijving": "Bilirubine is een afvalstof die vrijkomt bij de afbraak van rode bloedcellen en door de lever wordt verwerkt. Verhoogde waarden kunnen wijzen op leverproblemen, galwegverstopping of bloedafbraak."
+      },
+      {
+        "naam": "Creatinine",
+        "categorie": "Nierfunctie",
+        "beschrijving": "Creatinine is een afvalstof die vrijkomt bij de afbraak van spierweefsel en via de nieren wordt uitgescheiden. Verhoogde waarden kunnen wijzen op een verminderde nierfunctie."
+      },
+      {
+        "naam": "Ureum",
+        "categorie": "Nierfunctie",
+        "beschrijving": "Ureum is een afvalstof die ontstaat bij de afbraak van eiwitten en via de nieren wordt uitgescheiden. Verhoogde waarden kunnen wijzen op nierproblemen, uitdroging of een eiwitrijk dieet."
+      },
+      {
+        "naam": "eGFR",
+        "categorie": "Nierfunctie",
+        "beschrijving": "eGFR (geschatte glomerulaire filtratiesnelheid) is een maat voor de nierfunctie en geeft aan hoe efficiënt de nieren afvalstoffen filteren. Een verlaagde eGFR kan wijzen op een verminderde nierfunctie."
+      },
+      {
+        "naam": "CRP",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "CRP (C-reactief proteïne) is een ontstekingsmarker die aangeeft of er ergens in het lichaam een ontstekingsreactie is. Verhoogde waarden kunnen wijzen op infecties, chronische ontstekingen of hart- en vaatziekten."
+      },
+      {
+        "naam": "Glutathion",
+        "categorie": "Antioxidantstatus",
+        "beschrijving": "Glutathion is een krachtige antioxidant die essentieel is voor ontgifting, immuunfunctie en celbescherming. Lage waarden kunnen wijzen op oxidatieve stress, toxische belasting of een verminderde weerstand."
+      },
+      {
+        "naam": "Selenium",
+        "categorie": "Antioxidantstatus",
+        "beschrijving": "Selenium is een essentieel spoorelement dat een cruciale rol speelt in de schildklierfunctie, immuunsysteem en antioxidatieve bescherming. Een tekort kan leiden tot verminderde weerstand, oxidatieve stress en schildklierproblemen."
+      },
+      {
+        "naam": "Vitamine C",
+        "categorie": "Antioxidantstatus",
+        "beschrijving": "Vitamine C is een essentiële antioxidant die het immuunsysteem ondersteunt, celbeschadiging tegengaat en de opname van ijzer bevordert. Een tekort kan leiden tot verminderde weerstand, vermoeidheid en vertraagde wondgenezing."
+      },
+      {
+        "naam": "Vitamine B12",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Vitamine B12 is essentieel voor de aanmaak van rode bloedcellen, zenuwfunctie en energieproductie. Een tekort kan leiden tot vermoeidheid, cognitieve problemen en bloedarmoede."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Magnesium is een essentieel mineraal dat een rol speelt in spierfunctie, zenuwstelsel, energieproductie en botgezondheid. Een tekort kan leiden tot vermoeidheid, spierkrampen en stressklachten."
+      },
+      {
+        "naam": "Zink",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Zink is een essentieel mineraal dat het immuunsysteem, wondgenezing en celgroei ondersteunt. Een tekort kan leiden tot verminderde weerstand, huidproblemen en vertraagd herstel."
+      }
+    ],
+    "description": "Reset je lichaam\nBoost je natuurlijke ontgiftingsprocessen en herstel sneller!\n\nToxines en stress kunnen je lichaam uit balans brengen. Deze test meet hoe goed jouw lever, nieren en antioxidanten werken om afvalstoffen af te voeren.\n\nWat wordt gemeten?\n\nLever- en nierfunctie – controleer de gezondheid van je detox-organen\nOntstekingswaarden – herken signalen van chronische belasting\nAntioxidantstatus – glutathion, selenium en vitamine C voor bescherming\nVoedingsstoffen – herstel sneller met de juiste micronutriënten\n\nVoor wie?\nIedereen die stress, toxines of ziekte wil aanpakken met een effectieve detox-strategie.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 7,
+    "title": "Suikerbalans Bloedtest (vingerprik)",
+    "slug": "suikerbalans",
+    "price": 108.0,
+    "aantalBiomarkers": 11,
+    "biomarkers": [
+      {
+        "naam": "HbA1c",
+        "categorie": "Glucosebalans",
+        "beschrijving": "HbA1c (geglyceerd hemoglobine) geeft het gemiddelde bloedsuikergehalte over de afgelopen twee tot drie maanden weer. Verhoogde waarden kunnen wijzen op prediabetes of diabetes."
+      },
+      {
+        "naam": "Nuchtere glucose",
+        "categorie": "Glucosebalans",
+        "beschrijving": "Nuchtere glucose is de bloedsuikerwaarde na een periode van vasten en geeft inzicht in de suikerstofwisseling. Verhoogde waarden kunnen wijzen op insulineresistentie, prediabetes of diabetes."
+      },
+      {
+        "naam": "Insuline",
+        "categorie": "Glucosebalans",
+        "beschrijving": "Insuline is een hormoon dat de bloedsuikerspiegel reguleert door glucose naar de cellen te transporteren. Verhoogde waarden kunnen wijzen op insulineresistentie, wat kan leiden tot diabetes en metabole problemen."
+      },
+      {
+        "naam": "C-peptide",
+        "categorie": "Glucosebalans",
+        "beschrijving": "C-peptide is een marker voor de aanmaak van insuline en geeft inzicht in de functie van de alvleesklier. Verhoogde of verlaagde waarden kunnen wijzen op insulineresistentie, diabetes of alvleesklierproblemen."
+      },
+      {
+        "naam": "Totale cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Totale cholesterol is de som van LDL, HDL en andere vetdeeltjes in het bloed en speelt een rol bij hart- en vaatgezondheid. Verhoogde waarden kunnen het risico op hartziekten verhogen."
+      },
+      {
+        "naam": "HDL",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "HDL (high-density lipoproteïne) wordt vaak het \"goede\" cholesterol genoemd, omdat het helpt overtollig cholesterol naar de lever af te voeren. Hogere waarden worden geassocieerd met een lager risico op hart- en vaatziekten."
+      },
+      {
+        "naam": "LDL",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "LDL (low-density lipoproteïne) wordt vaak het \"slechte\" cholesterol genoemd, omdat het cholesterol in de bloedvaten kan afzetten en zo het risico op hart- en vaatziekten verhoogt. Verhoogde waarden kunnen duiden op een ongezonde vetstofwisseling."
+      },
+      {
+        "naam": "Triglyceriden",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Triglyceriden zijn een vorm van vet in het bloed en een belangrijke energiebron. Verhoogde waarden kunnen wijzen op een verhoogd risico op hart- en vaatziekten, insulineresistentie of een ongezond dieet."
+      },
+      {
+        "naam": "High-sensitivity C-reactive protein (hsCRP)",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Deze marker laat zien of er ontstekingen in je lichaam zijn, die je risico op hartziekten kunnen verhogen."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Vitamine D is essentieel voor sterke botten, een gezond immuunsysteem en spierfunctie. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Magnesium is een essentieel mineraal dat een rol speelt in spierfunctie, zenuwstelsel, energieproductie en botgezondheid. Een tekort kan leiden tot vermoeidheid, spierkrampen en stressklachten."
+      }
+    ],
+    "description": "Beheer je bloedsuiker en energie\nSchommelingen in bloedsuikerspiegel kunnen leiden tot vermoeidheid, gewichtstoename en zelfs diabetes. Deze test helpt bij het monitoren en verbeteren van je glucosebalans.\n\nWat wordt gemeten?\nHbA1c & nuchtere glucose – inzicht in je suikerhuishouding\nInsuline en C-peptide – ontdek of je risico loopt op insulineresistentie\nCholesterolprofiel – verband tussen vetmetabolisme en suikerregulatie\nOntstekingsmarkers – meet chronische laaggradige ontstekingen\n\nVoor wie:\niedereen die bloedsuikerpieken en energiedips wil voorkomen.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 8,
+    "title": "Prestatie Optimalisatie Panel Bloedtest (vingerprik)",
+    "slug": "prestatie-optimalisatie-panel",
+    "price": 148.0,
+    "aantalBiomarkers": 14,
+    "biomarkers": [
+      {
+        "naam": "ijzer (ferritine, serumijzer)",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "IJzer is essentieel voor zuurstoftransport in het bloed en energieproductie. Ferritine meet de ijzervoorraad, terwijl serumijzer de directe hoeveelheid ijzer in het bloed aangeeft. Tekorten kunnen leiden tot bloedarmoede en vermoeidheid."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Speelt een cruciale rol in botgezondheid, immuunfunctie en spierkracht. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid."
+      },
+      {
+        "naam": "Vitamine B12",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Belangrijk voor de aanmaak van rode bloedcellen, zenuwfunctie en energieproductie. Een tekort kan leiden tot bloedarmoede, cognitieve problemen en vermoeidheid."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor spierfunctie, zenuwstelsel, energieproductie en stressregulatie. Een tekort kan leiden tot spierkrampen, vermoeidheid en verhoogde stressgevoeligheid."
+      },
+      {
+        "naam": "Zink",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Ondersteunt het immuunsysteem, wondgenezing en celgroei. Een tekort kan leiden tot verminderde weerstand, huidproblemen en vertraagd herstel."
+      },
+      {
+        "naam": "Selenium",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Belangrijk voor de schildklierfunctie, immuunsysteem en antioxidatieve bescherming. Een tekort kan leiden tot oxidatieve stress, verminderde weerstand en schildklierproblemen."
+      },
+      {
+        "naam": "Creatine Kinase (CK)",
+        "categorie": "Spiergezondheid",
+        "beschrijving": "Een enzym dat betrokken is bij spierenergie en -herstel. Verhoogde waarden kunnen wijzen op spierschade, intensieve inspanning of hart- en spierziekten."
+      },
+      {
+        "naam": "Myoglobine",
+        "categorie": "Spiergezondheid",
+        "beschrijving": "Een eiwit dat zuurstof opslaat in de spieren en vrijkomt bij spierschade. Verhoogde waarden kunnen duiden op spierbeschadiging of hartproblemen."
+      },
+      {
+        "naam": "Natrium",
+        "categorie": "Elektrolyten",
+        "beschrijving": "Essentieel voor vochtbalans, zenuwfunctie en bloeddrukregulatie. Afwijkende waarden kunnen wijzen op uitdroging, nierproblemen of hormonale verstoringen."
+      },
+      {
+        "naam": "Kalium",
+        "categorie": "Elektrolyten",
+        "beschrijving": "Speelt een cruciale rol in spiercontractie, zenuwfunctie en hartgezondheid. Te hoge of te lage waarden kunnen hartritmestoornissen en spierzwakte veroorzaken."
+      },
+      {
+        "naam": "Chloride",
+        "categorie": "Elektrolyten",
+        "beschrijving": "Ondersteunt de vochtbalans en zuur-basehuishouding in het lichaam. Afwijkingen kunnen duiden op nierproblemen, uitdroging of een verstoorde zuur-basebalans."
+      },
+      {
+        "naam": "High-sensitivity C-reactive protein (hsCRP)",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Deze marker laat zien of er ontstekingen in je lichaam zijn, die je risico op hartziekten kunnen verhogen."
+      },
+      {
+        "naam": "HbA1c",
+        "categorie": "Bloedglucosecontrole",
+        "beschrijving": "HbA1c (geglyceerd hemoglobine) geeft het gemiddelde bloedsuikergehalte over de afgelopen twee tot drie maanden weer. Verhoogde waarden kunnen wijzen op prediabetes of diabetes."
+      },
+      {
+        "naam": "Insuline",
+        "categorie": "Bloedglucosecontrole",
+        "beschrijving": "Insuline is een hormoon dat de bloedsuikerspiegel reguleert door glucose naar de cellen te transporteren. Verhoogde waarden kunnen wijzen op insulineresistentie, wat kan leiden tot diabetes en metabole problemen."
+      }
+    ],
+    "description": "Maximaliseer je sportprestaties\nOf je nu een topsporter bent of je trainingsroutine wilt optimaliseren, inzicht in je bloedwaarden is essentieel. Deze test helpt je bij het maximaliseren van energie, spieropbouw en herstel.\n\nWat wordt gemeten?\nVoedingsstatus – ijzer, magnesium, zink en selenium voor maximale prestaties\nSpiergezondheid – creatine kinase en myoglobine voor herstel en spieropbouw\nOntstekingsmarkers – voorkom overbelasting en blessures\nGlucose- en elektrolytenbalans – energie en hydratatie optimaliseren\n\nVoor wie:\nsporters en actieve individuen die hun prestaties willen verbeteren.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 9,
+    "title": "Zilverster Gezondheidspakket + Brein en Geheugen Bloedtest (vingerprik)",
+    "slug": "zilverster-brein-geheugen",
+    "price": 118.0,
+    "aantalBiomarkers": 13,
+    "biomarkers": [
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor botgezondheid, immuunfunctie en spierkracht. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid."
+      },
+      {
+        "naam": "Vitamine B12",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Speelt een cruciale rol in de aanmaak van rode bloedcellen, zenuwfunctie en energieproductie. Een tekort kan leiden tot bloedarmoede, vermoeidheid en cognitieve problemen."
+      },
+      {
+        "naam": "Foliumzuur",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Belangrijk voor celgroei, DNA-aanmaak en bloedvorming. Een tekort kan bloedarmoede, vermoeidheid en neurologische problemen veroorzaken, vooral bij zwangere vrouwen."
+      },
+      {
+        "naam": "ijzer (ferritine)",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "IJzer is essentieel voor zuurstoftransport en energieproductie. Ferritine meet de ijzervoorraad in het lichaam en helpt om ijzertekorten of -overschotten te signaleren."
+      },
+      {
+        "naam": "Omega-3 Index",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Meet het gehalte aan omega-3-vetzuren in de celmembranen, wat belangrijk is voor hartgezondheid, hersenfunctie en ontstekingsregulatie. Een lage index kan het risico op hart- en vaatziekten verhogen."
+      },
+      {
+        "naam": "TSH",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Een hormoon dat de schildklier aanstuurt en de aanmaak van schildklierhormonen reguleert. Afwijkende waarden kunnen wijzen op een traag (hypothyreoïdie) of te snel werkende schildklier (hyperthyreoïdie)."
+      },
+      {
+        "naam": "Vrij T4",
+        "categorie": "Schildklierfunctie",
+        "beschrijving": "Een actief schildklierhormoon dat de stofwisseling en energiebalans beïnvloedt. Te hoge of te lage waarden kunnen wijzen op een verstoorde schildklierfunctie."
+      },
+      {
+        "naam": "High-sensitivity C-reactive protein (hsCRP)",
+        "categorie": "Onstekingswaarden",
+        "beschrijving": "Deze marker laat zien of er ontstekingen in je lichaam zijn, die je risico op hartziekten kunnen verhogen."
+      },
+      {
+        "naam": "Calium",
+        "categorie": "Botgezondheid",
+        "beschrijving": "Essentieel voor sterke botten, spierfunctie en zenuwgeleiding. Afwijkende waarden kunnen wijzen op botontkalking, hormonale verstoringen of nierproblemen."
+      },
+      {
+        "naam": "Vitamine K",
+        "categorie": "Botgezondheid",
+        "beschrijving": "Speelt een cruciale rol bij bloedstolling en botgezondheid. Een tekort kan leiden tot een verhoogd risico op bloedingen en botbreuken."
+      },
+      {
+        "naam": "Parathyreoïdhormoon (PTH)",
+        "categorie": "Botgezondheid",
+        "beschrijving": "Reguleert de calcium- en fosfaatbalans in het lichaam en beïnvloedt de botgezondheid. Verhoogde of verlaagde waarden kunnen duiden op een verstoring van de bijschildklierfunctie."
+      },
+      {
+        "naam": "Homocysteïne",
+        "categorie": "Cognitieve markers",
+        "beschrijving": "Een aminozuur dat betrokken is bij de stofwisseling en vaatgezondheid. Verhoogde waarden kunnen wijzen op een verhoogd risico op hart- en vaatziekten, cognitieve achteruitgang en B-vitamine tekorten."
+      },
+      {
+        "naam": "Magnesium",
+        "categorie": "Cognitieve markers",
+        "beschrijving": "Essentieel voor spierfunctie, zenuwstelsel, energieproductie en botgezondheid. Een tekort kan leiden tot spierkrampen, vermoeidheid en verhoogde stressgevoeligheid."
+      }
+    ],
+    "description": "Vitaliteit en geheugen op elke leeftijd\\nNaarmate we ouder worden, verandert onze voedingsbehoefte en neemt het belang van preventieve zorg toe. Deze test helpt bij het monitoren van essentiële gezondheidsparameters die bijdragen aan een scherp brein en een vitaal lichaam.\\n\\nWat wordt gemeten?\\nVitamine- en mineralenniveaus – essentieel voor energie en botgezondheid\\nSchildklierfunctie – controleer of je stofwisseling optimaal functioneert\\nCognitieve markers – homocysteïne en magnesium ondersteunen hersengezondheid\\nOntstekingswaarden – verlaag risico's op chronische aandoeningen\\n\\nVoor wie:\\nouderen en iedereen die gezond ouder wil worden.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  },
+  {
+    "id": 10,
+    "title": "Hartkracht Analyse Bloedtest (vingerprik)",
+    "slug": "hartkracht-analyse",
+    "price": 89.0,
+    "aantalBiomarkers": 10,
+    "biomarkers": [
+      {
+        "naam": "Totale cholesterol",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "De som van LDL, HDL en andere vetdeeltjes in het bloed, belangrijk voor celopbouw en hormoonproductie. Verhoogde waarden kunnen het risico op hart- en vaatziekten verhogen."
+      },
+      {
+        "naam": "HDL",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Dit is je goede cholesterol. Door het te meten weet je hoe goed je lichaam overtollig cholesterol kan verwijderen, wat je beschermt tegen hartziekten."
+      },
+      {
+        "naam": "LDL",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Het \"slechte\" cholesterol dat zich kan ophopen in de bloedvaten en het risico op aderverkalking verhoogt. Te hoge waarden kunnen bijdragen aan hart- en vaatziekten."
+      },
+      {
+        "naam": "Triglyceriden",
+        "categorie": "Cholesterolprofiel",
+        "beschrijving": "Een vorm van vet in het bloed en een belangrijke energiebron. Verhoogde waarden kunnen wijzen op een verhoogd risico op hart- en vaatziekten, insulineresistentie of een ongezond dieet."
+      },
+      {
+        "naam": "CRP",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "CRP (C-reactief proteïne) is een ontstekingsmarker die aangeeft of er ergens in het lichaam een ontstekingsreactie is. Verhoogde waarden kunnen wijzen op infecties, chronische ontstekingen of hart- en vaatziekten."
+      },
+      {
+        "naam": "Lipoproteïne(a)",
+        "categorie": "Ontstekingswaarden",
+        "beschrijving": "Een erfelijk bepaalde vorm van LDL-cholesterol die sterk geassocieerd is met een verhoogd risico op hart- en vaatziekten, onafhankelijk van andere cholesterolwaarden. Verhoogde niveaus kunnen bijdragen aan aderverkalking en trombose."
+      },
+      {
+        "naam": "Homocysteïne",
+        "categorie": "Bloeddruk gerelateerd",
+        "beschrijving": "Een aminozuur dat betrokken is bij de stofwisseling en vaatgezondheid. Verhoogde waarden kunnen wijzen op een verhoogd risico op hart- en vaatziekten, cognitieve achteruitgang en B-vitamine tekorten."
+      },
+      {
+        "naam": "HbA1c",
+        "categorie": "Bloedglucosecontrole",
+        "beschrijving": "HbA1c (geglyceerd hemoglobine) geeft het gemiddelde bloedsuikergehalte over de afgelopen twee tot drie maanden weer. Verhoogde waarden kunnen wijzen op prediabetes of diabetes."
+      },
+      {
+        "naam": "Vitamine D",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Essentieel voor botgezondheid, immuunfunctie en spierkracht. Een tekort kan leiden tot verminderde weerstand, botontkalking en vermoeidheid. Meten helpt om tekorten op te sporen en je gezondheid te optimaliseren."
+      },
+      {
+        "naam": "Omega-3 Index",
+        "categorie": "Voedingsstatus",
+        "beschrijving": "Meet het percentage omega-3-vetzuren in de celmembranen, wat belangrijk is voor hartgezondheid, hersenfunctie en ontstekingsregulatie. Een lage index kan het risico op hart- en vaatziekten verhogen."
+      }
+    ],
+    "description": "Inzicht in je cardiovasculaire gezondheid\nHart- en vaatziekten behoren tot de grootste gezondheidsrisico's. Deze test geeft een volledig beeld van je hartgezondheid, inclusief cholesterolwaarden, ontstekingen en risicofactoren voor hoge bloeddruk en aderverkalking.\n\nWat wordt gemeten\nCholesterolprofiel – inzicht in LDL, HDL en triglyceriden\nOntstekingswaarden – detecteer stille ontstekingen die hartziekten kunnen veroorzaken\nBloeddrukgerelateerde markers – homocysteïne en andere risicofactoren\nVoedingsstatus – omega-3 en vitamine D voor hartgezondheid\n\nVoor wie:\niedereen die hart- en vaatziekten wil voorkomen of monitoren.",
+    "imageUrl": "/images/placeholder-product.jpg"
+  }
+]

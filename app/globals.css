@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  /* Basis kleuren */
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
-  --max-content-width: 1200px; /* Max breedte voor desktop */
-  
-  /* Nieuw Leven Lab branding kleuren */
-  --color-background-light: #F1F5F3;   /* Extra light green - voor lichte achtergronden */
-  --color-primary: #6CA781;            /* Light green - primaire merkkleur */
-  --color-primary-dark: #477960;       /* Normal green - donkere versie van primaire kleur */
-  --color-text-dark: #09341F;          /* Dark green - voor belangrijke tekst */
-  --color-accent: #E66439;             /* Orange - voor accentelementen en CTA's */
-  --color-background-warm: #FBF8EF;    /* Beige - voor secundaire achtergronden */
-  --color-text-body: #6B7280;          /* Grijs - voor normale paragraaf tekst */
-  --color-classic-black: #000000;      /* Klassiek zwart */
+  /* Max breedte voor desktop */
+  --max-content-width: 1200px;
+
+  /* Nieuw Leven Lab branding kleuren (volgens branding-guidelines.mdc) */
+  --color-extra-light-green: 241, 245, 243; /* #F1F5F3 - Lichte achtergronden */
+  --color-light-green: 108, 167, 129; /* #6CA781 - Primaire kleur, knoppen */
+  --color-normal-green: 71, 121, 96; /* #477960 - Donkere versie primair, hover */
+  --color-dark-green: 9, 52, 31; /* #09341F - Belangrijke tekst */
+  --color-orange: 230, 100, 57; /* #E66439 - Accentkleur, CTA's, focus */
+  --color-beige-bg: 238, 233, 228; /* #EEE9E4 - Secundaire achtergronden */
+  --color-paragraaf: 26, 26, 26; /* #1A1A1A - Secundaire paragraaf tekst */
+  --color-paragraaf-secondary: 68, 68, 68; /* #444444 - Paragraaf tekst (aangepast) */
+  --color-black-headings-buttons: 26, 26, 26; /* #1A1A1A - Koppen, Knoppen Zwart */
+  --color-white-bg: 255, 255, 255; /* #FFFFFF - Witte achtergrond */
 }
 
 /* Voorkom horizontaal scrollen op alle apparaten */
-html, body {
+html,
+body {
   overflow-x: hidden;
   position: relative;
   width: 100%;
@@ -30,8 +30,8 @@ html, body {
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  color: rgb(var(--color-paragraaf));
+  background: rgb(var(--color-white-bg));
 }
 
 @layer base {
@@ -39,25 +39,25 @@ body {
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
-  }
-  a {
-    @apply transition-colors duration-200;
+    @apply bg-[rgb(var(--color-white-bg))] text-[rgb(var(--color-paragraaf))];
   }
   button {
     @apply transition-all duration-200;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-normal;
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-3xl font-normal text-[rgb(var(--color-black-headings-buttons))];
   }
   h1 {
-    @apply text-5xl leading-tight mb-4;
+    @apply text-4xl leading-tight mb-4;
   }
   h2 {
-    @apply text-xl md:text-2xl;
+    @apply text-4xl;
   }
   p {
-    @apply text-base md:text-lg text-[var(--color-text-body)];
+    @apply text-base md:text-base text-[rgb(var(--color-paragraaf))];
   }
 }
 
@@ -67,48 +67,55 @@ body {
     max-width: var(--max-content-width);
     width: 100%;
   }
-  
+
   /* Knoppen */
   .btn-primary {
-    @apply bg-[var(--color-classic-black)] text-white hover:bg-gray-800 transition;
+    /* Primaire knop: zwarte achtergrond, witte tekst, donkerder zwart bij hover */
+    @apply bg-[rgb(var(--color-black-headings-buttons))] text-[rgb(var(--color-white-bg))] hover:bg-black transition;
   }
-  
+
   .btn-secondary {
-    @apply border border-[var(--color-primary-dark)] text-[var(--color-primary-dark)] hover:bg-[var(--color-background-light)] transition;
+    /* Secundaire knop: witte achtergrond, zwarte tekst, light green border */
+    @apply bg-[rgb(var(--color-white-bg))] text-[rgb(var(--color-black-headings-buttons))] hover:text-black transition;
   }
-  
+
   /* Formulier elementen */
   .form-input {
-    @apply border border-[var(--color-primary-dark)] p-2 md:p-3 rounded-md focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent;
+    @apply border border-[rgb(var(--color-normal-green))] p-2 md:p-3 rounded-md focus:ring-2 focus:ring-[rgb(var(--color-orange))] focus:border-transparent;
   }
-  
+
   /* Kaarten */
   .card {
-    @apply bg-white shadow-sm hover:shadow-lg transition p-4 md:p-6 rounded-lg;
+    @apply bg-[rgb(var(--color-white-bg))] shadow-sm hover:shadow-lg transition p-4 md:p-6 rounded-lg;
   }
-  
+
   /* Afbeeldingen */
   .img-styled {
     @apply rounded-lg shadow-md object-cover;
   }
-  
+
   /* Iconen */
   .icon {
     @apply stroke-current w-6 h-6 md:w-8 md:h-8;
   }
-  
+
   /* Layout elementen */
   .section {
     @apply p-4 md:p-6 my-4 md:my-6;
   }
-  
+
   /* Toegankelijkheid */
   .focus-visible {
-    @apply ring-2 ring-[var(--color-accent)];
+    @apply ring-2 ring-[rgb(var(--color-orange))];
   }
-  
+
   /* Animaties */
   .transition-subtle {
     @apply transition duration-300 ease-in-out;
+  }
+
+  /* Navigatie en menu's */
+  .menu-item {
+    @apply text-sm font-medium text-[rgb(var(--color-black-headings-buttons))] hover:text-black transition-colors;
   }
 }

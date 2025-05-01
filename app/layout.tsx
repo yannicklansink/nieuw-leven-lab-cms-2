@@ -1,10 +1,10 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font/sans';
+import "./globals.css";
+import type { Metadata } from "next";
+import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
-  title: 'Nieuw Leven Lab | Bloedtesten vanuit huis',
-  description: '',
+  title: "Nieuw Leven Lab | Bloedtesten vanuit huis",
+  description: "",
 };
 
 export default function RootLayout({
@@ -14,7 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="nl" className="overflow-x-hidden">
-      <body className={`${GeistSans.className} overflow-x-hidden`}>{children}</body>
+      <body className={`${GeistSans.className} overflow-x-hidden`}>
+        {children}
+      </body>
     </html>
   );
 }
