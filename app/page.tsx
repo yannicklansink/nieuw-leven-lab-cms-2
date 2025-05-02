@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import VideoSection from "@/components/sections/VideoSection";
 import Button from "@/components/elements/Button";
 import ProductListingSection from "@/components/sections/ProductListingSection";
+import OwnYourHealthSection from "@/components/sections/OwnYourHealthSection";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -410,6 +411,8 @@ export default function Home() {
           products={products}
         />
       </div>
+      {/* Add the new Own Your Health Section */}
+      <OwnYourHealthSection />
     </main>
   );
 }
