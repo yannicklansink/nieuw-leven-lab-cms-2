@@ -1,168 +1,58 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-// import { useState } from "react"; // Removed useState as we are making it a server component
+import { useState, useEffect } from "react";
 import VideoSection from "@/components/sections/VideoSection";
 import Button from "@/components/elements/Button";
-import fs from "fs/promises"; // Added fs import
-import path from "path"; // Added path import
+import ProductListingSection from "@/components/sections/ProductListingSection";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
   slug: string;
   title: string;
   imageUrl: string;
-  // Add omschrijving_kort if needed for cards
   omschrijving_kort: string;
+  price?: number;
 }
 
-export default async function Home() {
-  // Made component async
-  // const [mobileMenuOpen, setMobileMenuOpen] = useState(false); // Removed state for server component
+export default function Home() {
+  const [products, setProducts] = useState<HomePageProduct[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  // const toggleMobileMenu = () => { // Removed handler for server component
-  //   setMobileMenuOpen(!mobileMenuOpen);
-  // };
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const response = await fetch("/api/products");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else {
+          console.error("Received invalid data format from API");
+          setError("Kon productgegevens niet laden (ongeldig formaat).");
+          setProducts([]);
+        }
+      } catch (e) {
+        console.error("Error fetching products:", e);
+        setError("Kon productgegevens niet laden.");
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  // Fetch products data
-  let products: HomePageProduct[] = [];
-  try {
-    const filePath = path.join(process.cwd(), "data", "products.json");
-    const jsonData = await fs.readFile(filePath, "utf-8");
-    // Parse and type-check the data (basic check)
-    const parsedData = JSON.parse(jsonData);
-    if (Array.isArray(parsedData)) {
-      // Select only necessary fields for the homepage
-      products = parsedData.map((p) => ({
-        slug: p.slug,
-        title: p.titel, // Corrected field name
-        imageUrl: p.imageUrl,
-        omschrijving_kort: p.omschrijving_kort, // Added short description
-      }));
-    } else {
-      console.error("Error: products.json did not contain a valid array.");
-    }
-  } catch (error) {
-    console.error("Error reading or parsing products.json:", error);
-    // Handle the error appropriately, maybe show a message to the user
-  }
-
-  // TODO: Re-implement mobile menu logic if needed server-side or move nav to layout
+    fetchProducts();
+  }, []);
 
   return (
-    <main className="min-h-screen bg-beige_bg">
-      {" "}
-      {/* Added bg color */}
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex items-center justify-between px-6 py-4 border-b border-gray-100">
-        <div className="content-container flex items-center justify-between">
-          <div className="text-3xl">Nieuw Leven</div>
-          <div className="flex space-x-6">
-            <a href="#" className="menu-item">
-              Sexual Health
-            </a>
-            <a href="#" className="menu-item">
-              Weight Loss
-            </a>
-            <a href="#" className="menu-item">
-              Fertility
-            </a>
-            <a href="#" className="menu-item">
-              Hair
-            </a>
-            <a href="#" className="menu-item">
-              Skin
-            </a>
-            <a href="#" className="menu-item">
-              Daily Health
-            </a>
-            <a href="#" className="menu-item">
-              Top Products
-            </a>
-          </div>
-          {/* User Icon Link */}
-          <a
-            href="https://app.nieuwlevenlab.nl/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-8 h-8 flex items-center justify-center rounded-full text-black_headings_and_buttons hover:bg-extra_light_green transition duration-300 ease-in-out" // Added styling for hover and color
-            aria-label="Login Portaal"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-6 h-6"
-            >
-              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-              <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-          </a>
-        </div>
-      </nav>
-      {/* Mobile Navigation */}
-      <nav className="flex md:hidden items-center justify-between px-6 py-4 border-b border-gray-100 relative">
-        <button
-          className="w-8 h-8 flex items-center justify-center"
-          // onClick={toggleMobileMenu}
-          aria-label="Menu"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-6 h-6"
-          >
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-        <div className="text-3xl">Nieuw Leven Lab</div>
-
-        {/* Mobile Menu */}
-        {/* {mobileMenuOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white z-50 shadow-lg py-4">
-            <div className="flex flex-col space-y-3 px-6">
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Sexual Health
-              </a>
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Weight Loss
-              </a>
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Fertility
-              </a>
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Hair
-              </a>
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Skin
-              </a>
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Daily Health
-              </a>
-              <a href="#" className="menu-item py-2">
-                Top Products
-              </a>
-            </div>
-          </div>
-        )} */}
-      </nav>
+    <main className="min-h-screen">
       <div className="content-container mx-auto px-4 md:px-6">
-        {" "}
-        {/* Added container styles */}
         {/* Desktop Hero Section */}
         <section className="hidden md:flex py-12">
           <div className="w-1/2">
@@ -513,62 +403,12 @@ export default async function Home() {
         </div>
       </div>
       <div className="content-container">
-        {/* Product Listing Section */}
-        <section className="py-12">
-          <h2 className="font-geist-semibold text-xl md:text-2xl text-black_headings_and_buttons mb-6 text-center">
-            Ontdek Onze Bloedtesten
-          </h2>
-          {products.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-              {products.map((product) => (
-                <Link
-                  key={product.slug}
-                  href={`/product/bloedtesten/${product.slug}`}
-                  className="block group"
-                >
-                  <div className="bg-white rounded-lg md:rounded-xl shadow-md overflow-hidden h-full flex flex-col transition duration-300 ease-in-out group-hover:shadow-lg">
-                    {product.imageUrl && (
-                      <div className="relative w-full h-48 md:h-56">
-                        {" "}
-                        {/* Fixed height for image container */}
-                        <Image
-                          src={product.imageUrl}
-                          alt={product.title}
-                          layout="fill" // Use layout fill for responsiveness within fixed container
-                          objectFit="cover" // Cover the container
-                          className="transition duration-300 ease-in-out group-hover:scale-105" // Subtle zoom on hover
-                        />
-                      </div>
-                    )}
-                    <div className="p-4 md:p-6 flex flex-col flex-grow">
-                      {" "}
-                      {/* Padding and flex for content */}
-                      <h3 className="font-geist-semibold text-lg md:text-xl text-black_headings_and_buttons mb-2 flex-grow">
-                        {product.title}
-                      </h3>
-                      <p className="font-geist-regular text-sm md:text-base text-paragraaf mb-4 line-clamp-3">
-                        {" "}
-                        {/* Truncate long descriptions */}
-                        {product.omschrijving_kort}
-                      </p>
-                      <div className="mt-auto pt-2">
-                        {" "}
-                        {/* Push button to bottom */}
-                        <span className="text-normal_green font-geist-medium group-hover:underline">
-                          Bekijk test →
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-paragraaf">
-              Geen producten gevonden.
-            </p>
-          )}
-        </section>
+        {/* Use the new component and pass props */}
+        <ProductListingSection
+          loading={loading}
+          error={error}
+          products={products}
+        />
       </div>
     </main>
   );

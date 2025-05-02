@@ -66,7 +66,15 @@ web_styling:
         - transition: "transition"
 
 Components origanization
+
 /app
+├── /api
+│   └── /products
+│       └── route.ts // Leest data/products.json en retourneert gesimplificeerde productdata (slug, title, imageUrl, omschrijving_kort)
+├── /product
+│   └── /bloedtesten
+│       └── /[slug]
+│           └── page.tsx // Detailpagina voor een specifieke bloedtest
 ├── layout.tsx
 ├── page.tsx
 └── globals.css
@@ -90,6 +98,18 @@ media_guidelines:
   icons:
     - style: "stroke-current"
     - size: "w-6 h-6 md:w-8 md:h-8"
+
+image_optimization_and_storage:
+  tooling:
+    - "Gebruik altijd de Next.js `<Image>` component (`next/image`) voor prestatie-optimalisatie (WebP, lazy loading, CLS preventie)."
+    - "Stel `width` en `height` in, of gebruik `layout='fill'` met een gepositioneerde parent container."
+    - "Gebruik de `priority` prop voor afbeeldingen die direct zichtbaar zijn (above the fold / LCP element)."
+  storage:
+    - "Voor statische assets (logo, iconen): plaats in `/public` map."
+    - "Voor dynamische/grote hoeveelheden afbeeldingen (producten): gebruik externe opslag (CDN, Cloud Storage, Headless CMS). Configureer `remotePatterns` in `next.config.js`."
+  seo_and_accessibility:
+    - "Gebruik beschrijvende, keyword-rijke bestandsnamen (bv. `vitamine-d-test.webp`)."
+    - "Vul *altijd* de `alt` prop in met een duidelijke en relevante beschrijving."
 
 seo:
   meta_description_length: "150-160 characters"

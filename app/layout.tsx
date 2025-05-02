@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import NavigationBar from "@/components/sections/NavigationBar";
 
 export const metadata: Metadata = {
   title: "Nieuw Leven Lab | Bloedtesten vanuit huis",
@@ -15,7 +16,8 @@ export default function RootLayout({
   return (
     <html lang="nl" className="overflow-x-hidden">
       <body className={`${GeistSans.className} overflow-x-hidden`}>
-        {children}
+        <NavigationBar />
+        <main>{children}</main>
       </body>
     </html>
   );

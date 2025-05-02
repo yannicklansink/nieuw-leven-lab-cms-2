@@ -90,7 +90,7 @@ export default async function ProductPage({
 
   // Render the product details
   return (
-    <div className="container mx-auto p-4 md:p-6 bg-beige_bg">
+    <div className="content-container mx-auto p-4 md:p-6 bg-beige_bg">
       {/* Basic structure based on branding guidelines */}
       <section className="my-4 md:my-6 p-4 md:p-6 bg-white rounded-lg md:rounded-xl shadow-md">
         {/* Product Image */}
