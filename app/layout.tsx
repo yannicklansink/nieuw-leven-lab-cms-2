@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import NavigationBar from "@/components/sections/NavigationBar";
+import NavigationBar from "@/components/sections/NavMenu";
 import Footer from "@/components/sections/Footer";
 
 export const metadata: Metadata = {

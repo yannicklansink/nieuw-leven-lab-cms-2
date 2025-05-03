@@ -63,11 +63,8 @@ const ProductListingSection: React.FC<ProductListingSectionProps> = ({
 
   return (
     <section className="py-12">
-      {/* Subtitle using CSS variable */}
-      <p
-        className="text-center text-sm mb-2"
-        style={{ color: "rgb(var(--color-normal-green))" }}
-      >
+      {/* Gebruik de nieuwe component klasse */}
+      <p className="section-intro-green-text">
         Ontdek Nieuw Leven Lab
       </p>
       {/* Title using CSS variable */}

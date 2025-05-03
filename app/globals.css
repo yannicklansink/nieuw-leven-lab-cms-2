@@ -118,4 +118,9 @@ body {
   .menu-item {
     @apply text-sm font-medium text-[rgb(var(--color-black-headings-buttons))] hover:text-black transition-colors;
   }
+
+  /* Stijl voor introductie/subtitel tekst van een sectie */
+  .section-intro-green-text {
+     @apply text-center text-sm mb-2 text-[rgb(var(--color-normal-green))];
+  }
 }
