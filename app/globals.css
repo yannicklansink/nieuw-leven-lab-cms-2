@@ -11,12 +11,15 @@
   --color-light-green: 108, 167, 129; /* #6CA781 - Primaire kleur, knoppen */
   --color-normal-green: 71, 121, 96; /* #477960 - Donkere versie primair, hover */
   --color-dark-green: 9, 52, 31; /* #09341F - Belangrijke tekst */
+  --color-card-bg-zepbound: 216, 202, 223; /* #D8CADF */
+  --color-card-bg-hair: 201, 212, 226; /* #C9D4E2 */
   --color-orange: 230, 100, 57; /* #E66439 - Accentkleur, CTA's, focus */
   --color-beige-bg: 238, 233, 228; /* #EEE9E4 - Secundaire achtergronden */
   --color-paragraaf: 26, 26, 26; /* #1A1A1A - Secundaire paragraaf tekst */
   --color-paragraaf-secondary: 68, 68, 68; /* #444444 - Paragraaf tekst (aangepast) */
   --color-black-headings-buttons: 26, 26, 26; /* #1A1A1A - Koppen, Knoppen Zwart */
   --color-white-bg: 255, 255, 255; /* #FFFFFF - Witte achtergrond */
+
 }
 
 /* Voorkom horizontaal scrollen op alle apparaten */

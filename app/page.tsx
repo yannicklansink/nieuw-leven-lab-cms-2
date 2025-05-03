@@ -10,6 +10,7 @@ import OwnYourHealthSection from "@/components/sections/OwnYourHealthSection";
 import TreatmentCategoriesSection from "@/components/sections/TreatmentCategoriesSection";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import AuroraBackgroundDemo from "@/components/sections/BackgroundGradient";
+import TabsDemo from "@/components/sections/TabsShowcase";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -259,7 +260,7 @@ export default function Home() {
 
             {/* --- Onderste Rij --- */}
             {/* Zepbound Card (Neemt 2 van 6 kolommen op desktop) */}
-            <div className="bg-[#D8CADF] rounded-lg overflow-hidden p-6 flex items-center justify-between md:col-span-2">
+            <div className="bg-[rgb(var(--color-card-bg-zepbound))] rounded-lg overflow-hidden p-6 flex items-center justify-between md:col-span-2">
               <div className="flex items-center">
                 <div className="w-12 h-12 mr-4">
                   <Image
@@ -298,7 +299,7 @@ export default function Home() {
             </div>
 
             {/* Daily Rise Card (Neemt 2 van 6 kolommen op desktop) */}
-            <div className="bg-[#E9E9E9] rounded-lg overflow-hidden p-6 flex items-center justify-between md:col-span-2">
+            <div className="bg-[rgb(var(--color-extra-light-green))] rounded-lg overflow-hidden p-6 flex items-center justify-between md:col-span-2">
               <div className="flex items-center">
                 <div className="w-12 h-12 mr-4">
                   <Image
@@ -337,7 +338,7 @@ export default function Home() {
             </div>
 
             {/* Hair Regrowth Card (Neemt 2 van 6 kolommen op desktop) */}
-            <div className="bg-[#C9D4E2] rounded-lg overflow-hidden p-6 flex items-center justify-between md:col-span-2">
+            <div className="bg-[rgb(var(--color-card-bg-hair))] rounded-lg overflow-hidden p-6 flex items-center justify-between md:col-span-2">
               <div className="flex items-center">
                 <div className="w-12 h-12 mr-4">
                   <Image
@@ -413,16 +414,25 @@ export default function Home() {
           products={products}
         />
       </div>
+      
       <OwnYourHealthSection />
-      <TreatmentCategoriesSection />
 
-      <section className="content-container py-12 md:py-16">
+      <section className="content-container my-12 md:my-16">
+        <TreatmentCategoriesSection />
+      </section>
+
+      <section className="content-container pb-24">
+          <TabsDemo />
+      </section>
+
+      <AuroraBackgroundDemo/>
+      
+      <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
         <div className="w-full max-w-3xl mx-auto">
           <FaqAccordion />
         </div>
       </section>
-      <AuroraBackgroundDemo/>
     </main>
   );
 }
