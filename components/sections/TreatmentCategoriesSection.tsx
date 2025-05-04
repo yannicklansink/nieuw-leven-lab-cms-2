@@ -43,7 +43,7 @@ const TreatmentCategoriesSection: React.FC = () => {
         {/* Heading Content */}
         <div className="relative z-10 content-container text-center text-white">
           <h2 className="text-4xl">
-            Prescription treatments for your health goals
+          Preventief je gezondheid testen
           </h2>
         </div>
       </section>
