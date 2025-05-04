@@ -19,7 +19,6 @@
   --color-paragraaf-secondary: 68, 68, 68; /* #444444 - Paragraaf tekst (aangepast) */
   --color-black-headings-buttons: 26, 26, 26; /* #1A1A1A - Koppen, Knoppen Zwart */
   --color-white-bg: 255, 255, 255; /* #FFFFFF - Witte achtergrond */
-
 }
 
 /* Voorkom horizontaal scrollen op alle apparaten */
@@ -122,8 +121,8 @@ body {
     @apply text-sm font-medium text-[rgb(var(--color-black-headings-buttons))] hover:text-black transition-colors;
   }
 
-  /* Stijl voor introductie/subtitel tekst van een sectie */
+  /* Stijl voor introductie/subtitel tekst van een sectie. Vaak een span of kleine tekst */
   .section-intro-green-text {
-     @apply text-center text-sm mb-2 text-[rgb(var(--color-normal-green))];
+    @apply text-center text-sm mb-2 text-[rgb(var(--color-normal-green))];
   }
 }

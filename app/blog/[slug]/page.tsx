@@ -1,8 +1,15 @@
-import React from 'react';
-import { Metadata } from 'next';
-import { getAllPostSlugs, getPostDataAndContent, FullPostData } from '@/lib/getAllPosts';
-import BlogPost from '@/components/BlogPost';
-import { notFound } from 'next/navigation';
+// Dit bestand is de template voor een individuele blogpostpagina.
+// Het genereert metadata, haalt de specifieke postdata op basis van de [slug] parameter,
+// en geeft de post weer met behulp van het BlogPost component.
+import React from "react";
+import { Metadata } from "next";
+import {
+  getAllPostSlugs,
+  getPostDataAndContent,
+  FullPostData,
+} from "@/lib/getAllPosts";
+import BlogPost from "@/components/BlogPost";
+import { notFound } from "next/navigation";
 
 interface BlogPostPageProps {
   params: {
@@ -11,10 +18,13 @@ interface BlogPostPageProps {
 }
 
 // Functie om metadata dynamisch te genereren
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: BlogPostPageProps): Promise<Metadata> {
   try {
     const postData = await getPostDataAndContent(params.slug);
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://nieuwlevellab.nl'; // Definieer je site URL
+    const siteUrl =
+      process.env.NEXT_PUBLIC_SITE_URL || "https://nieuwlevellab.nl"; // Definieer je site URL
     const blogPostUrl = `${siteUrl}/blog/${params.slug}`;
 
     return {
@@ -27,20 +37,22 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
         title: postData.title,
         description: postData.excerpt,
         url: blogPostUrl,
-        type: 'article',
+        type: "article",
         publishedTime: postData.date,
-        authors: ['Nieuw Leven Lab'], // Aanpassen indien nodig
-        images: postData.coverImage ? [
-          {
-            url: `${siteUrl}${postData.coverImage}`, // Zorg voor absolute URL
-            // width: 1200, // Optioneel
-            // height: 630, // Optioneel
-            alt: `Cover image for ${postData.title}`,
-          }
-        ] : [],
+        authors: ["Nieuw Leven Lab"], // Aanpassen indien nodig
+        images: postData.coverImage
+          ? [
+              {
+                url: `${siteUrl}${postData.coverImage}`, // Zorg voor absolute URL
+                // width: 1200, // Optioneel
+                // height: 630, // Optioneel
+                alt: `Cover image for ${postData.title}`,
+              },
+            ]
+          : [],
       },
       twitter: {
-        card: 'summary_large_image',
+        card: "summary_large_image",
         title: postData.title,
         description: postData.excerpt,
         images: postData.coverImage ? [`${siteUrl}${postData.coverImage}`] : [], // Zorg voor absolute URL
@@ -49,8 +61,8 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   } catch (error) {
     // Handle error bijv. als post niet gevonden wordt voor metadata
     return {
-      title: 'Post niet gevonden',
-      description: 'Deze blogpost kon niet worden geladen.'
+      title: "Post niet gevonden",
+      description: "Deze blogpost kon niet worden geladen.",
     };
   }
 }
@@ -67,31 +79,31 @@ async function PostPage({ params }: BlogPostPageProps) {
     const postData: FullPostData = await getPostDataAndContent(params.slug);
 
     // Genereer JSON-LD apart omdat dit niet direct in Metadata kan
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://jouwdomein.nl';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://jouwdomein.nl";
     const blogPostUrl = `${siteUrl}/blog/${params.slug}`;
     const jsonLd = {
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
       headline: postData.title,
       image: postData.coverImage ? [`${siteUrl}${postData.coverImage}`] : [],
       datePublished: postData.date,
       author: {
-        '@type': 'Organization',
-        name: 'Nieuw Leven Lab',
+        "@type": "Organization",
+        name: "Nieuw Leven Lab",
       },
-       publisher: {
-         '@type': 'Organization',
-         name: 'Nieuw Leven Lab', 
-         logo: {
-           '@type': 'ImageObject',
-           url: `${siteUrl}/logo.png`, // Zorg dat dit pad klopt
-         }
-       },
+      publisher: {
+        "@type": "Organization",
+        name: "Nieuw Leven Lab",
+        logo: {
+          "@type": "ImageObject",
+          url: `${siteUrl}/logo.png`, // Zorg dat dit pad klopt
+        },
+      },
       description: postData.excerpt,
       mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': blogPostUrl,
-      }
+        "@type": "WebPage",
+        "@id": blogPostUrl,
+      },
     };
 
     return (
@@ -117,4 +129,4 @@ async function PostPage({ params }: BlogPostPageProps) {
   }
 }
 
-export default PostPage; 
+export default PostPage;

@@ -3,126 +3,123 @@ description:
 globs: 
 alwaysApply: false
 ---
----
-description: 
-globs: 
-alwaysApply: false
----
-name: "Nieuw Leven Lab Page Design"
-description: "Cursor AI instructions for designing consistent Nieuw Leven Lab web pages"
+name: "Nieuw Leven Lab Page Design Guidelines"
+description: "Richtlijnen voor het ontwerpen van consistente Nieuw Leven Lab webpagina's met behulp van AI."
 
 project:
   name: Nieuw Leven Lab
   framework: Next.js
   language: TypeScript
   css_framework: Tailwind CSS
-  ui_library: React + shadcn/ui
+  ui_library: React (met mogelijk shadcn/ui componenten, maar focus op Tailwind)
 
 branding:
   colors:
-    extra_light_green: "#F1F5F3"
-    normal_green: "#477960"
-    dark_green: "#09341F"
-    black_headings_and_buttons: "#1A1A1A"
-    white_bg: "#FFFFFF"
-    beige_bg: "#EEE9E4"
-    paragraaf: "#444444"
-  
-  - TypeScript Usage
-    - Use TypeScript for all code; prefer interfaces over types.
-    - Avoid enums; use maps instead.
-    - Use functional components with TypeScript interfaces.
+    # Kleuren gedefinieerd in :root in app/globals.css
+    extra_light_green: "rgb(var(--color-extra-light-green))" # #F1F5F3 - Lichte achtergronden
+    light_green: "rgb(var(--color-light-green))"           # #6CA781 - (Niet primair, mogelijk accent)
+    normal_green: "rgb(var(--color-normal-green))"         # #477960 - Belangrijke accenten, secundaire tekst, borders
+    dark_green: "rgb(var(--color-dark-green))"             # #09341F - Donkere tekst, accenten
+    orange: "rgb(var(--color-orange))"                     # #E66439 - Focus-indicator, potentieel CTA's
+    beige_bg: "rgb(var(--color-beige-bg))"                 # #EEE9E4 - Secundaire achtergronden
+    white_bg: "rgb(var(--color-white-bg))"                 # #FFFFFF - Primaire achtergrond
+    black_headings_buttons: "rgb(var(--color-black-headings-buttons))" # #1A1A1A - Koppen, Primaire knoppen
+    paragraaf: "rgb(var(--color-paragraaf))"               # #1A1A1A - Hoofdtekstkleur
+    paragraaf_secondary: "rgb(var(--color-paragraaf-secondary))" # #444444 - Subtielere tekst
+    # Specifieke achtergrondkleuren voor kaarten (direct gebruikt of via variabelen)
+    card_bg_zepbound: "rgb(var(--color-card-bg-zepbound))"   # #D8CADF
+    card_bg_hair: "rgb(var(--color-card-bg-hair))"         # #C9D4E2
+    card_bg_off_white: "#f7f5f2"                         # Direct gebruikt in page.tsx
 
   typography:
-    font_family: Geist by Vercel
+    font_family: "'__GeistSans_xxxxxx', '__GeistSans_Fallback_xxxxxx'" # Zoals toegepast door `GeistSans.className` in layout.tsx
+    # Basis stijlen vanuit @layer base in globals.css
     headings:
-      - "Geist Bold"
-      - sizes: "text-2xl md:text-4xl"
-    subheadings:
-      - "Geist SemiBold"
-      - sizes: "text-xl md:text-2xl"
+      h1:
+        - styles: "text-4xl leading-tight mb-4"
+        - color: "text-[rgb(var(--color-black-headings-buttons))]" # #1A1A1A
+      h2:
+        - styles: "text-4xl"
+        - color: "text-[rgb(var(--color-black-headings-buttons))]" # #1A1A1A
+      h3, h4, h5, h6:
+        - styles: "text-3xl font-normal"
+        - color: "text-[rgb(var(--color-black-headings-buttons))]" # #1A1A1A
     body_text:
-      - "Geist Regular"
-      - sizes: "text-base md:text-lg"
-    buttons:
-      - "Geist Medium"
+      p:
+        - styles: "text-base" # md:text-base is overbodig als base al base is
+        - color: "text-[rgb(var(--color-paragraaf))]" # #1A1A1A
+    small_text: # Voor labels etc.
+      - styles: "text-sm"
+      - color: "text-[rgb(var(--color-paragraaf-secondary))]" # #444444 or #1A1A1A depending on context
 
 web_styling:
   layout:
-    - Implement responsive design with Tailwind CSS; use a mobile-first approach.
-    - padding: "p-4 md:p-6"
-    - margin: "my-4 md:my-6"
-    - rounded_corners: "rounded-lg md:rounded-xl"
-    - shadow: "shadow-md"
+    - Implement responsive design with Tailwind CSS; use a mobile-first approach (`md:` prefixes).
+    - Use the `.content-container` class for main page sections (`mx-auto px-6` with `max-width: 1200px`).
+    - Default spacing: Use Tailwind spacing utilities (`mb-4`, `p-6`, `gap-6`, etc.) consistent with `app/page.tsx`.
+    - Rounded corners: Apply `rounded-lg` consistently to cards, images containers, and buttons where appropriate.
+    - Shadow: Use `shadow-sm` for cards, potentially `hover:shadow-lg` for interaction, as defined in `.card` class.
 
   interactive_elements:
     buttons:
-      primary:
-        - bg_color: "bg-light_green"
-        - text_color: "text-white"
-        - hover_effect: "hover:bg-normal_green transition"
-      secondary:
-        - style: "border border-normal_green text-normal_green hover:bg-extra_light_green"
-        - transition: "transition"
+      primary: # Gebruik .btn-primary klasse of de Button component met variant="primary"
+        - style: "bg-[rgb(var(--color-black-headings-buttons))] text-[rgb(var(--color-white-bg))]"
+        - hover_effect: "hover:bg-black transition-all duration-200" # hover:bg-black is specifieker dan de variabele
+        - rounded: "rounded-lg" # Afgeleid van Button component usage
+      secondary: # Gebruik .btn-secondary klasse of de Button component met variant="secondary"
+        - style: "bg-[rgb(var(--color-white-bg))] text-[rgb(var(--color-black-headings-buttons))]"
+        - hover_effect: "hover:text-black transition-all duration-200" # globals.css specificeert geen bg change, enkel text
+        - rounded: "rounded-lg" # Afgeleid van Button component usage
+      small_icon_button: # Voor de kleine pijltjesknoppen etc.
+        - style: "bg-black text-white rounded-full p-2 flex items-center justify-center transition-all"
+        - hover_effect: "hover:bg-gray-800"
 
-Components origanization
-
-/app
-├── /api
-│   └── /products
-│       └── route.ts // Leest data/products.json en retourneert gesimplificeerde productdata (slug, title, imageUrl, omschrijving_kort)
-├── /product
-│   └── /bloedtesten
-│       └── /[slug]
-│           └── page.tsx // Detailpagina voor een specifieke bloedtest
-├── layout.tsx
-├── page.tsx
-└── globals.css
-/data
-├── products.json
-
-/components
-├── /ui
-│   ├── # don't use this directory
-├── /elements
-│   └── Button.tsx
-└── /sections
-    └── VideoSection.tsx
+Components_organization: # Behoud de bestaande mappenstructuur
+  - /app: Routing en pagina specifieke layouts/logica.
+  - /components: Herbruikbare UI elementen.
+    - /elements: Basis elementen (Button.tsx).
+    - /sections: Grotere pagina secties (VideoSection.tsx, FaqAccordion.tsx, etc.).
+  - /lib: Hulpfuncties, data fetching logica.
+  - /data: Statische data (indien van toepassing).
+  - /public: Statische assets (afbeeldingen, fonts).
 
 media_guidelines:
   images:
-    - rounded: "rounded-lg"
-    - shadow: "shadow-md"
-    - object_fit: "object-cover"
-
+    - Use `next/image` component consistently.
+    - Provide `width`, `height` or use `layout='fill'` with a relative parent.
+    - Apply `rounded-lg` where appropriate (vaak op de container div).
+    - Use `object-cover` generally unless `object-contain` is specifically required.
+    - Provide meaningful `alt` text.
+    - Use descriptive file names (e.g., `vitamine-d-bloedtest.webp`).
   icons:
-    - style: "stroke-current"
-    - size: "w-6 h-6 md:w-8 md:h-8"
-
-image_optimization_and_storage:
-  tooling:
-    - "Gebruik altijd de Next.js `<Image>` component (`next/image`) voor prestatie-optimalisatie (WebP, lazy loading, CLS preventie)."
-    - "Stel `width` en `height` in, of gebruik `layout='fill'` met een gepositioneerde parent container."
-    - "Gebruik de `priority` prop voor afbeeldingen die direct zichtbaar zijn (above the fold / LCP element)."
-  storage:
-    - "Voor statische assets (logo, iconen): plaats in `/public` map."
-    - "Voor dynamische/grote hoeveelheden afbeeldingen (producten): gebruik externe opslag (CDN, Cloud Storage, Headless CMS). Configureer `remotePatterns` in `next.config.js`."
-  seo_and_accessibility:
-    - "Gebruik beschrijvende, keyword-rijke bestandsnamen (bv. `vitamine-d-test.webp`)."
-    - "Vul *altijd* de `alt` prop in met een duidelijke en relevante beschrijving."
-
-seo:
-  meta_description_length: "150-160 characters"
-  og_image: "use consistent branding, minimalistic visuals"
+    - Use inline SVGs styled with Tailwind classes (e.g., `w-5 h-5`, `stroke-current`).
+    - Alternatively, use the `.icon` class from `globals.css` (`w-6 h-6 md:w-8 md:h-8 stroke-current`).
 
 accessibility:
-  - aria_labels: true
-  - focus_styles: "ring-2 ring-orange"
+  - Ensure interactive elements have clear focus states (use `focus-visible` utility for the orange ring: `ring-2 ring-[rgb(var(--color-orange))]`).
+  - Provide `aria-labels` where necessary.
 
 animations:
-  - subtle_transitions: "transition duration-300 ease-in-out"
+  - Use subtle transitions: `transition-all duration-200` (buttons), `transition duration-300 ease-in-out` (general subtle transition class).
 
 instruction_for_llm:
-  - "Design consistent Nieuw Leven Lab pages following the guidelines above."
-  - "Maintain mobile-first design approach, readability, and ease of navigation."
-  - "Use provided colors, typography, and component styles strictly."
+  - "**Design Goal:** Create web pages that seamlessly integrate with the existing Nieuw Leven Lab website, maintaining a clean, modern, and trustworthy aesthetic as seen on the homepage (`app/page.tsx`)."
+  - "**Layout & Structure:**"
+    - "Structure content within `<section>` elements."
+    - "Wrap main content sections with `<div className="content-container">...</div>` to ensure consistent padding and max-width."
+    - "Apply a mobile-first responsive approach using Tailwind's `md:` prefixes."
+    - "Utilize the existing component structure (`/components/sections`, `/components/elements`) where possible. Create new reusable components if needed."
+  - "**Colors & Typography:**"
+    - "Strictly adhere to the color palette defined in `branding.colors`. Use `text-[rgb(var(--color-variable))]` or `bg-[rgb(var(--color-variable))]`."
+    - "Apply the Geist Sans font (automatically handled by `layout.tsx`)."
+    - "Use the heading (h1-h6) and paragraph (p) styles defined in `branding.typography`, matching the base styles in `app/globals.css`."
+  - "**Interactivity:**"
+    - "Use the primary (`.btn-primary`) and secondary (`.btn-secondary`) button styles for calls to action. Use the `small_icon_button` style for smaller interactions."
+    - "Ensure all interactive elements have hover effects and the standard orange focus ring (`focus-visible:ring-2 focus-visible:ring-[rgb(var(--color-orange))]`)."
+  - "**Imagery & Icons:**"
+    - "Always use the `next/image` component for images, providing `alt` text and appropriate sizing/layout."
+    - "Apply `rounded-lg` styling to images or their containers."
+    - "Use inline SVGs for icons, styled with Tailwind utilities (size, color: `stroke-current` or specific text color)."
+  - "**Consistency:** Prioritize consistency with `app/page.tsx` in terms of spacing, element styling (like cards using `.card` styles), and overall visual rhythm."
+
+
