@@ -8,7 +8,7 @@ import {
   getPostDataAndContent,
   FullPostData,
 } from "@/lib/getAllPosts";
-import BlogPost from "@/components/BlogPost";
+import BlogPost from "@/components/sections/blog/BlogPost";
 import { notFound } from "next/navigation";
 
 interface BlogPostPageProps {

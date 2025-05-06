@@ -3,7 +3,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { getAllPostsSorted, PostData } from "@/lib/getAllPosts"; // Gebruik @/ alias
-import BlogListItem from "@/components/BlogListItem"; // Gebruik @/ alias
+import BlogListItem from "@/components/sections/blog/BlogListItem"; // Gebruik @/ alias
 
 // Metadata voor de blog index pagina
 export const metadata: Metadata = {
