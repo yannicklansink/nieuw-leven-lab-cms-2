@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import React from 'react';
+import React from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +8,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-const faqItems = [
+// Definieer het type voor een FAQ item
+interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+// Definieer alle FAQ items
+const allFaqItems: FaqItem[] = [
   {
     id: "item-1",
     question: "Wat is de Nieuw Leven Lab bloedtest?",
@@ -59,10 +67,21 @@ const faqItems = [
   },
 ];
 
-const FaqAccordion: React.FC = () => {
+// Definieer de props voor de FaqAccordion component
+interface FaqAccordionProps {
+  showItemIds?: string[]; // Optionele array van ID's om te tonen
+}
+
+const FaqAccordion: React.FC<FaqAccordionProps> = ({ showItemIds }) => {
+  // Bepaal welke items getoond moeten worden
+  const itemsToDisplay =
+    showItemIds && showItemIds.length > 0
+      ? allFaqItems.filter((item) => showItemIds.includes(item.id))
+      : allFaqItems;
+
   return (
     <Accordion type="single" collapsible className="w-full">
-      {faqItems.map((item) => (
+      {itemsToDisplay.map((item) => (
         <AccordionItem value={item.id} key={item.id}>
           <AccordionTrigger>{item.question}</AccordionTrigger>
           <AccordionContent>{item.answer}</AccordionContent>
@@ -72,4 +91,4 @@ const FaqAccordion: React.FC = () => {
   );
 };
 
-export default FaqAccordion; 
+export default FaqAccordion;

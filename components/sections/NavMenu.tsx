@@ -33,10 +33,10 @@ const NavigationBar: React.FC = () => {
             />
           </Link>
           <div className="flex flex-grow justify-center space-x-6">
-            {/* TODO: Update links later */}
-            <a href="#" className="menu-item">
-              Sexual Health
-            </a>
+            {/* Sexual Health vervangen door Waarom */}
+            <Link href="/waarom-een-bloedtest-doen" className="menu-item">
+              Waarom
+            </Link>
             <a href="#" className="menu-item">
               Weight Loss
             </a>
@@ -127,10 +127,13 @@ const NavigationBar: React.FC = () => {
         {mobileMenuOpen && (
           <div className="absolute top-full left-0 right-0 bg-white z-50 shadow-lg py-4">
             <div className="flex flex-col space-y-3 px-6">
-              {/* TODO: Update links later */}
-              <a href="#" className="menu-item py-2 border-b border-gray-100">
-                Sexual Health
-              </a>
+              {/* Sexual Health vervangen door Waarom in mobiel menu */}
+              <Link
+                href="/waarom-een-bloedtest-doen"
+                className="menu-item py-2 border-b border-gray-100"
+              >
+                Waarom
+              </Link>
               <a href="#" className="menu-item py-2 border-b border-gray-100">
                 Weight Loss
               </a>

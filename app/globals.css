@@ -19,6 +19,7 @@
   --color-paragraaf-secondary: 68, 68, 68; /* #444444 - Paragraaf tekst (aangepast) */
   --color-black-headings-buttons: 26, 26, 26; /* #1A1A1A - Koppen, Knoppen Zwart */
   --color-white-bg: 255, 255, 255; /* #FFFFFF - Witte achtergrond */
+  --color-achtergrond-grijs: 247, 245, 245; /* #F7F5F5 - Grijze achtergrond */
 }
 
 /* Voorkom horizontaal scrollen op alle apparaten */
@@ -50,13 +51,16 @@ body {
   h4,
   h5,
   h6 {
-    @apply text-3xl font-normal text-[rgb(var(--color-black-headings-buttons))];
+    @apply text-xl font-normal text-[rgb(var(--color-black-headings-buttons))];
   }
   h1 {
     @apply text-4xl leading-tight mb-4;
   }
   h2 {
-    @apply text-4xl;
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
   }
   p {
     @apply text-base md:text-base text-[rgb(var(--color-paragraaf))];

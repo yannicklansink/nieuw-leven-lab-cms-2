@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import SectionSubheading from "../elements/SpanSubheadingGreen";
 
 const OwnYourHealthSection: React.FC = () => {
   const images = [
@@ -27,18 +28,10 @@ const OwnYourHealthSection: React.FC = () => {
       style={{ backgroundColor: "rgb(var(--color-extra-light-green))" }}
     >
       <div className="content-container">
-        <p
-          className="text-center text-sm font-geist-medium mb-2"
-          style={{ color: "rgb(var(--color-normal-green))" }}
-        >
-          revolutionaire bloedtesten
-        </p>
-        <h2
-          className="text-center text-3xl md:text-4xl font-geist-bold mb-10"
-          style={{ color: "rgb(var(--color-black-headings-and-buttons))" }}
-        >
-          Bezit je eigen gezondheid
-        </h2>
+        <SectionSubheading
+          spanText="revolutionaire bloedtesten"
+          headingText="Bezit je eigen gezondheid"
+        />
         {/* Use Embla Carousel container */}
         <div className="embla overflow-hidden" ref={emblaRef}>
           <div className="embla__container flex">
@@ -47,7 +40,13 @@ const OwnYourHealthSection: React.FC = () => {
               <div
                 key={index}
                 // Mobile: show ~85%, Desktop: show 3 columns
-                className="embla__slide flex-[0_0_85%] md:flex-[0_0_33.33%] min-w-0 pl-4 relative"
+                className={`embla__slide flex-[0_0_85%] md:flex-[0_0_33.33%] min-w-0 relative ${
+                  index === 0
+                    ? "pr-2 md:pr-3"
+                    : index === images.length - 1
+                    ? "pl-2 md:pl-3"
+                    : "px-2 md:px-3"
+                }`}
               >
                 <div className="relative overflow-hidden rounded-lg shadow-md h-full">
                   <Image

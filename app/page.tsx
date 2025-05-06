@@ -5,13 +5,12 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import VideoSection from "@/components/sections/VideoSection";
 import Button from "@/components/elements/Button";
-import ProductListingSection from "@/components/sections/ProductListingSection";
 import OwnYourHealthSection from "@/components/sections/OwnYourHealthSection";
 import TreatmentCategoriesSection from "@/components/sections/TreatmentCategoriesSection";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import AuroraBackgroundDemo from "@/components/sections/BackgroundGradient";
-import TabsDemo from "@/components/sections/TabsShowcase";
 import HeroProductSection from "@/components/sections/HeroProductSection";
+import DualCardFeatureSection from "@/components/sections/DualCardFeatureSection";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -69,7 +68,7 @@ export default function Home() {
           <div className="content-container z-10">
             <div className="max-w-md pointer-events-auto">
               <h2 className="text-white mb-6">
-              Persoonlijke bloedtesten voor een betere gezondheid.
+                Persoonlijke bloedtesten voor een betere gezondheid.
               </h2>
               <Button href="https://google.com" variant="secondary">
                 Get started
@@ -85,7 +84,7 @@ export default function Home() {
           <div className="content-container z-10">
             <div className="max-w-md pointer-events-auto">
               <h2 className="text-white mb-6">
-              Persoonlijke bloedtesten voor een betere gezondheid.
+                Persoonlijke bloedtesten voor een betere gezondheid.
               </h2>
               <Button href="https://google.com" variant="secondary">
                 Get started
@@ -95,19 +94,11 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="content-container">
-        <ProductListingSection
-          loading={loading}
-          error={error}
-          products={products}
-        />
-      </div>
+      <DualCardFeatureSection />
+
       <OwnYourHealthSection />
       <section className="content-container my-12 md:my-20">
         <TreatmentCategoriesSection />
-      </section>
-      <section className="content-container pb-24">
-        <TabsDemo />
       </section>
       <AuroraBackgroundDemo />
       <section className="content-container my-12 md:my-16">
