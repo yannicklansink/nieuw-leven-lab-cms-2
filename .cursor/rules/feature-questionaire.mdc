@@ -20,6 +20,13 @@ Hydration mismatch between SSR and Zustand persist is tricky—spell out the h
 - Type‑safety voor store (Zod of TS interfaces)
 - SSR/CSR‑hydration issues met Zustand persist
 
+Te maken files:
+
+/app/layout.tsx – wrapper met <HydrationGuard>
+/hooks/useQuestionnaireStore.ts – Zustand‑store (sessionStorage + reset helpers)
+/hooks/useHydrated.ts – useHasMounted() tegen hydration‑mismatch
+/types/questionnaire.d.ts – typings voor Answers, enums, etc.
+
 ---
 
 ## [ ] 2. Maak dynamische vragenlijst flow  
@@ -33,6 +40,12 @@ Define explicit step IDs vs. array index so skip‑logic doesn’t corrupt brows
 - Bouw `/questionnaire/[step].tsx` page met logica voor multi-step vragen  
 - Per vraag: sla antwoord op in store (`setAnswer`)  
 - Laat "volgende" knop alleen zien als er een antwoord is geselecteerd
+
+Te maken files:
+
+/app/questionnaire/[step]/page.tsx – stepped router + deep‑link‑guard
+/components/elements/CheckboxCard.tsx – herbruikbare keuze‑tile (radio/checkbox)
+/components/sections/Question.tsx – rendert één vraag (supports multi‑select)
 
 - De vragenlijst is als volgt:
 Vraag 1: "Welke van deze beschrijvingen past het beste bij jou?"
@@ -169,7 +182,13 @@ Catalog JSON (~200 kB) blijft op server. recommendTests geeft alleen IDs; fron
 
 State whether catalog will be fetched at build‑time, runtime API, or imported—affects bundle size and tree‑shaking. Clarify currency stored as cents (int) or euros (float). Stripe price IDs may differ per environment; note mapping strategy. Choose based on feature.
 
+Te maken files:
 
+/logic/catalog.ts – export catalog: BiomarkerCatalogItem[]
+/logic/constants.ts – BASE_PANEL (5 vaste biomarkers)
+/logic/priceUtils.ts – mergePanels, calcTotal
+/types/biomarker.d.ts – typings voor catalog items
+/data/catalog.json – ±200 kB biomarker‑data (build‑time import)
 
 **Bestanden:**  
 - `/logic/catalog.ts`  
@@ -193,6 +212,9 @@ State whether catalog will be fetched at build‑time, runtime API, or imported�
 ## [ ] 3B – Regels & engine schrijven  
 **Doel:** Antwoorden van de gebruiker vertalen naar een testpanel  
 Conflict handeling: Voeg alleen biomarker toe als die nog niet in de lijst zit. 
+
+Te maken file:
+/logic/recommendTests.ts – rule‑engine (flatMap → dedupe → map IDs)
 
 **Bestand:**  
 - `/logic/recommendTests.ts`  
@@ -232,6 +254,8 @@ return finalIds.map(id => pick(catalog, id));
 Specify exact moment getRecommendedBiomarkers fires—on final “Next” click or on mount of /confirm? Make it idempotent so page refresh doesn’t double‑add. What happens when user edits earlier answers after recommendations are stored?
 
 
+Nieuwe files: geen.
+Aanpassingen in /hooks/useQuestionnaireStore.ts (veld selectedTests) en gebruik in page.tsx & Question.
 
 **Acties:**  
 - Detecteer "laatste vraag beantwoord"  
@@ -249,7 +273,9 @@ SessionStorage i.p.v. localStorage – data verdwijnt als de browser sluit (GDPR
 
 Large biomarker list: virtual scrolling vs. simple table—clarify now to avoid performance hits. Define UX for conflicting add/remove while POST to Stripe is inflight. Decide whether toggling a base‑panel test is allowed (business rule).
 
-
+Te maken files:
+/app/confirm/page.tsx – review + aanpassen tests
+/components/sections/TestListTable.tsx – virtualised tabel met toggle‑knoppen
 
 **Acties:**  
 - Maak pagina `/confirm`  
@@ -267,6 +293,9 @@ Prijzen formatteren met Intl.NumberFormat.
 
 Stripe JS must be imported dynamically in Next 13+/App Router; give import pattern. Handle redirectToCheckout promise rejection—toast vs. modal. Disable button accessibility (aria‑busy) guidance.
 
+Te maken file:
+/app/api/checkout/route.ts – creëert Checkout‑session (edge runtime)
+
 **Acties:**  
 - Maak `/pages/api/checkout.ts`  
 - Gebruik Stripe SDK om session te maken met:  
@@ -274,7 +303,7 @@ Stripe JS must be imported dynamically in Next 13+/App Router; give import patt
   - `metadata` met `JSON.stringify(answers)`  
   - `customer_email`  
 - Retourneer `session.id`
-- Sleutels uit .env.local.
+- Sleutels uit .env.local. 
 - stripePriceId in line_items; mode:"payment", success_url & cancel_url afgeleid van req.headers.origin.
 
 
@@ -282,6 +311,10 @@ Stripe JS must be imported dynamically in Next 13+/App Router; give import patt
 
 ## [ ] 7. Implementeer afrekenknop in frontend  
 **Doel:** Gebruiker omleiden naar Stripe Checkout
+
+Te maken files:
+/hooks/useStripeCheckout.ts – lazy loadStripe, handleCheckout(), spinner
+/components/elements/CheckoutButton.tsx (optioneel, maar handig) – disabled + aria‑busy
 
 **Acties:**  
 - Installeer Stripe frontend SDK (`@stripe/stripe-js`)  
@@ -298,8 +331,55 @@ Stripe JS must be imported dynamically in Next 13+/App Router; give import patt
 
 /success fetch needs server‑side auth (secret key) but runs in client route—clarify API proxy vs. getServerSideProps. Explain handling of session_id missing/invalid. Provide plan for webhooks race condition (page loads before event delivered).
 
+Te maken files:
+/app/success/page.tsx – dank‑pagina (Stripe session fetch via server‑action)
+/app/cancel/page.tsx – annulering + “begin opnieuw”‑link
+
+
 **Acties:**  
 - Maak `/success.tsx` en `/cancel.tsx`  
 - bedank gebruiker
 - Samenvatting ophalen met Stripe API (server) (Gebruik stripe.checkout.sessions.retrieve(session_id, { expand:['line_items'] }))
+
+
+## Mappenstructuur. Waarom moeten de files komen
+1 / app – routing & API
+Pad	Doel
+/app/layout.tsx	wrapper die <HydrationGuard> rond children zet
+/app/questionnaire/[step]/page.tsx	SSR‑bewuste staprouter (skip‑logic, deep‑link protection)
+/app/confirm/page.tsx	review + aanpasbare testlijst
+/app/success/page.tsx	“bedankt” — haalt Stripe session samen
+/app/cancel/page.tsx	geannuleerde betaling
+/app/api/checkout/route.ts	Stripe Checkout‑endpoint
+
+2 / hooks – state & helpers
+File	Wat zit erin
+useQuestionnaireStore.ts	Zustand store (+ persist → sessionStorage)
+useHydrated.ts	const hasMounted = useHasMounted() — voorkomt mismatch
+useStripeCheckout.ts	Lazy‑import van loadStripe, spinners, aria‑busy
+
+3 / logic – pure TS
+File	Functie
+catalog.ts	export const catalog: BiomarkerCatalogItem[]
+constants.ts	export const BASE_PANEL (5 verplichte biomarkers)
+priceUtils.ts	mergePanels, calcTotal (prijzen in cents)
+recommendTests.ts	rule‑engine ➜ lijst biomarker‑ID’s
+
+4 / components
+Map	Files
+/components/elements	CheckboxCard.tsx
+/components/sections	Question.tsx (1‑v‑veel input types)
+TestListTable.tsx (virtualised)
+
+5 / types
+File	Waarom
+/types/questionnaire.d.ts	interface Answers + enum‑achtige unions
+/types/biomarker.d.ts	interface BiomarkerCatalogItem
+
+6 / data (optional)
+File	Wat
+/data/catalog.json	~200 kB statische biomarker‑data (build‑time import)
+
+
+
 
