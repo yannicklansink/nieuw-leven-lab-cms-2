@@ -115,7 +115,7 @@ export default function BloedtestCarouselSection() {
         <h2 className="text-[rgb(var(--color-black-headings-buttons))] mb-4">
           Ontdek onze bloedtesten
         </h2>
-        <p className="text-[rgb(var(--color-paragraaf))] mb-8">
+        <p className="text-[rgb(var(--color-paragraaf))]">
           Elk van onze tests is ontwikkeld om specifieke aspecten van je
           gezondheid in kaart te brengen.
         </p>

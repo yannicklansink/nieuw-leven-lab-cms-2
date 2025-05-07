@@ -106,7 +106,7 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       <div className="flex justify-between items-center gap-4">
         {/* justify-end naar justify-between, mr-10 verwijderd, px-6 toegevoegd */}
         <Button href="#" variant="primary">
-          Bekijk alle tests
+          Doe nu de quiz
         </Button>
         <div className="flex items-center gap-2">
           <button
@@ -143,7 +143,7 @@ export const Card = ({
     <>
       <motion.div
         layoutId={layout ? `card-${card.title}` : undefined}
-        className="relative z-10 flex h-80 w-56 flex-col justify-between overflow-hidden bg-white dark:bg-gray-100 md:h-[32rem] md:w-96 shadow-md"
+        className="relative z-10 flex h-80 w-56 flex-col justify-between overflow-hidden bg-white dark:bg-gray-100 md:h-[24rem] md:w-64 shadow-md"
       >
         <BlurImage
           src={card.src}
@@ -163,7 +163,7 @@ export const Card = ({
           </motion.p>
           <motion.p
             layoutId={layout ? `title-${card.title}` : undefined}
-            className="mt-1 md:mt-2 max-w-xs text-left font-sans [text-wrap:balance] text-[rgb(var(--color-white-bg))] md:text-3xl"
+            className="mt-1 md:mt-2 max-w-xs text-left font-sans [text-wrap:balance] text-[rgb(var(--color-white-bg))] md:text-2xl"
           >
             {card.title}
           </motion.p>

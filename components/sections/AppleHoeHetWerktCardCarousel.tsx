@@ -49,7 +49,7 @@ export default function HoeHetWerktCarouselSection() {
         <h2 className="text-[rgb(var(--color-black-headings-buttons))] mb-4">
           Hoe werkt het?
         </h2>
-        <p className="text-[rgb(var(--color-paragraaf))] mb-8">
+        <p className="text-[rgb(var(--color-paragraaf))]">
           In vier eenvoudige stappen naar inzicht in jouw gezondheid.
         </p>
         <Carousel items={cards} />

@@ -63,7 +63,7 @@ body {
     @apply text-2xl;
   }
   p {
-    @apply text-base md:text-base text-[rgb(var(--color-paragraaf))];
+    @apply text-base md:text-lg text-[rgb(var(--color-paragraaf))];
   }
 }
 

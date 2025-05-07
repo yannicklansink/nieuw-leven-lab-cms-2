@@ -5,6 +5,7 @@ import SectionSubheading from "@/components/elements/SpanSubheadingGreen";
 import DualCardFeatureSection from "@/components/sections/DualCardFeatureSection";
 import Button from "@/components/elements/Button";
 import AppleAppCardCarousel from "@/components/sections/AppleAppCardCarousel";
+import AppleTestBloedwaardesCardCarousel from "@/components/sections/AppleBloedwaardesCarouselSection";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import AppleHoeHetWerktCardCarousel from "@/components/sections/AppleHoeHetWerktCardCarousel";
 
@@ -136,6 +137,8 @@ export default function WhyBloodtestPage() {
       </section>
 
       <AppleAppCardCarousel />
+
+      <AppleTestBloedwaardesCardCarousel />
 
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
