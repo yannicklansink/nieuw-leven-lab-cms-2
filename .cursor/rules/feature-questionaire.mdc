@@ -1,0 +1,305 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Takenlijst – Gepersonaliseerde Bloedtest Flow (Next.js, zonder database)
+Dit document beschrijft een complete technische takenlijst voor het bouwen van een gepersonaliseerde bloedtest-flow in een Next.js-applicatie zonder gebruik van een database. De flow begeleidt gebruikers stap voor stap door een dynamische vragenlijst, slaat hun antwoorden lokaal op met Zustand, genereert op basis daarvan gepersonaliseerde biomarker-aanbevelingen via een rule-based engine, en leidt uiteindelijk tot een Stripe Checkout voor betaling. Het plan is modulair opgezet in duidelijke stappen: van frontend routing, state management en formulieren, tot backend logica, betaalintegratie en optionele succespagina’s.
+
+---
+
+## [ ] 1. Setup project structuur en state management  
+**Doel:** App opzetten met routing en globale state (Zustand)
+
+Hydration mismatch between SSR and Zustand persist is tricky—spell out the hasMounted guard and how to avoid double‑render. Clarify when to reset the store (success, cancel, manual “start over”). Decide up‑front whether answers live in sessionStorage or localStorage; switching later breaks tests. Decide yourself based on feature.
+
+**Acties:**  
+- Installeer Zustand (`npm i zustand`)
+- Maak `/store/useQuestionnaireStore.ts` voor state van antwoorden + testen
+- Zustand persist‐middleware toevoegen zodat state in localStorage blijft (npm i zustand/middleware).
+- Type‑safety voor store (Zod of TS interfaces)
+- SSR/CSR‑hydration issues met Zustand persist
+
+---
+
+## [ ] 2. Maak dynamische vragenlijst flow  
+**Doel:** Gebruiker meerkeuze vragen laten invullen en opslaan.
+
+Define explicit step IDs vs. array index so skip‑logic doesn’t corrupt browser history. Multi‑select value shape (array of strings?) must be consistent for Zod + rule engine. Need guidance on deep‑link protection (user lands on /questionnaire/5 with no answers).
+
+
+
+**Acties:**  
+- Bouw `/questionnaire/[step].tsx` page met logica voor multi-step vragen  
+- Per vraag: sla antwoord op in store (`setAnswer`)  
+- Laat "volgende" knop alleen zien als er een antwoord is geselecteerd
+
+- De vragenlijst is als volgt:
+Vraag 1: "Welke van deze beschrijvingen past het beste bij jou?"
+Antwoord: "Ik wil graag wat hulp bij wat ik moet testen – laat me gepersonaliseerde aanbevelingen zien"
+Antwoord: "Ik weet wat ik wil testen – laat me mijn eigen bloedtest samenstellen"
+
+Vraag 2 (multiselect): "Welke van deze gezondheidsdoelen zijn belangrijk voor jou?"
+Antwoord: "Beter slapen"
+Antwoord: "Ondersteuning van mijn stemming en mentale gezondheid"
+Antwoord: "Mijn gewicht beheersen"
+Antwoord: "Mijn energieniveau verbeteren"
+Antwoord: "Mijn gezondheid op de lange termijn beschermen"
+Antwoord: "Mijn fitheid en prestaties optimaliseren"
+
+Vraag 3: "Wat was je geboortegeslacht?"
+Antwoord: "Man"
+Antwoord: "Vrouw"
+
+Vraag 4: "Op hoeveel dagen per week doe je aan intensieve lichaamsbeweging van minstens 10 minuten per keer?"
+Antwoord: "0"
+Antwoord: "1"
+Antwoord: "2"
+Antwoord: "3"
+Antwoord: "4"
+Antwoord: "5"
+Antwoord: "6"
+Antwoord: "7"
+
+Vraag 5: "Op hoeveel dagen per week doe je aan krachttraining van minstens 10 minuten per keer?"
+Antwoord: "0"
+Antwoord: "1"
+Antwoord: "2"
+Antwoord: "3"
+Antwoord: "4"
+Antwoord: "5"
+Antwoord: "6"
+Antwoord: "7"
+
+
+Vraag 6: "Hoeveel uur per dag breng je gemiddeld zittend door?"
+Antwoord: "Minder dan 7,5 uur"
+Antwoord: "7,5 – 9 uur"
+Antwoord: "9 – 10,5 uur"
+Antwoord: "Meer dan 10,5 uur"
+
+Vraag 7: "Welk dieet volg je?"
+Antwoord: "Geen specifiek dieet – het is een mix"
+Antwoord: "Veganistisch"
+Antwoord: "Vegetarisch"
+Antwoord: "Pescotarisch"
+Antwoord: "Glutenvrij"
+Antwoord: "Paleo"
+Antwoord: "Caloriebeperkt"
+Antwoord: "Low Carb High Fat"
+Antwoord: "Low Carb (anders)"
+Antwoord: "Anders"
+
+Vraag 8: "Hoe zou je je dieet beoordelen?"
+Antwoord: "0 – Zeer ongezond"
+Antwoord: "1"
+Antwoord: "2"
+Antwoord: "3"
+Antwoord: "4"
+Antwoord: "5 – Gemiddeld"
+Antwoord: "6"
+Antwoord: "7"
+Antwoord: "8"
+Antwoord: "9"
+Antwoord: "10 – Zeer gezond"
+
+Vraag 9 (multiselect): "Heb je bestaande gezondheidsproblemen waarmee we rekening moeten houden?"
+Antwoord: "Geen van de onderstaande"
+Antwoord: "Kanker"
+Antwoord: "Epilepsie"
+Antwoord: "Beroerte"
+Antwoord: "Astma"
+Antwoord: "Chronische nierziekte"
+Antwoord: "Chronische obstructieve longziekte (COPD)"
+Antwoord: "Coeliakie"
+Antwoord: "Ziekte van Crohn"
+Antwoord: "Dementie"
+Antwoord: "Jicht"
+Antwoord: "Hartritmestoornis"
+Antwoord: "Hartziekte"
+Antwoord: "Hoge bloeddruk"
+Antwoord: "Hoog cholesterol"
+Antwoord: "Hiv"
+Antwoord: "Prikkelbare darm syndroom (PDS)"
+Antwoord: "Leverziekte"
+Antwoord: "Psychische aandoening"
+Antwoord: "Polycysteus-ovariumsyndroom (PCOS)"
+Antwoord: "Prostaatkanker"
+Antwoord: "Reumatoïde artritis"
+Antwoord: "Colitis ulcerosa"
+
+
+Vraag 10 (multiselect): "Komt een van de onderstaande aandoeningen in je familie voor?"
+Antwoord: "Geen van de onderstaande"
+Antwoord: "Type 2 diabetes"
+Antwoord: "Hart- en vaatziekten"
+Antwoord: "Genetisch verhoogd cholesterol"
+
+Vraag 11: "Wat is je geboortedatum?"
+(Deze informatie helpt ons om testen en leefstijlaanpassingen aan te bevelen die passen bij jouw levensfase.)
+
+Antwoordvelden:
+Dag / Maand / Jaar
+
+Vraag 12: "Wat is je etniciteit?"
+(Etniciteit kan je risico op het ontwikkelen van bepaalde aandoeningen beïnvloeden)
+
+Antwoord: "Wit"
+Antwoord: "Indiaas"
+Antwoord: "Pakistaans"
+Antwoord: "Bengaals"
+Antwoord: "Zwart Caribisch"
+Antwoord: "Zwart Afrikaans"
+Antwoord: "Chinees"
+Antwoord: "Anders Aziatisch"
+Antwoord: "Andere etnische groep"
+Antwoord: "Gemengde etniciteit"
+
+
+Vraag 13 (valideer email): "Wat is je e-mailadres?"
+(We gebruiken dit om je persoonlijke gezondheidsrapport te sturen en je op de hoogte te houden van je testresultaten en aanbevelingen.)
+
+Antwoordveld:
+email
+
+---
+## [ ] 3A – Catalogus & basisset klaarzetten  
+**Doel:** Alle vaste data en helper‑functies isoleren.
+Catalog JSON (~200 kB) blijft op server. recommendTests geeft alleen IDs; front‑end haalt volledige items met een “lazy” API of in‑memory map, zo blijft bundle klein.
+
+State whether catalog will be fetched at build‑time, runtime API, or imported—affects bundle size and tree‑shaking. Clarify currency stored as cents (int) or euros (float). Stripe price IDs may differ per environment; note mapping strategy. Choose based on feature.
+
+
+
+**Bestanden:**  
+- `/logic/catalog.ts`  
+  - Exporteer `const catalog: BiomarkerCatalogItem[]` met `{ id, name, price, stripePriceId }`.  
+  - Gebruik `interface BiomarkerCatalogItem` voor strikte typing.  
+
+- `/logic/constants.ts`  
+  - `BASE_PANEL`: array met de 5 verplichte biomarkers:  
+    - Apolipoproteïne B (ApoB)  
+    - hsCRP (High-sensitivity C-reactive protein)  
+    - Insuline (nuchter)  
+    - Omega-3 Index  
+    - Vrij T3 (actieve schildklierhormoon)  
+
+- `/logic/priceUtils.ts`  
+  - `mergePanels([...ids]): string[]` → dedupe, volgorde‑agnostisch.  
+  - `calcTotal(ids: string[]): number` → tel `catalog.price` op.  
+
+---
+
+## [ ] 3B – Regels & engine schrijven  
+**Doel:** Antwoorden van de gebruiker vertalen naar een testpanel  
+Conflict handeling: Voeg alleen biomarker toe als die nog niet in de lijst zit. 
+
+**Bestand:**  
+- `/logic/recommendTests.ts`  
+  - `recommend(payload: QuestionnaireAnswers): BiomarkerCatalogItem[]`  
+
+**Rule‑layer aanpak:**  
+```ts
+const goalEnergy = (a: Answers) =>
+  a.goal === 'ENERGY' ? ['B12', 'IRON', 'FERRITIN', 'HBA1C'] : [];
+
+const rules: RuleFn[] = [goalEnergy /*, ...overige rules */];
+
+const extra = rules.flatMap(r => r(answers));
+const finalIds = mergePanels([...BASE_PANEL, ...extra]);
+return finalIds.map(id => pick(catalog, id));
+
+| Voorwaarde                                             | Voeg toe                                 |
+| ------------------------------------------------------ | ---------------------------------------- |
+| Doel = "Mijn energieniveau verbeteren"                 | Vitamine B12, IJzer, Ferritine, HbA1c    |
+| Doel = "Mijn fitheid en prestaties optimaliseren"      | Testosteron, CK, Glycine, Magnesium      |
+| Geboortegeslacht = Vrouw                               | Oestrogeen, Progesteron, LH, FSH         |
+| Etniciteit = Zwart Afrikaans                           | Ferritine                                |
+| Dieet = Veganistisch of Vegetarisch                    | Vitamine B12, IJzer, Ferritine, Zink     |
+| Dieet = Low Carb High Fat                              | LDL, Triglyceriden, HDL, Lipoproteïne(a) |
+| Zittijd > 10,5 uur                                     | hsCRP, HbA1c                             |
+| Leeftijd > 45 jaar                                     | SHBG, PSA (voor mannen), eGFR            |
+| Familiegeschiedenis = Cardiovasculaire ziekte          | Lipoproteïne(a), LDL, hsCRP              |
+| Gezondheidsprobleem = Hoge bloeddruk                   | Natrium, Kalium, eGFR, Creatinine, Ureum |
+| Mentale doelen geselecteerd                            | Vitamine D, Vitamine B6, Magnesium       |
+| Weinig lichaamsbeweging (<2 dagen intensief of kracht) | HbA1c, Triglyceriden, Insuline           |
+
+
+---
+
+## [ ] 4. Verwerk recommendations in flow na laatste vraag  
+**Doel:** Biomarker aanbevelingen automatisch laden.
+Specify exact moment getRecommendedBiomarkers fires—on final “Next” click or on mount of /confirm? Make it idempotent so page refresh doesn’t double‑add. What happens when user edits earlier answers after recommendations are stored?
+
+
+
+**Acties:**  
+- Detecteer "laatste vraag beantwoord"  
+- Roep `getRecommendedBiomarkers(answers)` aan  
+- Zet resultaten in `selectedTests` van store
+- Wat als store leeg is in /confirm? (altijd de 5 default biomarkers tonen.)
+- Storage:
+createJSONStorage(() => (typeof window!=='undefined' ? sessionStorage : undefined))
+SessionStorage i.p.v. localStorage – data verdwijnt als de browser sluit (GDPR‑vriendelijker).
+
+---
+
+## [ ] 5. Bouw de bevestigingspagina met aanpasbare testlijst  
+**Doel:** Laat gebruiker testen reviewen en zelf toevoegen/verwijderen.
+
+Large biomarker list: virtual scrolling vs. simple table—clarify now to avoid performance hits. Define UX for conflicting add/remove while POST to Stripe is inflight. Decide whether toggling a base‑panel test is allowed (business rule).
+
+
+
+**Acties:**  
+- Maak pagina `/confirm`  
+- Toon tabel met geselecteerde testen + totaalprijs  
+- Extra tabel “Beschikbare biomarkers” om handmatig toe te voegen.
+Prijzen formatteren met Intl.NumberFormat.
+- Voeg knoppen toe om tests toe te voegen/verwijderen (`toggleTest`)  
+- Totaalprijs herberekenen na add/remove
+- UX voor zeer lange biomarker‑lijsten
+
+---
+
+## [ ] 6. Maak Stripe Checkout API endpoint  
+**Doel:** Dynamische betaling starten met antwoorden + tests.
+
+Stripe JS must be imported dynamically in Next 13+/App Router; give import pattern. Handle redirectToCheckout promise rejection—toast vs. modal. Disable button accessibility (aria‑busy) guidance.
+
+**Acties:**  
+- Maak `/pages/api/checkout.ts`  
+- Gebruik Stripe SDK om session te maken met:  
+  - `line_items` op basis van testlijst  
+  - `metadata` met `JSON.stringify(answers)`  
+  - `customer_email`  
+- Retourneer `session.id`
+- Sleutels uit .env.local.
+- stripePriceId in line_items; mode:"payment", success_url & cancel_url afgeleid van req.headers.origin.
+
+
+---
+
+## [ ] 7. Implementeer afrekenknop in frontend  
+**Doel:** Gebruiker omleiden naar Stripe Checkout
+
+**Acties:**  
+- Installeer Stripe frontend SDK (`@stripe/stripe-js`)  
+- Maak `handleCheckout()` functie die:  
+  - POST naar `/api/checkout`  
+  - Stripe checkout opent met `redirectToCheckout({ sessionId })`
+- Stripe client pas na typeof window !== "undefined" laden
+- Disable knop na klik, toon spinner
+
+---
+
+## [ ] 8. (Optioneel) Success / cancel pagina tonen na betaling  
+**Doel:** Gebruiker informeren na betaling.
+
+/success fetch needs server‑side auth (secret key) but runs in client route—clarify API proxy vs. getServerSideProps. Explain handling of session_id missing/invalid. Provide plan for webhooks race condition (page loads before event delivered).
+
+**Acties:**  
+- Maak `/success.tsx` en `/cancel.tsx`  
+- bedank gebruiker
+- Samenvatting ophalen met Stripe API (server) (Gebruik stripe.checkout.sessions.retrieve(session_id, { expand:['line_items'] }))
+

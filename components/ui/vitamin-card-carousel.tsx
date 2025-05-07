@@ -16,7 +16,7 @@ export const CategoryCard = ({
   bloodValues,
 }: CategoryCardProps) => {
   return (
-    <div className="flex flex-col bg-white p-5 rounded-md w-64 h-80 shadow-sm border border-gray-100">
+    <div className="flex flex-col p-5 rounded-lg w-64 h-80 shadow-lg bg-gradient-to-br from-slate-50 to-white">
       <h3 className="text-base font-semibold text-[rgb(var(--color-black-headings-buttons))] mb-2 flex-shrink-0">
         {categoryName}
       </h3>

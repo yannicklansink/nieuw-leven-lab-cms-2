@@ -130,13 +130,13 @@ export default function AppleBloedwaardesCarouselSection() {
   ));
 
   return (
-    <section className="w-full py-12 md:py-16 bg-zinc-50 overflow-x-clip">
+    <section className="w-full py-12 md:py-16 bg-[rgb(var(--color-white-bg))] overflow-x-clip">
       {/* Sectie titel en beschrijving (binnen content-container) */}
       <div className="content-container mb-8 md:mb-10">
         <h2 className=" text-[rgb(var(--color-black-headings-buttons))]">
           Ontdek welke bloedwaarden je kunt testen
         </h2>
-        <p className="mt-3 md:mt-4 text-base md:text-lg text-[rgb(var(--color-paragraaf))] max-w-xl">
+        <p className="mt-3 md:mt-4 text-[rgb(var(--color-paragraaf))] max-w-xl">
           Krijg inzicht in je gezondheid door een breed scala aan beschikbare tests, gegroepeerd per categorie.
         </p>
       </div>

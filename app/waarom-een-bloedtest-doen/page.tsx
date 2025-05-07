@@ -6,6 +6,8 @@ import DualCardFeatureSection from "@/components/sections/DualCardFeatureSection
 import Button from "@/components/elements/Button";
 import AppleAppCardCarousel from "@/components/sections/AppleAppCardCarousel";
 import AppleTestBloedwaardesCardCarousel from "@/components/sections/AppleBloedwaardesCarouselSection";
+import WelcomeKitSection from "@/components/sections/WelcomeKitSection";
+import DataDrivenRevolutionSection from "@/components/sections/DataDrivenRevolutionSection";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import AppleHoeHetWerktCardCarousel from "@/components/sections/AppleHoeHetWerktCardCarousel";
 
@@ -140,6 +142,10 @@ export default function WhyBloodtestPage() {
 
       <AppleTestBloedwaardesCardCarousel />
 
+      <WelcomeKitSection />
+
+      
+
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
         <div className="w-full max-w-3xl mx-auto">
@@ -148,6 +154,9 @@ export default function WhyBloodtestPage() {
       </section>
 
       <AppleHoeHetWerktCardCarousel />
+      
+      <DataDrivenRevolutionSection />
+      
     </main>
   );
 }
