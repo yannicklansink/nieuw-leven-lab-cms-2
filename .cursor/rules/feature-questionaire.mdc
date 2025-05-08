@@ -25,12 +25,12 @@ Te maken files:
 /app/layout.tsx – wrapper met <HydrationGuard>
 /hooks/useQuestionnaireStore.ts – Zustand‑store (sessionStorage + reset helpers)
 /hooks/useHydrated.ts – useHasMounted() tegen hydration‑mismatch
-/types/questionnaire.d.ts – typings voor Answers, enums, etc.
+/types/questionnaire.ts – typings voor Answers, enums, etc.
 
 Na het voltooien hiervan zijn de volgende bestanden  aangemaakt/gewijzigd:
 app/layout.tsx: Wrapper met <HydrationGuard>.
 hooks/useHydrated.ts: Bevat useHasMounted en HydrationGuard om hydration-mismatches te voorkomen.
-types/questionnaire.d.ts: Bevat TypeScript interfaces en enums voor de vragenlijst.
+types/questionnaire.ts: Bevat TypeScript interfaces en enums voor de vragenlijst.
 hooks/useQuestionnaireStore.ts: Zustand store voor het beheren van antwoorden, met persist middleware voor sessionStorage.
 
 
@@ -305,10 +305,10 @@ De debug sectie onderaan de pagina is aangepast om useQuestionnaireStore.getStat
 
 ---
 
-## [ ] 5. Bouw de bevestigingspagina met aanpasbare testlijst  
+## [X] 5. Bouw de bevestigingspagina met aanpasbare testlijst  
 **Doel:** Laat gebruiker testen reviewen en zelf toevoegen/verwijderen.
 
-Large biomarker list: virtual scrolling vs. simple table—clarify now to avoid performance hits. Define UX for conflicting add/remove while POST to Stripe is inflight. Decide whether toggling a base‑panel test is allowed (business rule).
+Large biomarker list: virtual scrolling vs. simple table—clarify now to avoid performance hits. Define UX for conflicting add/remove while POST to Stripe is inflight. User may add/remove the base‑panel test.
 
 "Wat als store leeg is in /confirm? (altijd de 5 default biomarkers tonen.)". Dit aspect zal voornamelijk relevant zijn bij het bouwen van de /confirm/page.tsx in deze taak, Taak 5. De useQuestionnaireStore initialiseert selectedTests als een lege array. Op de /confirm pagina zal logica toegevoegd moeten worden om te controleren of selectedTests leeg is en, indien dat het geval is (bijvoorbeeld als een gebruiker direct naar /confirm navigeert zonder de vragenlijst te doorlopen), het BASE_PANEL als de standaard selectie te tonen.
 
@@ -325,6 +325,13 @@ Prijzen formatteren met Intl.NumberFormat.
 - Totaalprijs herberekenen na add/remove
 - UX voor zeer lange biomarker‑lijsten
 
+Hiermee is Taak 5: "Bouw de bevestigingspagina met aanpasbare testlijst" voltooid.
+De volgende bestanden zijn aangemaakt/gewijzigd:
+/components/sections/TestListTable.tsx: Component voor het tonen van biomarkerlijsten met actieknoppen.
+/app/confirm/page.tsx: Pagina voor het reviewen en aanpassen van de geselecteerde testen en het zien van de totaalprijs.
+/hooks/useQuestionnaireStore.ts: selectedTests is nu een verplichte string[].
+De logica om de BASE_PANEL te tonen als de gebruiker direct naar /confirm navigeert (en selectedTestIds dus initieel leeg is) is geïmplementeerd in useEffect op de ConfirmPage. De gebruiker kan alle testen, inclusief die uit het basispanel, naar wens toevoegen of verwijderen.
+
 ---
 
 ## [ ] 6. Maak Stripe Checkout API endpoint  
@@ -332,8 +339,59 @@ Prijzen formatteren met Intl.NumberFormat.
 
 Stripe JS must be imported dynamically in Next 13+/App Router; give import pattern. Handle redirectToCheckout promise rejection—toast vs. modal. Disable button accessibility (aria‑busy) guidance.
 
+###  Kernrichtlijnen
+1. Node‑runtime, geen Edge. Stripe SDK heeft node:crypto; Edge‑functions falen.
+export const runtime = 'nodejs';
+2. Server herberekent prijzen. Client stuurt alleen gekozen selectedIds. De route matcht elke ID met catalog ➜ priceId. Zo voorkom je gemanipuleerde bedragen.
+3. Metadata ≤ 500 chars. Strip of comprimeer answers, b.v. Buffer.from(JSON.stringify(a)).toString('base64'), of stuur een korte UUID en bewaar de volledige antwoorden elders.
+4. Environment‑specifieke price‑IDs. Map in catalog.ts via env‑variabelen (TEST_APOB_PRICE_ID, PROD_APOB_PRICE_ID).
+5. Optioneel: gebruik Idempotency-Key‑header om dubbele sessies tegen te gaan bij herhaald POST‑verkeer.
+
+Note: Er is een secret key en public key toegevoegd aan .env.local. Dit zijn:
+NEXT_PUBLIC_STRIPE_PK en STRIPE_SECRET_KEY variabelen.
+
 Te maken file:
-/app/api/checkout/route.ts – creëert Checkout‑session (edge runtime)
+/app/api/checkout/route.ts 
+
+### Implementatie voorbeeld:
+// app/api/checkout/route.ts
+import Stripe from 'stripe';
+import { NextRequest, NextResponse } from 'next/server';
+import { catalog } from '@/logic/catalog';
+import { mergePanels } from '@/logic/priceUtils';
+
+export const runtime = 'nodejs'; // ❶ verplicht Node‑runtime
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+  apiVersion: '2024-04-10',
+});
+
+export async function POST(req: NextRequest) {
+  const { selectedIds, answers, email } = await req.json();
+
+  // ❷ server‑side validatie & prijsopbouw
+  const ids = mergePanels(selectedIds);
+  const line_items = ids.map(id => {
+    const item = catalog.find(c => c.id === id)!;
+    return { price: item.stripePriceId, quantity: 1 };
+  });
+
+  // ❸ metadata binnen limiet houden
+  const meta = {
+    answers_b64: Buffer.from(JSON.stringify(answers)).toString('base64'),
+  };
+
+  const session = await stripe.checkout.sessions.create({
+    mode: 'payment',
+    line_items,
+    customer_email: email,
+    metadata: meta,
+    success_url: `${req.nextUrl.origin}/success?sid={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${req.nextUrl.origin}/cancel`,
+  });
+
+  return NextResponse.json({ id: session.id });
+}
 
 **Acties:**  
 - Maak `/pages/api/checkout.ts`  
@@ -360,8 +418,9 @@ Te maken files:
 - Maak `handleCheckout()` functie die:  
   - POST naar `/api/checkout`  
   - Stripe checkout opent met `redirectToCheckout({ sessionId })`
+    - Vang redirectToCheckout errors: toon toast of modal.
 - Stripe client pas na typeof window !== "undefined" laden
-- Disable knop na klik, toon spinner
+- Disable betaal‑knop direct na klik (aria-busy=true).
 
 ---
 
@@ -412,7 +471,7 @@ TestListTable.tsx (virtualised)
 
 5 / types
 File	Waarom
-/types/questionnaire.d.ts	interface Answers + enum‑achtige unions
+/types/questionnaire.ts	interface Answers + enum‑achtige unions
 /types/biomarker.d.ts	interface BiomarkerCatalogItem
 
 6 / data (optional)

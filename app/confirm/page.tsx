@@ -11,6 +11,7 @@ import { BASE_PANEL, CURRENCY_CODE } from "@/logic/constants";
 import { calcTotal, formatPrice } from "@/logic/priceUtils";
 import { BiomarkerCatalogItem } from "@/types/biomarker";
 import TestListTable from "@/components/sections/TestListTable";
+import CheckoutButton from "@/components/elements/CheckoutButton";
 
 export default function ConfirmPage() {
   const router = useRouter();
@@ -60,12 +61,6 @@ export default function ConfirmPage() {
   const totalPriceInCents = useMemo(() => {
     return calcTotal(selectedTestIds); // selectedTestIds is nu altijd een array
   }, [selectedTestIds]);
-
-  const handleCheckout = () => {
-    // Navigeer naar de checkout pagina (implementatie in Taak 7)
-    console.log("Navigeren naar checkout met tests:", selectedBiomarkers);
-    router.push("/checkout"); // Placeholder, echte checkout later
-  };
 
   if (!hasInitialized && selectedTestIds.length === 0 && catalog.length === 0) {
     return (
@@ -137,13 +132,9 @@ export default function ConfirmPage() {
 
       {/* Acties */}
       <section className="text-center">
-        <button
-          onClick={handleCheckout}
-          disabled={selectedBiomarkers.length === 0} // Schakel uit als er geen testen zijn geselecteerd
-          className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-lg"
-        >
+        <CheckoutButton disabled={selectedBiomarkers.length === 0}>
           Ga naar afrekenen
-        </button>
+        </CheckoutButton>
         <button
           onClick={() => router.push("/questionnaire/1")}
           className="ml-4 px-8 py-3 bg-gray-200 text-gray-700 font-semibold rounded-lg shadow-md hover:bg-gray-300 transition-colors text-lg"
