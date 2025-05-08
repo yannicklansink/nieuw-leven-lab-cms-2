@@ -80,6 +80,7 @@ Components_organization: # Behoud de bestaande mappenstructuur
     - /elements: Basis elementen (Button.tsx).
     - /sections: Grotere pagina secties (VideoSection.tsx, FaqAccordion.tsx, etc.).
   - /lib: Hulpfuncties, data fetching logica.
+  - /hooks: 
   - /data: Statische data (indien van toepassing).
   - /public: Statische assets (afbeeldingen, fonts).
 
