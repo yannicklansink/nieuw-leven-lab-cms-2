@@ -8,10 +8,10 @@ Dit document beschrijft een complete technische takenlijst voor het bouwen van e
 
 ---
 
-## [ ] 1. Setup project structuur en state management  
+## [X] 1. Setup project structuur en state management  
 **Doel:** App opzetten met routing en globale state (Zustand)
 
-Hydration mismatch between SSR and Zustand persist is tricky—spell out the hasMounted guard and how to avoid double‑render. Clarify when to reset the store (success, cancel, manual “start over”). Decide up‑front whether answers live in sessionStorage or localStorage; switching later breaks tests. Decide yourself based on feature.
+Hydration mismatch between SSR and Zustand persist is tricky—spell out the hasMounted guard and how to avoid double‑render. Clarify when to reset the store (success, cancel, manual “start over”). Use answers live in sessionStorage; switching later breaks tests. Decide yourself based on feature.
 
 **Acties:**  
 - Installeer Zustand (`npm i zustand`)
@@ -27,9 +27,16 @@ Te maken files:
 /hooks/useHydrated.ts – useHasMounted() tegen hydration‑mismatch
 /types/questionnaire.d.ts – typings voor Answers, enums, etc.
 
+Na het voltooien hiervan zijn de volgende bestanden  aangemaakt/gewijzigd:
+app/layout.tsx: Wrapper met <HydrationGuard>.
+hooks/useHydrated.ts: Bevat useHasMounted en HydrationGuard om hydration-mismatches te voorkomen.
+types/questionnaire.d.ts: Bevat TypeScript interfaces en enums voor de vragenlijst.
+hooks/useQuestionnaireStore.ts: Zustand store voor het beheren van antwoorden, met persist middleware voor sessionStorage.
+
+
 ---
 
-## [ ] 2. Maak dynamische vragenlijst flow  
+## [X] 2. Maak dynamische vragenlijst flow  
 **Doel:** Gebruiker meerkeuze vragen laten invullen en opslaan.
 
 Define explicit step IDs vs. array index so skip‑logic doesn’t corrupt browser history. Multi‑select value shape (array of strings?) must be consistent for Zod + rule engine. Need guidance on deep‑link protection (user lands on /questionnaire/5 with no answers).
@@ -37,7 +44,7 @@ Define explicit step IDs vs. array index so skip‑logic doesn’t corrupt brows
 
 
 **Acties:**  
-- Bouw `/questionnaire/[step].tsx` page met logica voor multi-step vragen  
+- Bouw `/questionnaire/[step].tsx` page met logica voor multi-step vragen in de app folder.
 - Per vraag: sla antwoord op in store (`setAnswer`)  
 - Laat "volgende" knop alleen zien als er een antwoord is geselecteerd
 
@@ -175,8 +182,15 @@ Vraag 13 (valideer email): "Wat is je e-mailadres?"
 Antwoordveld:
 email
 
+Hiermee is Taak 2: "Maak dynamische vragenlijst flow" voltooid. De volgende bestanden zijn aangemaakt/gewijzigd:
+data/questions.ts: Bevat de structuur en inhoud van alle vragen.
+components/elements/CheckboxCard.tsx: Herbruikbare component voor antwoordopties.
+components/sections/Question.tsx: Component om een enkele vraag weer te geven.
+app/questionnaire/[step]/page.tsx: Dynamische pagina voor elke stap in de vragenlijst.
+Klaar voor de volgende stap!
+
 ---
-## [ ] 3A – Catalogus & basisset klaarzetten  
+## [X] 3A – Catalogus & basisset klaarzetten  
 **Doel:** Alle vaste data en helper‑functies isoleren.
 Catalog JSON (~200 kB) blijft op server. recommendTests geeft alleen IDs; front‑end haalt volledige items met een “lazy” API of in‑memory map, zo blijft bundle klein.
 
@@ -207,9 +221,16 @@ Te maken files:
   - `mergePanels([...ids]): string[]` → dedupe, volgorde‑agnostisch.  
   - `calcTotal(ids: string[]): number` → tel `catalog.price` op.  
 
+Hiermee is Taak 3A: "Catalogus & basisset klaarzetten" voltooid. De benodigde bestanden en structuren voor de catalogus, constanten en prijs-utilities zijn aangemaakt. De linterfouten in app/questionnaire/[step]/page.tsx die gerelateerd waren aan het ontbreken van catalog, constants en types/biomarker zouden nu ook opgelost moeten zijn.
+De volgende bestanden zijn aangemaakt/gewijzigd:
+/types/biomarker.d.ts: Bevat de BiomarkerCatalogItem interface.
+/data/catalog.json: Bevat de (voorbeeld) biomarker data.
+/logic/catalog.ts: Exporteert de getypeerde catalogus.
+/logic/constants.ts: Definieert BASE_PANEL en andere constanten.
+/logic/priceUtils.ts: Bevat mergePanels, calcTotal en formatPrice.
 ---
 
-## [ ] 3B – Regels & engine schrijven  
+## [X] 3B – Regels & engine schrijven  
 **Doel:** Antwoorden van de gebruiker vertalen naar een testpanel  
 Conflict handeling: Voeg alleen biomarker toe als die nog niet in de lijst zit. 
 
@@ -246,11 +267,13 @@ return finalIds.map(id => pick(catalog, id));
 | Mentale doelen geselecteerd                            | Vitamine D, Vitamine B6, Magnesium       |
 | Weinig lichaamsbeweging (<2 dagen intensief of kracht) | HbA1c, Triglyceriden, Insuline           |
 
+Hiermee is Taak 3B: "Regels & engine schrijven" voltooid. Het bestand /logic/recommendTests.ts bevat nu de logica om op basis van gebruikersantwoorden een gepersonaliseerde lijst van biomarkers aan te bevelen.
 
 ---
 
-## [ ] 4. Verwerk recommendations in flow na laatste vraag  
+## [X] 4. Verwerk recommendations in flow na laatste vraag  
 **Doel:** Biomarker aanbevelingen automatisch laden.
+
 Specify exact moment getRecommendedBiomarkers fires—on final “Next” click or on mount of /confirm? Make it idempotent so page refresh doesn’t double‑add. What happens when user edits earlier answers after recommendations are stored?
 
 
@@ -266,12 +289,28 @@ Aanpassingen in /hooks/useQuestionnaireStore.ts (veld selectedTests) en gebruik 
 createJSONStorage(() => (typeof window!=='undefined' ? sessionStorage : undefined))
 SessionStorage i.p.v. localStorage – data verdwijnt als de browser sluit (GDPR‑vriendelijker).
 
+De setRecommendedTests functie in de Zustand store overschrijft simpelweg de huidige selectedTests. Als de gebruiker de pagina zou verversen op de laatste vraag en opnieuw "Volgende" klikt, worden de aanbevelingen opnieuw berekend en opgeslagen, wat effectief hetzelfde resultaat zou moeten geven (tenzij de antwoorden tussentijds zijn gewijzigd, wat niet het geval zou moeten zijn zonder terug te navigeren). Dit voldoet aan de eis dat het proces idempotent is in de zin dat het niet leidt tot dubbele toevoegingen aan de lijst.
+
+Hiermee is Taak 4: "Verwerk recommendations in flow na laatste vraag" voltooid. De aanbevelingslogica is nu geïntegreerd in de vragenlijstflow.
+De aanpassingen in app/questionnaire/[step]/page.tsx zijn doorgevoerd.
+De belangrijkste wijzigingen zijn:
+De import statements voor recommend, BiomarkerCatalogItem, catalog, en BASE_PANEL zijn nu actief.
+In de useQuestionnaireStore hook wordt nu selectiever state opgehaald om onnodige re-renders te voorkomen.
+In handleNext:
+Wanneer de laatste vraag is beantwoord (step === TOTAL_QUESTIONS), wordt recommend(answers, catalog, BASE_PANEL) aangeroepen.
+De resultaten (een array van BiomarkerCatalogItem objecten) worden gemapt naar een array van ID's.
+Deze array van ID's wordt opgeslagen in de store met setRecommendedTests(recommendedItemIds).
+Er zijn console.log statements toegevoegd voor debugging.
+De debug sectie onderaan de pagina is aangepast om useQuestionnaireStore.getState().selectedTests te gebruiken om de meest actuele selectedTests direct uit de store te lezen voor weergave, aangezien de lokaal gedestructureerde selectedTests mogelijk niet onmiddellijk de update reflecteert na setRecommendedTests.
+
 ---
 
 ## [ ] 5. Bouw de bevestigingspagina met aanpasbare testlijst  
 **Doel:** Laat gebruiker testen reviewen en zelf toevoegen/verwijderen.
 
 Large biomarker list: virtual scrolling vs. simple table—clarify now to avoid performance hits. Define UX for conflicting add/remove while POST to Stripe is inflight. Decide whether toggling a base‑panel test is allowed (business rule).
+
+"Wat als store leeg is in /confirm? (altijd de 5 default biomarkers tonen.)". Dit aspect zal voornamelijk relevant zijn bij het bouwen van de /confirm/page.tsx in deze taak, Taak 5. De useQuestionnaireStore initialiseert selectedTests als een lege array. Op de /confirm pagina zal logica toegevoegd moeten worden om te controleren of selectedTests leeg is en, indien dat het geval is (bijvoorbeeld als een gebruiker direct naar /confirm navigeert zonder de vragenlijst te doorlopen), het BASE_PANEL als de standaard selectie te tonen.
 
 Te maken files:
 /app/confirm/page.tsx – review + aanpassen tests
@@ -379,7 +418,6 @@ File	Waarom
 6 / data (optional)
 File	Wat
 /data/catalog.json	~200 kB statische biomarker‑data (build‑time import)
-
-
+/data/questions.ts: Bevat de structuur en inhoud van alle vragen.
 
 

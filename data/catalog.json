@@ -1,0 +1,219 @@
+[
+  {
+    "id": "APOB",
+    "name": "Apolipoproteïne B (ApoB)",
+    "price": 2500,
+    "stripePriceId": "price_placeholder_apob",
+    "category": "Hart & Vaten"
+  },
+  {
+    "id": "HSCRP",
+    "name": "hsCRP (High-sensitivity C-reactive protein)",
+    "price": 2000,
+    "stripePriceId": "price_placeholder_hscrp",
+    "category": "Ontsteking"
+  },
+  {
+    "id": "INSULIN",
+    "name": "Insuline (nuchter)",
+    "price": 3000,
+    "stripePriceId": "price_placeholder_insulin",
+    "category": "Metabolisme"
+  },
+  {
+    "id": "OMEGA3",
+    "name": "Omega-3 Index",
+    "price": 4500,
+    "stripePriceId": "price_placeholder_omega3",
+    "category": "Vetzuren"
+  },
+  {
+    "id": "FT3",
+    "name": "Vrij T3 (actieve schildklierhormoon)",
+    "price": 2800,
+    "stripePriceId": "price_placeholder_ft3",
+    "category": "Schildklier"
+  },
+  {
+    "id": "B12",
+    "name": "Vitamine B12",
+    "price": 1800,
+    "stripePriceId": "price_placeholder_b12",
+    "category": "Vitaminen"
+  },
+  {
+    "id": "IRON",
+    "name": "IJzer",
+    "price": 1500,
+    "stripePriceId": "price_placeholder_iron",
+    "category": "Mineralen"
+  },
+  {
+    "id": "FERRITIN",
+    "name": "Ferritine",
+    "price": 1900,
+    "stripePriceId": "price_placeholder_ferritin",
+    "category": "Mineralen"
+  },
+  {
+    "id": "HBA1C",
+    "name": "HbA1c",
+    "price": 2200,
+    "stripePriceId": "price_placeholder_hba1c",
+    "category": "Metabolisme"
+  },
+  {
+    "id": "TESTOSTERONE",
+    "name": "Testosteron",
+    "price": 3200,
+    "stripePriceId": "price_placeholder_testosterone",
+    "category": "Hormonen"
+  },
+  {
+    "id": "CK",
+    "name": "CK (Creatinekinase)",
+    "price": 1700,
+    "stripePriceId": "price_placeholder_ck",
+    "category": "Spieren"
+  },
+  {
+    "id": "GLYCINE",
+    "name": "Glycine",
+    "price": 2000,
+    "stripePriceId": "price_placeholder_glycine",
+    "category": "Aminozuren"
+  },
+  {
+    "id": "MAGNESIUM",
+    "name": "Magnesium",
+    "price": 1600,
+    "stripePriceId": "price_placeholder_magnesium",
+    "category": "Mineralen"
+  },
+  {
+    "id": "OESTROGEN",
+    "name": "Oestrogeen",
+    "price": 3500,
+    "stripePriceId": "price_placeholder_oestrogen",
+    "category": "Hormonen"
+  },
+  {
+    "id": "PROGESTERONE",
+    "name": "Progesteron",
+    "price": 3500,
+    "stripePriceId": "price_placeholder_progesterone",
+    "category": "Hormonen"
+  },
+  {
+    "id": "LH",
+    "name": "LH (Luteïniserend Hormoon)",
+    "price": 3300,
+    "stripePriceId": "price_placeholder_lh",
+    "category": "Hormonen"
+  },
+  {
+    "id": "FSH",
+    "name": "FSH (Follikel Stimulerend Hormoon)",
+    "price": 3300,
+    "stripePriceId": "price_placeholder_fsh",
+    "category": "Hormonen"
+  },
+  {
+    "id": "ZINC",
+    "name": "Zink",
+    "price": 1700,
+    "stripePriceId": "price_placeholder_zinc",
+    "category": "Mineralen"
+  },
+  {
+    "id": "LDL",
+    "name": "LDL Cholesterol",
+    "price": 1800,
+    "stripePriceId": "price_placeholder_ldl",
+    "category": "Hart & Vaten"
+  },
+  {
+    "id": "HDL",
+    "name": "HDL Cholesterol",
+    "price": 1800,
+    "stripePriceId": "price_placeholder_hdl",
+    "category": "Hart & Vaten"
+  },
+  {
+    "id": "TRIGLYCERIDES",
+    "name": "Triglyceriden",
+    "price": 1800,
+    "stripePriceId": "price_placeholder_triglycerides",
+    "category": "Hart & Vaten"
+  },
+  {
+    "id": "LPA",
+    "name": "Lipoproteïne(a)",
+    "price": 3000,
+    "stripePriceId": "price_placeholder_lpa",
+    "category": "Hart & Vaten"
+  },
+  {
+    "id": "SHBG",
+    "name": "SHBG (Sex Hormone Binding Globulin)",
+    "price": 3200,
+    "stripePriceId": "price_placeholder_shbg",
+    "category": "Hormonen"
+  },
+  {
+    "id": "PSA",
+    "name": "PSA (Prostaat Specifiek Antigeen)",
+    "price": 2800,
+    "stripePriceId": "price_placeholder_psa",
+    "category": "Man specifieke testen"
+  },
+  {
+    "id": "EGFR",
+    "name": "eGFR (estimated Glomerular Filtration Rate)",
+    "price": 1500,
+    "stripePriceId": "price_placeholder_egfr",
+    "category": "Nierfunctie"
+  },
+  {
+    "id": "SODIUM",
+    "name": "Natrium",
+    "price": 1200,
+    "stripePriceId": "price_placeholder_sodium",
+    "category": "Elektrolyten"
+  },
+  {
+    "id": "POTASSIUM",
+    "name": "Kalium",
+    "price": 1200,
+    "stripePriceId": "price_placeholder_potassium",
+    "category": "Elektrolyten"
+  },
+  {
+    "id": "CREATININE",
+    "name": "Creatinine",
+    "price": 1300,
+    "stripePriceId": "price_placeholder_creatinine",
+    "category": "Nierfunctie"
+  },
+  {
+    "id": "UREUM",
+    "name": "Ureum",
+    "price": 1300,
+    "stripePriceId": "price_placeholder_ureum",
+    "category": "Nierfunctie"
+  },
+  {
+    "id": "VITD",
+    "name": "Vitamine D",
+    "price": 2300,
+    "stripePriceId": "price_placeholder_vitd",
+    "category": "Vitaminen"
+  },
+  {
+    "id": "B6",
+    "name": "Vitamine B6",
+    "price": 2000,
+    "stripePriceId": "price_placeholder_b6",
+    "category": "Vitaminen"
+  }
+]
