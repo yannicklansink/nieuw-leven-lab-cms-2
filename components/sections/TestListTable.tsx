@@ -23,45 +23,52 @@ const TestListTable: React.FC<TestListTableProps> = ({
   actionLabel,
   isTestActionDisabled,
   showPrice = true,
-  highlightColor = "bg-blue-500 hover:bg-blue-600", // Default Tailwind classes
+  highlightColor = "bg-[rgb(var(--color-black-headings-buttons))] hover:bg-black", // Default is nu zwart
 }) => {
   if (!tests || tests.length === 0) {
-    return <p className="text-gray-500">Geen testen om weer te geven.</p>;
+    return (
+      <p className="text-[rgb(var(--color-paragraaf))]">
+        Geen testen om weer te geven.
+      </p>
+    );
   }
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow">
-        <thead className="bg-gray-50">
+    <div className="overflow-x-auto rounded-lg">
+      <table className="min-w-full bg-white rounded-lg shadow-sm">
+        <thead className="bg-[rgb(var(--color-white-bg))]">
           <tr>
-            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-4 py-3 text-left text-sm font-medium text-[rgb(var(--color-black-headings-buttons))]">
               Biomarker
             </th>
             {showPrice && (
-              <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+              <th className="px-4 py-3 text-left text-sm font-medium text-[rgb(var(--color-black-headings-buttons))]">
                 Prijs
               </th>
             )}
-            <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+            <th className="px-4 py-3 text-left text-sm font-medium text-[rgb(var(--color-black-headings-buttons))]">
               Actie
             </th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-gray-200">
+        <tbody className="divide-y divide-gray-100">
           {tests.map((test) => (
-            <tr key={test.id} className="hover:bg-gray-50 transition-colors">
-              <td className="px-4 py-3 whitespace-nowrap">
-                <div className="text-sm font-medium text-gray-900">
+            <tr
+              key={test.id}
+              className="hover:bg-[rgb(var(--color-extra-light-green))] transition-colors duration-150"
+            >
+              <td className="px-4 py-3">
+                <div className="text-sm text-[rgb(var(--color-black-headings-buttons))]">
                   {test.name}
                 </div>
                 {test.description && (
-                  <div className="text-xs text-gray-500">
+                  <div className="text-xs text-[rgb(var(--color-paragraaf))] mt-0.5">
                     {test.description}
                   </div>
                 )}
               </td>
               {showPrice && (
-                <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-700">
+                <td className="px-4 py-3 whitespace-nowrap text-sm text-[rgb(var(--color-paragraaf))]">
                   {formatPrice(test.price, CURRENCY_CODE)}
                 </td>
               )}
@@ -71,12 +78,12 @@ const TestListTable: React.FC<TestListTableProps> = ({
                   disabled={
                     isTestActionDisabled ? isTestActionDisabled(test.id) : false
                   }
-                  className={`px-3 py-1.5 text-xs font-medium text-white rounded-md shadow-sm transition-colors 
+                  className={`px-3 py-1.5 text-xs text-white rounded-md transition-all 
                             ${
                               isTestActionDisabled &&
                               isTestActionDisabled(test.id)
                                 ? "bg-gray-300 cursor-not-allowed"
-                                : `${highlightColor} focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500`
+                                : `${highlightColor} focus:outline-none focus:ring-2 focus:ring-[rgb(var(--color-normal-green))]`
                             }
                             `}
                 >

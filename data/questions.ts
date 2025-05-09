@@ -80,7 +80,7 @@ export const questionnaireQuestions: Question[] = [
     id: "q3",
     step: 3,
     name: "gender",
-    text: "Wat was je geboortegeslacht?",
+    text: "Wat is je geboortegeslacht?",
     type: QuestionType.SingleSelect,
     options: [
       { value: "Man", label: "Man" },

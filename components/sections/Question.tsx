@@ -70,15 +70,17 @@ const QuestionComponent: React.FC<QuestionProps> = ({
   };
 
   return (
-    <div className="p-4 md:p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">
+    <div>
+      {/* <h2 className="text-xl md:text-2xl font-medium text-[rgb(var(--color-black-headings-buttons))] mb-4">
         {question.text}
-      </h2>
+      </h2> */}
       {question.subText && (
-        <p className="text-sm text-gray-600 mb-6">{question.subText}</p>
+        <p className="text-sm text-[rgb(var(--color-paragraaf-secondary))] mb-6">
+          {question.subText}
+        </p>
       )}
 
-      <div className="space-y-4">
+      <div className="space-y-2">
         {question.type === QType.SingleSelect &&
           question.options?.map((option) => (
             <CheckboxCard
@@ -114,7 +116,8 @@ const QuestionComponent: React.FC<QuestionProps> = ({
             value={formatDateForInput(currentAnswer)}
             onChange={handleDateChange}
             placeholder={question.placeholder || "DD/MM/YYYY"}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="form-input w-full"
+            aria-label="Geboortedatum"
           />
         )}
 
@@ -124,9 +127,10 @@ const QuestionComponent: React.FC<QuestionProps> = ({
             value={currentAnswer || ""}
             onChange={handleInputChange}
             placeholder={question.placeholder || "jouwemail@voorbeeld.com"}
-            className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            className="form-input w-full"
             required={question.validation?.required}
-            pattern={question.validation?.pattern?.source} // pattern verwacht een string
+            pattern={question.validation?.pattern?.source}
+            aria-label="E-mailadres"
           />
         )}
 
@@ -142,8 +146,9 @@ const QuestionComponent: React.FC<QuestionProps> = ({
               placeholder={question.placeholder || "Voer een getal in"}
               min={question.validation?.min}
               max={question.validation?.max}
-              className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="form-input w-full"
               required={question.validation?.required}
+              aria-label="Numerieke waarde"
             />
           )}
       </div>

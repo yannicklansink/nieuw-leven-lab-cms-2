@@ -25,7 +25,7 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({
         onClick={handleCheckout}
         disabled={isLoading || disabled}
         aria-busy={isLoading}
-        className={`relative px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors text-lg ${className}`}
+        className={`relative px-8 py-3 bg-gradient-to-r from-[rgb(var(--color-dark-green))] to-[rgb(var(--color-normal-green))] text-white font-medium border-2 border-[rgb(var(--color-normal-green))] rounded-lg shadow-lg hover:shadow-[0_8px_16px_rgba(var(--color-dark-green),0.3)] hover:translate-y-[-2px] hover:scale-[1.02] disabled:bg-gray-400 disabled:border-gray-400 disabled:hover:shadow-none disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:cursor-not-allowed transition-all text-base ${className}`}
       >
         {isLoading ? (
           <>
@@ -56,7 +56,23 @@ const CheckoutButton: React.FC<CheckoutButtonProps> = ({
             </span>
           </>
         ) : (
-          children || "Doorgaan naar betaling"
+          <span className="relative z-10 flex items-center justify-center">
+            {children || "Doorgaan naar betaling"}
+            <svg
+              className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
+              />
+            </svg>
+          </span>
         )}
       </button>
       {error && (

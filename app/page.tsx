@@ -70,8 +70,8 @@ export default function Home() {
               <h2 className="text-white mb-6">
                 Persoonlijke bloedtesten voor een betere gezondheid.
               </h2>
-              <Button href="https://google.com" variant="secondary">
-                Get started
+              <Button href="/questionnaire/1" variant="secondary">
+                Ontwerp mijn test
               </Button>
             </div>
           </div>
@@ -86,8 +86,8 @@ export default function Home() {
               <h2 className="text-white mb-6">
                 Persoonlijke bloedtesten voor een betere gezondheid.
               </h2>
-              <Button href="https://google.com" variant="secondary">
-                Get started
+              <Button href="/questionnaire/1" variant="secondary">
+                Ontwerp mijn test
               </Button>
             </div>
           </div>

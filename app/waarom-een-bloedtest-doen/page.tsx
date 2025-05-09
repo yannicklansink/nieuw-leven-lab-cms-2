@@ -30,8 +30,8 @@ export default function WhyBloodtestPage() {
               </p>
 
               <div className="mb-6 md:mb-0">
-                <Button href="/product/bloedtesten" variant="primary">
-                  Start Vandaag
+                <Button href="/questionnaire/1" variant="primary">
+                  Ontwerp mijn test
                 </Button>
               </div>
             </div>
@@ -144,8 +144,6 @@ export default function WhyBloodtestPage() {
 
       <WelcomeKitSection />
 
-      
-
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
         <div className="w-full max-w-3xl mx-auto">
@@ -154,9 +152,8 @@ export default function WhyBloodtestPage() {
       </section>
 
       <AppleHoeHetWerktCardCarousel />
-      
+
       <DataDrivenRevolutionSection />
-      
     </main>
   );
 }

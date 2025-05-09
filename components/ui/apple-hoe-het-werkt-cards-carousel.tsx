@@ -105,8 +105,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
       {/* Navigatie en knop container */}
       <div className="flex justify-between items-center gap-4">
         {/* justify-end naar justify-between, mr-10 verwijderd, px-6 toegevoegd */}
-        <Button href="#" variant="primary">
-          Doe nu de quiz
+        <Button href="/questionnaire/1" variant="primary">
+          Ontwerp mijn test
         </Button>
         <div className="flex items-center gap-2">
           <button

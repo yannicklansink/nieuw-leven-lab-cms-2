@@ -34,9 +34,11 @@ const CheckboxCard: React.FC<CheckboxCardProps> = ({
 
   // Basis styling, kan verder uitgebreid worden met Tailwind of CSS modules
   const baseStyle =
-    "border rounded-lg p-4 cursor-pointer transition-all duration-200 ease-in-out flex items-center space-x-3";
-  const checkedStyle = "bg-blue-500 border-blue-700 text-white shadow-lg";
-  const uncheckedStyle = "bg-white hover:bg-gray-50 hover:border-gray-400";
+    "border rounded-lg px-4 py-2 cursor-pointer transition-all duration-200 ease-in-out flex items-center space-x-2";
+  const checkedStyle =
+    "bg-[rgb(var(--color-normal-green))] border-[rgb(var(--color-dark-green))] text-white shadow-sm";
+  const uncheckedStyle =
+    "bg-white hover:bg-[rgb(var(--color-extra-light-green))] hover:border-[rgb(var(--color-normal-green))]";
   const disabledStyle = "bg-gray-100 cursor-not-allowed opacity-60";
 
   return (
@@ -60,18 +62,20 @@ const CheckboxCard: React.FC<CheckboxCardProps> = ({
     >
       {/* Visuele indicator voor checkbox/radio */}
       <div
-        className={`w-5 h-5 border-2 rounded-sm flex items-center justify-center transition-colors duration-200 ease-in-out
+        className={`w-4 h-4 border-2 rounded-sm flex items-center justify-center transition-colors duration-200 ease-in-out
           ${
             checked
-              ? "bg-white border-blue-300"
+              ? "bg-white border-[rgb(var(--color-normal-green))]"
               : "border-gray-300 group-hover:border-gray-400"
           }
           ${type === "radio" ? "rounded-full" : "rounded-sm"}`}
       >
         {checked && (
           <svg
-            className={`w-3 h-3 ${
-              type === "checkbox" ? "text-blue-500" : "text-blue-500"
+            className={`w-2.5 h-2.5 ${
+              type === "checkbox"
+                ? "text-[rgb(var(--color-dark-green))]"
+                : "text-[rgb(var(--color-dark-green))]"
             }`}
             fill="currentColor"
             viewBox="0 0 20 20"
@@ -84,7 +88,10 @@ const CheckboxCard: React.FC<CheckboxCardProps> = ({
           </svg>
         )}
       </div>
-      <label htmlFor={id} className="font-medium select-none cursor-pointer">
+      <label
+        htmlFor={id}
+        className="text-sm font-medium select-none cursor-pointer"
+      >
         {label}
       </label>
       {/* Verborgen input voor accessibility en form submission indien nodig */}

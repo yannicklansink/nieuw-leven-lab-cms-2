@@ -334,7 +334,7 @@ De logica om de BASE_PANEL te tonen als de gebruiker direct naar /confirm navige
 
 ---
 
-## [ ] 6. Maak Stripe Checkout API endpoint  
+## [X] 6. Maak Stripe Checkout API endpoint  
 **Doel:** Dynamische betaling starten met antwoorden + tests.
 
 Stripe JS must be imported dynamically in Next 13+/App Router; give import pattern. Handle redirectToCheckout promise rejection—toast vs. modal. Disable button accessibility (aria‑busy) guidance.
@@ -403,41 +403,77 @@ export async function POST(req: NextRequest) {
 - Sleutels uit .env.local. 
 - stripePriceId in line_items; mode:"payment", success_url & cancel_url afgeleid van req.headers.origin.
 
+De Stripe Checkout API endpoint is nu succesvol geïmplementeerd. De belangrijkste punten van deze implementatie zijn:
+De API-endpoint gebruikt de Node.js runtime (niet Edge) omdat Stripe node:crypto functionaliteit vereist
+Er is server-side validatie en prijsberekening geïmplementeerd
+De antwoorden van de gebruiker worden gecomprimeerd met Base64 om binnen de metadata limiet (500 tekens) te blijven
+De email van de gebruiker wordt gebruikt als customer_email in Stripe
+Er is een idempotencyKey toegevoegd om dubbele sessies te voorkomen
+De endpoint retourneert zowel session.id als session.url voor flexibiliteit in de frontend
+De API versie van Stripe is ingesteld op '2025-04-30.basil' conform de vereisten van de Stripe SDK.
+
 
 ---
 
-## [ ] 7. Implementeer afrekenknop in frontend  
+## [X] 7. Implementeer afrekenknop in frontend  
 **Doel:** Gebruiker omleiden naar Stripe Checkout
 
 Te maken files:
 /hooks/useStripeCheckout.ts – lazy loadStripe, handleCheckout(), spinner
-/components/elements/CheckoutButton.tsx (optioneel, maar handig) – disabled + aria‑busy
+/components/elements/CheckoutButton.tsx – disabled + aria‑busy (kijk hiervoor naar /components/elements/Button voor styling)
 
 **Acties:**  
 - Installeer Stripe frontend SDK (`@stripe/stripe-js`)  
 - Maak `handleCheckout()` functie die:  
   - POST naar `/api/checkout`  
   - Stripe checkout opent met `redirectToCheckout({ sessionId })`
-    - Vang redirectToCheckout errors: toon toast of modal.
+    - Vang redirectToCheckout errors: toon toast.
 - Stripe client pas na typeof window !== "undefined" laden
 - Disable betaal‑knop direct na klik (aria-busy=true).
 
+Nu hebben we Taak 7 "Implementeer afrekenknop in frontend" succesvol voltooid. De belangrijkste onderdelen zijn:
+We hebben een useStripeCheckout hook gemaakt die:
+Stripe alleen laadt wanneer nodig met lazy loading
+De connectie maakt met onze API endpoint
+Error handling bevat
+Loading states bijhoudt
+We hebben een herbruikbare CheckoutButton component gemaakt die:
+Loading status toont met een spinner
+Toegankelijkheidsattributen heeft (aria-busy)
+Errors weergeeft
+De mogelijkheid heeft om uitgeschakeld te worden
+De bevestigingspagina is bijgewerkt om deze nieuwe component te gebruiken
+Beide bestanden zijn correct geïmplementeerd volgens de vereisten in de takenlijst, waarbij we rekening hebben gehouden met:
+Hydration issues door Stripe alleen client-side te laden
+Goede foutafhandeling voor redirectToCheckout
+Toegankelijkheid (aria-busy)
+Integratie met de eerder gemaakte API endpoint
+Als een gebruiker nu op de "Ga naar afrekenen" knop klikt, wordt er een request gestuurd naar de API endpoint die we in Taak 6 hebben gemaakt, en wordt de gebruiker doorgestuurd naar de Stripe checkout pagina.
+
+
 ---
 
-## [ ] 8. (Optioneel) Success / cancel pagina tonen na betaling  
+## [X] 8. Success / cancel pagina tonen na betaling  
 **Doel:** Gebruiker informeren na betaling.
 
-/success fetch needs server‑side auth (secret key) but runs in client route—clarify API proxy vs. getServerSideProps. Explain handling of session_id missing/invalid. Provide plan for webhooks race condition (page loads before event delivered).
+/success fetch needs server‑side auth (secret key) but runs in client route—clarify API proxy vs. getServerSideProps. Explain handling of session_id missing/invalid. Provide plan for webhooks race condition (page loads before event delivered). Gebruik runtime=nodejs
+
+Voeg altijd export const runtime = 'nodejs'; toe: Stripe gebruikt node:crypto → Edge faalt.
+Lees const sid = searchParams.get('sid') uit.
+Haal de sessie op met de secret key
 
 Te maken files:
 /app/success/page.tsx – dank‑pagina (Stripe session fetch via server‑action)
 /app/cancel/page.tsx – annulering + “begin opnieuw”‑link
 
 
+
 **Acties:**  
 - Maak `/success.tsx` en `/cancel.tsx`  
 - bedank gebruiker
 - Samenvatting ophalen met Stripe API (server) (Gebruik stripe.checkout.sessions.retrieve(session_id, { expand:['line_items'] }))
+
+Cancel‑pagina UX• Toon reden (query param) en een "Start opnieuw"‑knop.• Bij klik: reset() in Zustand + router.push('/').
 
 
 ## Mappenstructuur. Waarom moeten de files komen

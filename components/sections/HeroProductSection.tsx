@@ -1,6 +1,6 @@
-import React from 'react';
-import Image from 'next/image';
-import Button from '../elements/Button'; // Aanname: Button component staat in ../elements/
+import React from "react";
+import Image from "next/image";
+import Button from "../elements/Button"; // Aanname: Button component staat in ../elements/
 
 const HeroProductSection = () => {
   return (
@@ -29,9 +29,11 @@ const HeroProductSection = () => {
                 strokeLinejoin="round"
                 className="w-5 h-5"
               >
-                <path d="M4.5 3h15M4.5 3v16.973a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5V3M4.5 3L9 12M19.5 3L15 12M9 12h6"/>
+                <path d="M4.5 3h15M4.5 3v16.973a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5V3M4.5 3L9 12M19.5 3L15 12M9 12h6" />
               </svg>
-              <span className="text-sm">30 jaar wetenschappelijk onderzoek</span>
+              <span className="text-sm">
+                30 jaar wetenschappelijk onderzoek
+              </span>
             </div>
             <div className="flex items-center space-x-2">
               <svg
@@ -46,9 +48,9 @@ const HeroProductSection = () => {
                 strokeLinejoin="round"
                 className="w-5 h-5"
               >
-                <line x1="18" y1="20" x2="18" y2="10"/>
-                <line x1="12" y1="20" x2="12" y2="4"/>
-                <line x1="6" y1="20" x2="6" y2="14"/>
+                <line x1="18" y1="20" x2="18" y2="10" />
+                <line x1="12" y1="20" x2="12" y2="4" />
+                <line x1="6" y1="20" x2="6" y2="14" />
               </svg>
               <span className="text-sm">Volledig inzicht in je gezondheid</span>
             </div>
@@ -65,8 +67,8 @@ const HeroProductSection = () => {
                 strokeLinejoin="round"
                 className="w-5 h-5"
               >
-                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                <polyline points="9 22 9 12 15 12 15 22"/>
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <polyline points="9 22 9 12 15 12 15 22" />
               </svg>
               <span className="text-sm">100% vanuit huis</span>
             </div>
@@ -83,8 +85,8 @@ const HeroProductSection = () => {
                 strokeLinejoin="round"
                 className="w-5 h-5"
               >
-                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                 <circle cx="12" cy="7" r="4"/>
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
               </svg>
               <span className="text-sm">Persoonlijk advies</span>
             </div>
@@ -94,7 +96,7 @@ const HeroProductSection = () => {
 
       {/* Mobile Hero Section - Icons aangepast voor consistentie */}
       <section className="md:hidden py-6">
-         {/* 1. 30 jaar wetenschappelijk onderzoek -> Beaker Icon (Aangepast) */}
+        {/* 1. 30 jaar wetenschappelijk onderzoek -> Beaker Icon (Aangepast) */}
         <div className="flex items-center space-x-2 mb-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -108,12 +110,12 @@ const HeroProductSection = () => {
             strokeLinejoin="round"
             className="w-5 h-5"
           >
-            <path d="M4.5 3h15M4.5 3v16.973a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5V3M4.5 3L9 12M19.5 3L15 12M9 12h6"/>
+            <path d="M4.5 3h15M4.5 3v16.973a1.5 1.5 0 0 0 1.5 1.5h12a1.5 1.5 0 0 0 1.5-1.5V3M4.5 3L9 12M19.5 3L15 12M9 12h6" />
           </svg>
           {/* Tekst hier eventueel ook aanpassen indien gewenst */}
           <span className="text-sm">30 jaar wetenschappelijk onderzoek</span>
         </div>
-         {/* 2. Volledig inzicht in je gezondheid -> Bar Chart Icon (Aangepast) */}
+        {/* 2. Volledig inzicht in je gezondheid -> Bar Chart Icon (Aangepast) */}
         <div className="flex items-center space-x-2 mb-6">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -127,11 +129,11 @@ const HeroProductSection = () => {
             strokeLinejoin="round"
             className="w-5 h-5"
           >
-             <line x1="18" y1="20" x2="18" y2="10"/>
-             <line x1="12" y1="20" x2="12" y2="4"/>
-             <line x1="6" y1="20" x2="6" y2="14"/>
+            <line x1="18" y1="20" x2="18" y2="10" />
+            <line x1="12" y1="20" x2="12" y2="4" />
+            <line x1="6" y1="20" x2="6" y2="14" />
           </svg>
-           {/* Tekst hier eventueel ook aanpassen indien gewenst */}
+          {/* Tekst hier eventueel ook aanpassen indien gewenst */}
           <span className="text-sm">Volledig inzicht in je gezondheid</span>
         </div>
         {/* H1 blijft hetzelfde */}
@@ -171,7 +173,9 @@ const HeroProductSection = () => {
                 </div>
               </div>
               <div className="flex justify-end mt-4">
-                <Button variant="primary">Get started</Button>
+                <Button href="/questionnaire/1" variant="primary">
+                  Ontwerp mijn test
+                </Button>
               </div>
             </div>
           </div>
@@ -201,9 +205,7 @@ const HeroProductSection = () => {
                 />
               </div>
               <div>
-                <p className="text-base font-medium">
-                  Hoe het werkt
-                </p>
+                <p className="text-base font-medium">Hoe het werkt</p>
               </div>
             </div>
             <button className="bg-black text-white rounded-full p-2 flex items-center justify-center hover:bg-gray-800 transition-all">
@@ -239,7 +241,7 @@ const HeroProductSection = () => {
               </div>
               <div>
                 <p className="text-base font-medium">
-                    Manifesto
+                  Manifesto
                   <br />
                   waarom wij dit doen
                 </p>
@@ -305,4 +307,4 @@ const HeroProductSection = () => {
   );
 };
 
-export default HeroProductSection; 
+export default HeroProductSection;

@@ -18,6 +18,7 @@ import { recommend } from "@/logic/recommendTests";
 import { BiomarkerCatalogItem } from "@/types/biomarker";
 import { catalog } from "@/logic/catalog";
 import { BASE_PANEL } from "@/logic/constants";
+import SectionSubheading from "@/components/elements/SpanSubheadingGreen";
 
 export default function QuestionnaireStepPage() {
   const router = useRouter();
@@ -65,6 +66,29 @@ export default function QuestionnaireStepPage() {
     }
   }, [step, answers, router, resetAnswers]);
 
+  // Effect toevoegen om te controleren of we een tussenstap hebben overgeslagen
+  useEffect(() => {
+    // Check of de huidige stap 4, 7 of 10 is (na een milestone)
+    // en of de vorige vraag is beantwoord
+    const isMilestoneStep = [4, 7, 10].includes(step);
+
+    if (isMilestoneStep) {
+      const previousStep = step - 1;
+      const previousQuestionName = getQuestionByStep(previousStep)?.name;
+
+      // Als de vorige vraag is beantwoord maar gebruiker heeft geen milestone-pagina gezien,
+      // dan mag hij direct doorgaan (bijv. bij terug navigeren en dan weer vooruit)
+      if (
+        previousQuestionName &&
+        answers[previousQuestionName as keyof QuestionnaireAnswers] !==
+          undefined
+      ) {
+        // Hier kunnen we evt. een state toevoegen om bij te houden welke milestones al zijn gezien
+        // Voor nu doen we niks speciaals
+      }
+    }
+  }, [step, answers]);
+
   const handleAnswerChange = (
     questionName: keyof QuestionnaireAnswers,
     value: any
@@ -110,7 +134,16 @@ export default function QuestionnaireStepPage() {
       }
     }
 
-    if (step < TOTAL_QUESTIONS) {
+    // Controleer of dit vraag 1 is en het antwoord "compose_own_test" is
+    if (step === 1 && answers.description === "compose_own_test") {
+      router.push(`/questionnaire/milestone/compose`);
+      return;
+    }
+
+    // Controleer of we naar een milestone moeten navigeren
+    if (step === 3 || step === 6 || step === 9) {
+      router.push(`/questionnaire/milestone/${step}`);
+    } else if (step < TOTAL_QUESTIONS) {
       router.push(`/questionnaire/${step + 1}`);
     } else {
       // Laatste vraag beantwoord, verwerk aanbevelingen
@@ -135,7 +168,7 @@ export default function QuestionnaireStepPage() {
 
   if (isLoading || !currentQuestion) {
     return (
-      <div className="flex justify-center items-center min-h-screen">
+      <div className="flex justify-center items-center min-h-screen bg-[rgb(var(--color-white-bg))]">
         <p>Vraag laden...</p>
       </div>
     );
@@ -145,57 +178,83 @@ export default function QuestionnaireStepPage() {
     answers[currentQuestion.name as keyof QuestionnaireAnswers];
 
   return (
-    <div className="container mx-auto px-4 py-8 min-h-screen flex flex-col items-center">
-      <div className="w-full max-w-2xl">
-        <div className="mb-6 text-center">
-          <p className="text-sm text-gray-500">
-            Vraag {step} van {TOTAL_QUESTIONS}
-          </p>
-          {/* Progress bar */}
-          <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
-            <div
-              className="bg-blue-600 h-2.5 rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${(step / TOTAL_QUESTIONS) * 100}%` }}
-            ></div>
+    <main className="bg-[rgb(var(--color-white-bg))] py-6 md:py-12 min-h-screen">
+      <div className="content-container">
+        <div className="w-full max-w-2xl mx-auto">
+          <div className="mb-8 text-center">
+            <SectionSubheading
+              spanText={`Stap ${step} van ${TOTAL_QUESTIONS}`}
+              headingText={currentQuestion.text}
+            />
+
+            {/* Progress bar - restyled met Nieuw Leven Lab kleuren */}
+            <div className="w-full bg-[rgb(var(--color-extra-light-green))] rounded-full h-2 mt-3">
+              <div
+                className="bg-[rgb(var(--color-normal-green))] h-2 rounded-full transition-all duration-500 ease-out"
+                style={{ width: `${(step / TOTAL_QUESTIONS) * 100}%` }}
+              ></div>
+            </div>
+          </div>
+
+          <div className="bg-[rgb(var(--color-white-bg))] rounded-lg shadow-sm p-6 md:p-8 mb-8">
+            <QuestionComponent
+              question={currentQuestion}
+              currentAnswer={currentAnswerValue}
+              onAnswerChange={handleAnswerChange}
+            />
+          </div>
+
+          <div className="mt-8 flex justify-between items-center">
+            <button
+              onClick={handlePrevious}
+              disabled={step === 1}
+              className="px-6 py-2 rounded-lg border border-[rgb(var(--color-normal-green))] text-[rgb(var(--color-black-headings-buttons))] hover:bg-[rgb(var(--color-extra-light-green))] disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              aria-label="Naar vorige vraag"
+            >
+              Vorige
+            </button>
+            <button
+              onClick={handleNext}
+              disabled={!isAnswered()}
+              className={`
+                px-6 py-2 rounded-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed
+                ${
+                  step === TOTAL_QUESTIONS
+                    ? "group bg-gradient-to-r from-[rgb(var(--color-dark-green))] to-[rgb(var(--color-normal-green))] text-white font-medium border-2 border-[rgb(var(--color-normal-green))] shadow-lg hover:shadow-[0_8px_16px_rgba(var(--color-dark-green),0.3)] hover:translate-y-[-2px] hover:scale-[1.02] relative overflow-hidden after:absolute after:inset-0 after:bg-white after:opacity-0 after:hover:opacity-10 after:transition-opacity"
+                    : "btn-primary shadow-md hover:shadow"
+                }
+              `}
+              aria-label={
+                step === TOTAL_QUESTIONS
+                  ? "Bekijk aanbevelingen"
+                  : "Naar volgende vraag"
+              }
+            >
+              {step === TOTAL_QUESTIONS ? (
+                <span className="flex items-center justify-center">
+                  Bekijk aanbevelingen
+                  <svg
+                    className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    />
+                  </svg>
+                </span>
+              ) : (
+                "Volgende"
+              )}
+            </button>
           </div>
         </div>
-
-        <QuestionComponent
-          question={currentQuestion}
-          currentAnswer={currentAnswerValue}
-          onAnswerChange={handleAnswerChange}
-        />
-
-        <div className="mt-8 flex justify-between items-center">
-          <button
-            onClick={handlePrevious}
-            disabled={step === 1}
-            className="px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          >
-            Vorige
-          </button>
-          <button
-            onClick={handleNext}
-            disabled={!isAnswered()} // Schakel uit als er geen antwoord is geselecteerd
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors shadow-md"
-          >
-            {step === TOTAL_QUESTIONS ? "Bekijk aanbevelingen" : "Volgende"}
-          </button>
-        </div>
-
-        {/* Debugging: Toon huidige antwoorden in de store 
-        <div className="mt-8 p-4 bg-gray-100 rounded-md">
-          <h3 className="font-semibold">Huidige antwoorden in store:</h3>
-          <pre className="text-xs whitespace-pre-wrap">
-            {JSON.stringify(answers, null, 2)}
-          </pre>
-          <h3 className="font-semibold mt-2">Huidige geselecteerde testen:</h3>
-           <pre className="text-xs whitespace-pre-wrap">
-            {JSON.stringify(useQuestionnaireStore.getState().selectedTests, null, 2)} 
-          </pre>
-        </div>
-        */}
       </div>
-    </div>
+    </main>
   );
 }
