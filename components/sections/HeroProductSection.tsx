@@ -6,17 +6,19 @@ const HeroProductSection = () => {
   return (
     <>
       {/* Desktop Hero Section */}
-      <section className="hidden md:flex py-12">
-        <div className="w-1/2">
-          <h1>
-            100% vanuit huis,
-            <br />
-            via één platform
-          </h1>
-        </div>
-        <div className="w-1/2">
-          <div className="space-y-4">
-            <div className="flex items-center space-x-2">
+      <section className="hidden md:flex py-8">
+        <div className="flex w-full justify-between items-start">
+          {/* H1 helemaal links */}
+          <div className="w-1/2 flex-shrink-0">
+            <h1>
+              100% vanuit huis,
+              <br />
+              via één platform
+            </h1>
+          </div>
+          {/* Iconen en spans helemaal rechts */}
+          <div className="w-1/2 flex flex-col items-end space-y-2">
+            <div className="flex items-center space-x-2 items-start text-left">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -35,7 +37,7 @@ const HeroProductSection = () => {
                 30 jaar wetenschappelijk onderzoek
               </span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 items-start text-left">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -54,7 +56,7 @@ const HeroProductSection = () => {
               </svg>
               <span className="text-sm">Volledig inzicht in je gezondheid</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 items-start text-left">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -72,7 +74,7 @@ const HeroProductSection = () => {
               </svg>
               <span className="text-sm">100% vanuit huis</span>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 items-start text-left">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

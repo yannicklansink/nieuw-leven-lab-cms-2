@@ -6,11 +6,11 @@ import { useState, useEffect } from "react";
 import VideoSection from "@/components/sections/VideoSection";
 import Button from "@/components/elements/Button";
 import OwnYourHealthSection from "@/components/sections/OwnYourHealthSection";
-import TreatmentCategoriesSection from "@/components/sections/TreatmentCategoriesSection";
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import AuroraBackgroundDemo from "@/components/sections/BackgroundGradient";
 import HeroProductSection from "@/components/sections/HeroProductSection";
 import DualCardFeatureSection from "@/components/sections/DualCardFeatureSection";
+import AppImagesWithText from "@/components/sections/2AppImagesWithText";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -97,9 +97,9 @@ export default function Home() {
       <DualCardFeatureSection />
 
       <OwnYourHealthSection />
-      <section className="content-container my-12 md:my-20">
-        <TreatmentCategoriesSection />
-      </section>
+
+      <AppImagesWithText />
+
       <AuroraBackgroundDemo />
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
