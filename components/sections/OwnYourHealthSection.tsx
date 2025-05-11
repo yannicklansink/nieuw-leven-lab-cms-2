@@ -48,7 +48,7 @@ const OwnYourHealthSection: React.FC = () => {
                     : "px-2 md:px-3"
                 }`}
               >
-                <div className="relative overflow-hidden rounded-lg shadow-md h-full">
+                <div className="relative overflow-hidden rounded-xl shadow-md h-full">
                   <Image
                     src={image.src}
                     alt={image.alt}

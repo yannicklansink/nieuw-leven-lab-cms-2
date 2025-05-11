@@ -11,6 +11,7 @@ import AuroraBackgroundDemo from "@/components/sections/BackgroundGradient";
 import HeroProductSection from "@/components/sections/HeroProductSection";
 import DualCardFeatureSection from "@/components/sections/DualCardFeatureSection";
 import AppImagesWithText from "@/components/sections/2AppImagesWithText";
+import HeroProductImageSection from "@/components/sections/HeroProductImageSection";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -59,6 +60,7 @@ export default function Home() {
     <main className="min-h-screen">
       <div className="content-container mx-auto px-4 md:px-6">
         <HeroProductSection />
+        <HeroProductImageSection />
       </div>
 
       {/* Desktop VideoSection - alleen zichtbaar op md en groter */}
