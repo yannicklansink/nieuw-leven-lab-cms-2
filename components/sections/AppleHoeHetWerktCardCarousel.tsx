@@ -42,7 +42,7 @@ export default function HoeHetWerktCarouselSection() {
 
   return (
     // Sectie styling kan behouden blijven of aangepast worden indien nodig
-    <section className="w-full py-10 md:py-20 bg-[rgb(var(--color-extra-light-green))] overflow-hidden">
+    <section className="w-full py-10 md:py-12 bg-[rgb(var(--color-extra-light-green))] overflow-hidden">
       {/* Overflow hidden toegevoegd ivm mogelijke horizontale scroll van carousel op mobile */}
       <div className="content-container">
         {/* Titel en subtitel aangepast */}

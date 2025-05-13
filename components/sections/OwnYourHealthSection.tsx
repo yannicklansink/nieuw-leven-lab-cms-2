@@ -23,10 +23,7 @@ const OwnYourHealthSection: React.FC = () => {
   const [emblaRef] = useEmblaCarousel({ align: "start", loop: false });
 
   return (
-    <section
-      className="py-12 md:py-16"
-      style={{ backgroundColor: "rgb(var(--color-extra-light-green))" }}
-    >
+    <section className="py-12 md:py-16" style={{ backgroundColor: "" }}>
       <div className="content-container">
         <SectionSubheading
           spanText="revolutionaire bloedtesten"
@@ -48,7 +45,7 @@ const OwnYourHealthSection: React.FC = () => {
                     : "px-2 md:px-3"
                 }`}
               >
-                <div className="relative overflow-hidden rounded-xl shadow-md h-full">
+                <div className="relative overflow-hidden shadow-md h-full">
                   <Image
                     src={image.src}
                     alt={image.alt}

@@ -12,6 +12,9 @@ import HeroProductSection from "@/components/sections/HeroProductSection";
 import DualCardFeatureSection from "@/components/sections/DualCardFeatureSection";
 import AppImagesWithText from "@/components/sections/2AppImagesWithText";
 import HeroProductImageSection from "@/components/sections/HeroProductImageSection";
+import FertilityInfoCard from "@/components/sections/FertilityInfoCard";
+import SuperpowerTestSection from "@/components/sections/SuperpowerTestSection";
+import AppleAppCardCarousel from "@/components/sections/AppleAppCardCarousel";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -58,9 +61,11 @@ export default function Home() {
 
   return (
     <main className="min-h-screen">
-      <div className="content-container mx-auto px-4 md:px-6">
-        <HeroProductSection />
-        <HeroProductImageSection />
+      <div className="content-container ">
+        {/* <HeroProductSection /> */}
+        <SuperpowerTestSection />
+        {/*  <HeroProductImageSection /> */}
+        <FertilityInfoCard />
       </div>
 
       {/* Desktop VideoSection - alleen zichtbaar op md en groter */}
@@ -80,11 +85,11 @@ export default function Home() {
         </div>
       </div>
       {/* Mobiele VideoSection - alleen zichtbaar op kleinere schermen dan md */}
-      <div className="md:hidden relative">
+      <div className="md:hidden relative content-container">
         <VideoSection videoUrl="https://player.vimeo.com/video/1080497953?h=d6f2698e5f&autoplay=1&loop=1&background=1&muted=1" />
         <div className="absolute inset-0 flex items-center pointer-events-none">
           <div className="content-container z-10">
-            <div className="max-w-md pointer-events-auto">
+            <div className="max-w-md pointer-events-auto pl-4">
               <h2 className="text-white mb-6">
                 Persoonlijke bloedtesten voor een betere gezondheid.
               </h2>
@@ -96,19 +101,19 @@ export default function Home() {
         </div>
       </div>
 
-      <DualCardFeatureSection />
+      {/* <DualCardFeatureSection /> */}
 
       <OwnYourHealthSection />
+      <AppleAppCardCarousel />
+      {/* <AppImagesWithText /> */}
 
-      <AppImagesWithText />
-
-      <AuroraBackgroundDemo />
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
         <div className="w-full max-w-3xl mx-auto">
           <FaqAccordion />
         </div>
       </section>
+      <AuroraBackgroundDemo />
     </main>
   );
 }

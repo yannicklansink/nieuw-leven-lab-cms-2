@@ -110,17 +110,17 @@ export default function BloedtestCarouselSection() {
   ));
 
   return (
-    <section className="w-full py-10 md:py-20 bg-[rgb(var(--color-extra-light-green))]">
+    <section className="w-full py-10 md:py-12 bg-[rgb(var(--color-extra-light-green))]">
       <div className="content-container">
         <h2 className="text-[rgb(var(--color-black-headings-buttons))] mb-4">
-          Ontdek onze bloedtesten
+          Ontdek onze app
         </h2>
         <p className="text-[rgb(var(--color-paragraaf))]">
-          Elk van onze tests is ontwikkeld om specifieke aspecten van je
-          gezondheid in kaart te brengen.
+          Een doordacht ontworpen, alles-in-één platform om jouw persoonlijke
+          gezondheid eenvoudig te visualiseren.
         </p>
         <Carousel items={cards} />
-        <p className="text-xs text-[rgb(var(--color-paragraaf-secondary))] mt-8 md:mt-12">
+        <p className="text-xs text-[rgb(var(--color-paragraaf-secondary))] mt-8 md:mt-8">
           Let op: Het design van de app is continu in ontwikkeling en wordt
           voortdurend geoptimaliseerd voor de beste gebruikerservaring.
           Afbeeldingen zijn illustratief en kunnen afwijken van de huidige

@@ -21,10 +21,10 @@ export default function WhyBloodtestPage() {
           <div className="flex flex-col md:flex-row md:justify-between gap-10 items-start">
             {/* Linkerkolom: Titel en knop */}
             <div className="md:max-w-[45%]">
-              <h1 className="text-[rgb(var(--color-black-headings-buttons))] mb-4">
+              <h2 className="text-[rgb(var(--color-black-headings-buttons))] mb-4">
                 Krijg een compleet beeld van je gezondheid door regelmatige
                 metingen.
-              </h1>
+              </h2>
               <p className="text-base md:text-lg text-[rgb(var(--color-paragraaf))] mb-6">
                 Begrijp hoe je levensstijl je bloedwaarden beïnvloedt.
               </p>

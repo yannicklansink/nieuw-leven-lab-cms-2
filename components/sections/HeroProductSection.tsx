@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 import Button from "../elements/Button"; // Aanname: Button component staat in ../elements/
-import GradientText from "../elements/GradientText";
 
 const HeroProductSection = () => {
   return (
@@ -11,7 +10,9 @@ const HeroProductSection = () => {
         <div className="flex w-full justify-between items-start">
           {/* H1 helemaal links */}
           <div className="w-1/2 flex-shrink-0">
-            <GradientText rightText="vanuit huis" gradientText="100% " />
+            <h1 className=" font-light leading-tight">
+              Een optimale gezondheid begint nu
+            </h1>
           </div>
           {/* Iconen en spans helemaal rechts */}
           <div className="w-1/2 flex flex-col items-end space-y-2">
@@ -135,7 +136,9 @@ const HeroProductSection = () => {
           {/* Tekst hier eventueel ook aanpassen indien gewenst */}
           <span className="text-sm">Volledig inzicht in je gezondheid</span>
         </div>
-        <GradientText rightText="vanuit huis" gradientText="100% " />
+        <h1 className="font-light leading-tight">
+          Een optimale gezondheid begint nu
+        </h1>
       </section>
     </>
   );
