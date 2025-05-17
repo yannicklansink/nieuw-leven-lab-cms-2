@@ -15,6 +15,7 @@ import HeroProductImageSection from "@/components/sections/HeroProductImageSecti
 import FertilityInfoCard from "@/components/sections/FertilityInfoCard";
 import SuperpowerTestSection from "@/components/sections/SuperpowerTestSection";
 import AppleAppCardCarousel from "@/components/sections/AppleAppCardCarousel";
+import AppleBloedwaardesCarouselSection from "@/components/sections/AppleBloedwaardesCarouselSection";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -75,7 +76,7 @@ export default function Home() {
           <div className="content-container z-10">
             <div className="max-w-md pointer-events-auto">
               <h2 className="text-white mb-6">
-                Persoonlijke bloedtesten voor een betere gezondheid.
+                Persoonlijke bloedtest voor een betere gezondheid.
               </h2>
               <Button href="/questionnaire/1" variant="secondary">
                 Ontwerp mijn test
@@ -91,7 +92,7 @@ export default function Home() {
           <div className="content-container z-10">
             <div className="max-w-md pointer-events-auto pl-4">
               <h2 className="text-white mb-6">
-                Persoonlijke bloedtesten voor een betere gezondheid.
+                Persoonlijke bloedtest voor een betere gezondheid.
               </h2>
               <Button href="/questionnaire/1" variant="secondary">
                 Ontwerp mijn test
@@ -106,6 +107,9 @@ export default function Home() {
       <OwnYourHealthSection />
       <AppleAppCardCarousel />
       {/* <AppImagesWithText /> */}
+      <AppleBloedwaardesCarouselSection />
+
+      <AuroraBackgroundDemo />
 
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>
@@ -113,7 +117,6 @@ export default function Home() {
           <FaqAccordion />
         </div>
       </section>
-      <AuroraBackgroundDemo />
     </main>
   );
 }
