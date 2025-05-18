@@ -157,7 +157,7 @@ export const Card = ({
         <div className="relative z-20 p-6 md:p-8 w-full">
           <motion.p
             layoutId={layout ? `category-${card.category}` : undefined}
-            className="text-left text-[rgb(var(--color-light-green))] md:text-base"
+            className="text-left text-[rgb(var(--color-white-bg))] md:text-base"
           >
             {card.category}
           </motion.p>

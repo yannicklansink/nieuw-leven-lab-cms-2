@@ -16,6 +16,7 @@ import FertilityInfoCard from "@/components/sections/FertilityInfoCard";
 import SuperpowerTestSection from "@/components/sections/SuperpowerTestSection";
 import AppleAppCardCarousel from "@/components/sections/AppleAppCardCarousel";
 import AppleBloedwaardesCarouselSection from "@/components/sections/AppleBloedwaardesCarouselSection";
+import HoeHetWerktCarouselSection from "@/components/sections/AppleHoeHetWerktCardCarousel";
 
 // Simplified Product interface for the homepage
 interface HomePageProduct {
@@ -107,9 +108,11 @@ export default function Home() {
       <OwnYourHealthSection />
       <AppleAppCardCarousel />
       {/* <AppImagesWithText /> */}
-      <AppleBloedwaardesCarouselSection />
+      <HoeHetWerktCarouselSection />
 
       <AuroraBackgroundDemo />
+      <AppleBloedwaardesCarouselSection />
+
 
       <section className="content-container my-12 md:my-16">
         <h2 className="text-center mb-10">Veelgestelde vragen</h2>

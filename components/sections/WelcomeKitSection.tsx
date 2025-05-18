@@ -14,7 +14,7 @@ export default function WelcomeKitSection() {
           {/* Linkerkolom: Afbeelding van de kit */}
           <div className="w-full md:w-1/2 lg:w-3/5 rounded-lg overflow-hidden">
             <Image
-              src="/images/other/labratorium-nieuw-leven-lab-aspectratio2-3.jpeg"
+              src="/images/other/women-wit-softgreen-bloedtest-afleggen.jpeg"
               alt="Jouw persoonlijke testkit productafbeelding"
               width={700}
               height={475}

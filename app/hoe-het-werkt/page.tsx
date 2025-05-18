@@ -11,7 +11,7 @@ import DataDrivenRevolutionSection from "@/components/sections/DataDrivenRevolut
 import FaqAccordion from "@/components/sections/FaqAccordion";
 import AppleHoeHetWerktCardCarousel from "@/components/sections/AppleHoeHetWerktCardCarousel";
 
-export default function WhyBloodtestPage() {
+export default function HoeHetWerktPage() {
   return (
     <main>
       {/* Hero header sectie zoals in de afbeelding */}
@@ -138,6 +138,7 @@ export default function WhyBloodtestPage() {
         </div>
       </section>
 
+      <AppleHoeHetWerktCardCarousel />
       <AppleAppCardCarousel />
 
       <AppleTestBloedwaardesCardCarousel />
@@ -151,7 +152,6 @@ export default function WhyBloodtestPage() {
         </div>
       </section>
 
-      <AppleHoeHetWerktCardCarousel />
 
       <DataDrivenRevolutionSection />
     </main>

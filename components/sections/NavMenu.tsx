@@ -34,8 +34,8 @@ const NavigationBar: React.FC = () => {
           </Link>
           <div className="flex flex-grow justify-center space-x-6">
             {/* Sexual Health vervangen door Waarom */}
-            <Link href="/waarom-een-bloedtest-doen" className="menu-item">
-              Waarom
+            <Link href="/hoe-het-werkt" className="menu-item">
+              Hoe het werkt
             </Link>
             <a href="#" className="menu-item">
               Weight Loss
@@ -129,10 +129,10 @@ const NavigationBar: React.FC = () => {
             <div className="flex flex-col space-y-3 px-6">
               {/* Sexual Health vervangen door Waarom in mobiel menu */}
               <Link
-                href="/waarom-een-bloedtest-doen"
+                href="/hoe-het-werkt"
                 className="menu-item py-2 border-b border-gray-100"
               >
-                Waarom
+                Hoe het werkt
               </Link>
               <a href="#" className="menu-item py-2 border-b border-gray-100">
                 Weight Loss
